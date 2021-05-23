@@ -1,0 +1,1 @@
+<div>Weapons list goes here?????</div>

@@ -3,43 +3,42 @@
 	import '../app.css';
 </script>
 
-<Header />
+<div class="bg bg-bottom" />
+<div class="bg bg-top" />
+
+<!-- <Header /> -->
 
 <main>
 	<slot />
 </main>
 
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer>
-
+<!-- <footer>
+	<p>Footer</p>
+</footer> -->
 <style>
 	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 1024px;
+		width: 85%;
 		margin: 0 auto;
-		box-sizing: border-box;
+		padding: 3.5rem;
 	}
 
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
+	.bg {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 50%;
+		transform: translatex(-50%);
+		max-width: 1920px;
+		z-index: -1;
 	}
-
-	footer a {
-		font-weight: bold;
+	.bg-top {
+		top: 0;
+		background: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/diamond-texture-top.png)
+			no-repeat top;
 	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
+	.bg-bottom {
+		bottom: 0;
+		background: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/texture-bottom.jpg)
+			no-repeat bottom;
 	}
 </style>
