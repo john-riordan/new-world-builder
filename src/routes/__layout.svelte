@@ -17,7 +17,8 @@
 </footer> -->
 <style>
 	main {
-		width: 85%;
+		width: 95%;
+		max-width: 1600px;
 		margin: 0 auto;
 		padding: 3.5rem;
 	}

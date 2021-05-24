@@ -1,13 +1,21 @@
 :root {
 	--white: hsl(0deg 0% 84%);
 
-	--brown: #272624;
-	--brown-dark: #1f1e1c;
+	--black-hsl: 35deg 26% 3%;
+	--black: hsl(var(--black-hsl));
 
-	--grey: hsl(0deg 1% 28%);
-	--grey-50: hsl(var(--grey-hsl) / 0.5);
+	--brown-hsl: 40deg 4% 15%;
+	--brown: hsl(var(--brown-hsl));
 
-	--pale: #fff1ce;
+	--brown-dark-hsl: 40deg 5% 12%;
+	--brown-dark: hsl(var(--brown-dark-hsl));
+
+	--grey-hsl: 0deg 1% 28%;
+	--grey: hsl(var(--grey-hsl));
+
+	--pale-hsl: 43deg 100% 90%;
+	--pale: hsl(var(--pale-hsl));
+
 	--text-script: 'IM Fell DW Pica', Times, Times Roman, Times New Roman, serif;
 }
 
@@ -21,6 +29,7 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-style: normal;
 	font-weight: 400;
+	line-height: 1.5;
 	background: var(--brown);
 	color: var(--white);
 }
@@ -37,4 +46,8 @@ h5 {
 
 a {
 	color: inherit;
+}
+
+p {
+	margin: 0;
 }

@@ -1,14 +1,22 @@
 <script>
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 	export let tabs = [];
 
-	let selectedTab = 0;
-
+	$: query = $page.query.get('tab');
+	$: selectedTab = query ? tabs.findIndex((tab) => tab.title === query) : 0;
 	$: selected = tabs[selectedTab];
 </script>
 
 <div class="tab-list">
 	{#each tabs as tab, index}
-		<div class="tab" class:active={index === selectedTab} on:click={() => (selectedTab = index)}>
+		<div
+			class="tab"
+			class:active={index === selectedTab}
+			on:click={() => {
+				goto(`/?tab=${tab.title}`);
+			}}
+		>
 			{tab.title}
 		</div>
 	{/each}
