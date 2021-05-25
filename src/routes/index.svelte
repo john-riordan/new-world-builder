@@ -3,9 +3,9 @@
 </script>
 
 <script>
-	import Tabs from '$lib/Tabs/index.svelte';
-	import Attributes from '$lib/components/Attributes/index.svelte';
-	import Weapons from '$lib/components/Weapons/index.svelte';
+	import Tabs from '$lib/components/Tabs/index.svelte';
+	import Attributes from '$lib/Attributes/index.svelte';
+	import Weapons2 from '$lib/Weapons2/index.svelte';
 
 	const wepTabs = [
 		{
@@ -14,11 +14,7 @@
 		},
 		{
 			title: 'Weapons',
-			component: Weapons
-		},
-		{
-			title: 'asfdafasdf',
-			component: Weapons
+			component: Weapons2
 		}
 	];
 </script>

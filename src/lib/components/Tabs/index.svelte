@@ -27,7 +27,6 @@
 <style>
 	.tab-list {
 		display: flex;
-		margin-bottom: 1rem;
 		border-bottom: 1px solid var(--white);
 	}
 	.tab {

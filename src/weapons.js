@@ -1,26 +1,20 @@
-import { treeStore } from './stores';
-
 export const weapons = {
 	'Straight Sword': {
 		name: 'Straight Sword',
 		tree1: {
-			name: 'Berzerker',
-			store: Object.assign({}, treeStore)
+			name: 'Berzerker'
 		},
 		tree2: {
-			name: 'Throwing',
-			store: Object.assign({}, treeStore)
+			name: 'Throwing'
 		}
 	},
 	Rapier: {
 		name: 'Rapier',
 		tree1: {
-			name: 'Blood',
-			store: Object.assign({}, treeStore)
+			name: 'Blood'
 		},
 		tree2: {
-			name: 'Grace',
-			store: Object.assign({}, treeStore)
+			name: 'Grace'
 		}
 	}
 };

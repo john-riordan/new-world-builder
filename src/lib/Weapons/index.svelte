@@ -1,11 +1,7 @@
 <script>
-	import { selectedWeps } from '../../../stores';
-	import { weapons, wepClasses } from '../../../weapons';
-
-	$: weps = $selectedWeps.map((wep) => weapons[wep]).filter(Boolean);
-
-	$: console.log(weps);
-</script>
+	import { selectedWeps, wep0Pts, wep1Pts } from '../../stores';
+	import { wepClasses } from '../../weapons';
+</script>	
 
 <header>
 	{#if $selectedWeps.length === 0}
@@ -19,7 +15,7 @@
 	{#if $selectedWeps[0]}
 		<div class="wep selected">
 			<p class="title">{$selectedWeps[0]}</p>
-			<p class="pts">0 Points spent</p>
+			<p class="pts">{$wep0Pts} Points spent</p>
 		</div>
 	{:else}
 		<div class="wep missing">
@@ -31,7 +27,7 @@
 	{#if $selectedWeps[1]}
 		<div class="wep selected">
 			<p class="title">{$selectedWeps[1]}</p>
-			<p class="pts">0 Points spent</p>
+			<p class="pts">{$wep1Pts} Points spent</p>
 		</div>
 	{:else}
 		<div class="wep missing">
@@ -59,7 +55,11 @@
 					<img src="sword.png" alt="" />
 					<div>
 						<p class="title">{wep.name}</p>
-						<p class="pts">0 Points spent</p>
+						{#if $selectedWeps.includes(wep.name)}
+							<p class="pts">{$selectedWeps.indexOf(wep.name) === 0 ? $wep0Pts : $wep1Pts} Points spent</p>
+						{:else}
+							<p class="pts">--</p>
+						{/if}
 					</div>
 				</div>
 			{:else}

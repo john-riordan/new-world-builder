@@ -20,7 +20,7 @@
 		width: 95%;
 		max-width: 1600px;
 		margin: 0 auto;
-		padding: 3.5rem;
+		padding: 0 3.5rem;
 	}
 
 	.bg {
