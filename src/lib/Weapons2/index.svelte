@@ -1,7 +1,10 @@
 <script>
-	import { selectedWeps, wep0Pts, wep1Pts } from '../../stores';
+	import { selectedWeps, wep0Pts, wep1Pts, trees } from '../../stores';
 	import { wepClasses } from '../../weapons';
-</script>	
+
+	import Wep from '../components/Wep/index.svelte';
+	import WepTrees from '../../wepTrees/index';
+</script>
 
 <!-- <header>
 	{#if $selectedWeps.length === 0}
@@ -14,39 +17,46 @@
 <div class="wep-container">
 	<div class="wep-list--outer">
 		<div class="wep-list">
-		{#each wepClasses as wepClass}
-			<div class="wep-title"><p>{wepClass.title}</p></div>
-			{#each wepClass.list as wep}
-				{#if wep.name}
-					<div
-						class="wep"
-						class:selected={$selectedWeps.includes(wep.name)}
-						on:click={() => {
-							selectedWeps.addWep(wep.name);
-						}}
-						on:contextmenu|preventDefault={() => {
-							selectedWeps.removeWep(wep.name);
-						}}
-					>
-						<img src="sword.png" alt="" />
-						<div>
-							<p class="title">{wep.name}</p>
-							{#if $selectedWeps.includes(wep.name)}
-								<p class="pts">{$selectedWeps.indexOf(wep.name) === 0 ? $wep0Pts : $wep1Pts} Points spent</p>
-							{:else}
-								<p class="pts">--</p>
-							{/if}
+			{#each wepClasses as wepClass}
+				<div class="wep-title"><p>{wepClass.title}</p></div>
+				{#each wepClass.list as wep}
+					{#if wep.name}
+						<div
+							class="wep"
+							class:selected={$selectedWeps.includes(wep.name)}
+							on:click={() => {
+								selectedWeps.addWep(wep.name);
+							}}
+							on:contextmenu|preventDefault={() => {
+								selectedWeps.removeWep(wep.name);
+							}}
+						>
+							<img src="sword.png" alt="" />
+							<div>
+								<p class="title">{wep.name}</p>
+								{#if $selectedWeps.includes(wep.name)}
+									<p class="pts">
+										{$selectedWeps.indexOf(wep.name) === 0 ? $wep0Pts : $wep1Pts} Points spent
+									</p>
+								{:else}
+									<p class="pts">--</p>
+								{/if}
+							</div>
 						</div>
-					</div>
-				{:else}
-					<div class="wep empty" />
-				{/if}
+					{:else}
+						<div class="wep empty" />
+					{/if}
+				{/each}
 			{/each}
-		{/each}
 		</div>
 	</div>
 	<div>
-		trees
+		<Wep
+			treeLeft={WepTrees.hatchet.BERZERKER}
+			treeRight={WepTrees.hatchet.THROWING}
+			storeLeft={null}
+			storeRight={null}
+		/>
 	</div>
 </div>
 
@@ -54,7 +64,7 @@
 	header {
 		padding-top: 2rem;
 	}
-	
+
 	.wep-container {
 		--gap: 0.5rem;
 		display: grid;
@@ -65,7 +75,7 @@
 	}
 	.wep-list--outer {
 		height: 90vh;
-    overflow-y: scroll;
+		overflow-y: scroll;
 	}
 	.wep-list {
 		display: grid;
