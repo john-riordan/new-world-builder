@@ -2,24 +2,23 @@
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 
-	export let selected = [];
-	export let skillInfo = null;
+	export let selected;
+	export let skillInfo;
 	export let row;
 	export let col;
 
-	const requirement = skillInfo?.required;
+	const requirement = skillInfo && skillInfo.required;
 	const requresOthers = typeof requirement === 'string';
 	const requiresPoints = requirement && !requresOthers && row !== 1;
 
+	$: isActive = false;
+	$: isAvailable = true;
 	// $: isActive = skillInfo ? $selected.includes(skillInfo.name) : false;
 	// $: isAvailable = requresOthers
 	// 	? $selected.includes(skillInfo.required)
 	// 	: requiresPoints
 	// 	? $selected.length >= skillInfo.required
 	// 	: true;
-
-	$: isActive = false;
-	$: isAvailable = false;
 
 	function addSkill() {
 		dispatch('addSkill', {
@@ -52,8 +51,8 @@
 		{:else if requresOthers}
 			<span class="required-bar required-bar--tall" />
 		{/if}
-		<div>
-			<img src={skillInfo.img} title={skillInfo.name} alt={skillInfo.name} />
+		<div class="skill-shape">
+			<div class="skill-img" style={`background-image: url(${skillInfo.img})`} />
 		</div>
 	</div>
 {:else}
@@ -62,7 +61,8 @@
 
 <style>
 	.empty {
-		aspect-ratio: 1;
+		height: 0;
+		padding-bottom: 100%;
 		pointer-events: none;
 	}
 	.skill {
@@ -81,7 +81,7 @@
 		pointer-events: none;
 	}
 
-	.skill:not(.available) > div img {
+	.skill:not(.available) .skill-img {
 		opacity: 0.25;
 	}
 	.skill img {
@@ -89,24 +89,34 @@
 		width: 100%;
 		height: auto;
 	}
-	.skill > div {
+	.skill-shape {
 		box-sizing: border-box;
-		position: relative;
-		padding: 0.5rem;
 		background: black;
 		z-index: 1;
 	}
-	.skill.active > div {
+
+	.skill-img {
+		position: relative;
+		height: 0;
+		padding-bottom: 100%;
+		background-position: center;
+		background-size: 80%;
+		background-repeat: no-repeat;
+	}
+	.skill.active .skill-shape {
 		box-shadow: 0 0 0 3px green;
 	}
-	.skill[data-type='major'] > div {
+	.skill[data-type='major'] .skill-shape {
 		width: 100%;
 	}
-	.skill[data-type='minor'] > div {
+	.skill[data-type='minor'] .skill-shape {
 		width: 60%;
 		border-radius: 50%;
 	}
-	.skill[data-type^='ult'] > div {
+	.skill[data-type='minor'] .skill-img {
+		background-size: 70%;
+	}
+	.skill[data-type^='ult'] .skill-shape {
 		width: 100%;
 		border-radius: 50%;
 	}

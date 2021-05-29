@@ -6,7 +6,7 @@
 		rows: 6
 	};
 
-	export let tree = {};
+	export let tree;
 	export let store;
 
 	function addSkill(event) {
@@ -22,7 +22,7 @@
 		{#each Array(size.cols) as _, col}
 			<Skill
 				selected={store}
-				skillInfo={tree[`${row + 1}_${col + 1}`]}
+				skillInfo={tree && tree[`${row + 1}_${col + 1}`]}
 				row={row + 1}
 				col={col + 1}
 				on:addSkill={addSkill}

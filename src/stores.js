@@ -1,4 +1,17 @@
 import { writable, derived } from 'svelte/store';
+import { weapons } from './weapons';
+
+export const renderedWep = writable(null);
+export const renderedWepData = derived(renderedWep, ($renderedWep) => {
+	if (weapons[$renderedWep]) {
+		return {
+			tree1: weapons[$renderedWep].tree1.skills,
+			tree2: weapons[$renderedWep].tree2.skills
+		};
+	}
+
+	return {};
+});
 
 // Set up individual wep trees
 const wepTree = writable([]);
@@ -63,6 +76,24 @@ export const buildStore = {
 	trees: trees
 };
 
+// Selected weapon trees
+export const wep0Trees = derived(selectedWeps, ($selectedWeps) => {
+	if ($selectedWeps[0]) {
+		console.log($selectedWeps[0]);
+		return [weapons[$selectedWeps[0]].tree1.skills, weapons[$selectedWeps[0]].tree2.skills];
+	}
+
+	return [];
+});
+export const wep1Trees = derived(selectedWeps, ($selectedWeps) => {
+	if ($selectedWeps[1]) {
+		return [weapons[$selectedWeps[1]].tree1.skills, weapons[$selectedWeps[1]].tree2.skills];
+	}
+
+	return [];
+});
+
+// Points allocated to trees
 export const wep0Pts = derived([trees[0][0], trees[0][1]], ([$wep0tree0, $wep0tree1]) => {
 	return $wep0tree0.length + $wep0tree1.length;
 });

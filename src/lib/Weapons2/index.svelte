@@ -1,9 +1,15 @@
 <script>
-	import { selectedWeps, wep0Pts, wep1Pts, trees } from '../../stores';
+	import {
+		renderedWep,
+		renderedWepData,
+		selectedWeps,
+		wep0Pts,
+		wep1Pts,
+		wep0Trees
+	} from '../../stores';
 	import { wepClasses } from '../../weapons';
 
 	import Wep from '../components/Wep/index.svelte';
-	import WepTrees from '../../wepTrees/index';
 </script>
 
 <!-- <header>
@@ -25,6 +31,7 @@
 							class="wep"
 							class:selected={$selectedWeps.includes(wep.name)}
 							on:click={() => {
+								renderedWep.set(wep.name);
 								selectedWeps.addWep(wep.name);
 							}}
 							on:contextmenu|preventDefault={() => {
@@ -33,7 +40,7 @@
 						>
 							<img src="sword.png" alt="" />
 							<div>
-								<p class="title">{wep.name}</p>
+								<p class="title">{wep.title}</p>
 								{#if $selectedWeps.includes(wep.name)}
 									<p class="pts">
 										{$selectedWeps.indexOf(wep.name) === 0 ? $wep0Pts : $wep1Pts} Points spent
@@ -51,12 +58,7 @@
 		</div>
 	</div>
 	<div>
-		<Wep
-			treeLeft={WepTrees.hatchet.BERZERKER}
-			treeRight={WepTrees.hatchet.THROWING}
-			storeLeft={null}
-			storeRight={null}
-		/>
+		<Wep treeLeft={$renderedWepData.tree1} treeRight={$renderedWepData.tree2} />
 	</div>
 </div>
 
