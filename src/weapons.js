@@ -1,3 +1,4 @@
+import { SWORDMASTER, DEFENDER } from './wepTrees/sword';
 import { THROWING, BERZERKER } from './wepTrees/hatchet';
 
 export const weapons = {
@@ -5,10 +6,12 @@ export const weapons = {
 		name: 'straightSword',
 		title: 'Sraight Sword',
 		tree1: {
-			name: 'swordmaster'
+			name: 'swordmaster',
+			skills: SWORDMASTER
 		},
 		tree2: {
-			name: 'defender'
+			name: 'defender',
+			skills: DEFENDER
 		}
 	},
 	rapier: {
