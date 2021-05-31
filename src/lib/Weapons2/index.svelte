@@ -1,8 +1,12 @@
 <script>
 	import { renderedWep, renderedWepData, selectedWeps, wep0Pts, wep1Pts } from '../../stores';
 	import { weapons, wepClasses } from '../../weapons';
+	import { SKILL_PTS } from '../../constants';
 
 	import Wep from '../components/Wep/index.svelte';
+
+	$: activeWepindex = $selectedWeps.findIndex((wep) => wep === $renderedWep);
+	$: wepPoints = activeWepindex === 0 ? wep0Pts : activeWepindex === 1 ? wep1Pts : null;
 </script>
 
 <div class="wep-container">
@@ -38,21 +42,11 @@
 	</div>
 	<div class="col-right">
 		{#if $renderedWep}
-			<h1 class="wep-title">{weapons[$renderedWep].title}</h1>
-			{#if $selectedWeps.includes($renderedWep)}
-				<button class="subtle add-remove add" on:click={() => selectedWeps.removeWep($renderedWep)}
-					>Remove this wep from build</button
-				>
-			{:else}
-				<button class="subtle add-remove add" on:click={() => selectedWeps.addWep($renderedWep)}
-					>Use this wep in build</button
-				>
-			{/if}
-			<Wep
-				activeWepindex={$selectedWeps.findIndex((wep) => wep === $renderedWep)}
-				treeLeft={$renderedWepData.tree1}
-				treeRight={$renderedWepData.tree2}
-			/>
+			<h1 class="wep-title">
+				{weapons[$renderedWep].title}
+				{#if $wepPoints >= 0}{$wepPoints}/{SKILL_PTS}{/if}
+			</h1>
+			<Wep {activeWepindex} treeLeft={$renderedWepData.tree1} treeRight={$renderedWepData.tree2} />
 		{/if}
 	</div>
 </div>
@@ -61,7 +55,7 @@
 	.wep-container {
 		--gap: 0.5rem;
 		display: grid;
-		grid-template-columns: 1fr 3fr;
+		grid-template-columns: 1fr 3.5fr;
 		grid-auto-rows: auto;
 		grid-auto-flow: column;
 		gap: var(--gap);
@@ -69,6 +63,10 @@
 	.col-left {
 		height: 80vh;
 		overflow-y: scroll;
+		-webkit-mask-image: linear-gradient(to top, transparent 0, black 200px);
+	}
+	.col-left::-webkit-scrollbar {
+		display: none;
 	}
 	.col-right {
 		display: flex;
@@ -78,6 +76,7 @@
 	.wep-list {
 		display: grid;
 		gap: var(--gap);
+		padding-bottom: 200px;
 	}
 	.class-title {
 		font-family: var(--text-script);
@@ -87,7 +86,7 @@
 		align-self: center;
 	}
 	.class-title p {
-		margin: 3rem 0 0;
+		margin: 2rem 0 0;
 	}
 	.wep {
 		pointer-events: none;
@@ -108,6 +107,7 @@
 		transform: translateY(-50%);
 		top: 50%;
 		max-height: 100%;
+		max-width: 130px;
 		filter: brightness(1.15);
 		transition: filter 0.2s ease-out;
 	}
@@ -138,11 +138,5 @@
 		text-transform: uppercase;
 		letter-spacing: 0.4rem;
 		margin-bottom: 0;
-	}
-
-	.add-remove {
-		margin: 2rem 0;
-		width: 16rem;
-		cursor: pointer;
 	}
 </style>

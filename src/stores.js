@@ -3,54 +3,40 @@ import { weapons } from './weapons';
 
 // -----------------------------------------
 // Set up individual wep trees
-
+const treeStoreSchema = { rows: [], list: [] };
 function TreeStore(store) {
 	this.store = store;
 	this.subscribe = this.store.subscribe;
-	this.length = () => this.store.length;
+	this.length = () => this.store.list.length;
 	this.addSkill = (skill) => {
 		this.store.update((selected) => {
-			return [...new Set([...selected, skill.name])];
+			return {
+				...selected,
+				rows: [...selected.rows, skill.row],
+				list: [...new Set([...selected.list, skill.name])]
+			};
 		});
 	};
 	this.removeSkill = (skill) => {
 		this.store.update((selected) => {
-			if (selected.includes(skill.into)) {
-				return selected;
-			}
-			return [...selected.filter((p) => p !== skill.name)];
+			const indexToRemove = selected.rows.indexOf(skill.row);
+
+			return {
+				...selected,
+				rows: [...rows.splice(indexToRemove, 1)],
+				list: [...selected.list.filter((p) => p !== skill.name)]
+			};
 		});
 	};
-	this.removeTree = (wepIndex, treeIndex) => {
+	this.resetTree = (wepIndex, treeIndex) => {
 		console.log(`Resetting wep ${wepIndex} tree ${treeIndex}`);
-		this.store.set([]);
+		this.store.set({ ...treeStoreSchema });
 	};
 }
-// const wepTree = writable([]);
-// const treeStore = {
-// 	subscribe: wepTree.subscribe,
-// 	length: () => wepTree.length,
-// 	addSkill: (skill) => {
-// 		wepTree.update((selected) => {
-// 			return [...new Set([...selected, skill.name])];
-// 		});
-// 	},
-// 	removeSkill: (skill) => {
-// 		wepTree.update((selected) => {
-// 			if (selected.includes(skill.into)) {
-// 				return selected;
-// 			}
-// 			return [...selected.filter((p) => p !== skill.name)];
-// 		});
-// 	},
-// 	resetTree: (wepIndex, treeIndex) => {
-// 		console.log(`Resetting wep ${wepIndex} tree ${treeIndex}`);
-// 		wepTree.set([]);
-// 	}
-// };
+
 export const trees = [
-	[new TreeStore(writable([])), new TreeStore(writable([]))],
-	[new TreeStore(writable([])), new TreeStore(writable([]))]
+	[new TreeStore(writable(treeStoreSchema)), new TreeStore(writable(treeStoreSchema))],
+	[new TreeStore(writable(treeStoreSchema)), new TreeStore(writable(treeStoreSchema))]
 ];
 
 /// -----------------------------------------
@@ -86,10 +72,10 @@ export const selectedWeps = {
 // -----------------------------------------
 // Points allocated to trees
 export const wep0Pts = derived([trees[0][0], trees[0][1]], ([$wep0tree0, $wep0tree1]) => {
-	return $wep0tree0.length + $wep0tree1.length;
+	return $wep0tree0.list.length + $wep0tree1.list.length;
 });
 export const wep1Pts = derived([trees[1][0], trees[1][1]], ([$wep1tree0, $wep1tree1]) => {
-	return $wep1tree0.length + $wep1tree1.length;
+	return $wep1tree0.list.length + $wep1tree1.list.length;
 });
 
 // -----------------------------------------

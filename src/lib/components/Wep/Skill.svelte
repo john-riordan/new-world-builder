@@ -1,24 +1,36 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { SKILL_PTS } from '../../../constants';
+
 	const dispatch = createEventDispatcher();
 
 	export let selected;
+	export let wepPoints;
 	export let skillInfo;
 	export let row;
 	export let col;
 
 	const hasRequirement = skillInfo && skillInfo.required;
-	const requresOthers = typeof hasRequirement === 'string';
-	const requiresPoints = hasRequirement && !requresOthers && row !== 1;
+	const requresOthers = typeof hasRequirement === 'string' ? true : false;
+	const requiresPoints = hasRequirement || row > 1 ? true : false;
 
-	// $: isActive = false;
-	$: isAvailable = true;
-	$: isActive = skillInfo && selected ? $selected.includes(skillInfo.name) : false;
-	// $: isAvailable = requresOthers
-	// 	? $selected.includes(skillInfo.required)
-	// 	: requiresPoints
-	// 	? $selected.length >= skillInfo.required
-	// 	: true;
+	$: ptsAvailable = $wepPoints < SKILL_PTS;
+	$: isActive = skillInfo && selected ? $selected.list.includes(skillInfo.name) : false;
+	$: isAvailable = !skillInfo
+		? false
+		: !selected
+		? true
+		: requresOthers && requiresPoints
+		? $selected.list.includes(skillInfo.required) && $selected.rows.includes(skillInfo.row - 1)
+		: requresOthers
+		? $selected.list.includes(skillInfo.required)
+		: requiresPoints && skillInfo.type !== 'ultimate'
+		? $selected.rows.includes(skillInfo.row - 1)
+		: skillInfo.row === 1
+		? true
+		: skillInfo.type === 'ultimate' && $selected.list.length >= 10
+		? true
+		: false;
 
 	function addSkill() {
 		dispatch('addSkill', {
@@ -37,6 +49,7 @@
 		class="skill"
 		class:active={isActive}
 		class:available={isAvailable}
+		class:noPts={!ptsAvailable}
 		data-type={skillInfo.type}
 		data-row={row}
 		data-col={col}
@@ -80,18 +93,15 @@
 		cursor: pointer;
 		opacity: 1;
 	}
-	.skill:not(.available) {
+	.skill:not(.available),
+	.skill.noPts {
 		cursor: default;
 		pointer-events: none;
 	}
 
-	.skill:not(.available) .skill-img {
+	.skill:not(.available) .skill-img,
+	.skill.noPts .skill-img {
 		opacity: 0.25;
-	}
-	.skill img {
-		display: block;
-		width: 100%;
-		height: auto;
 	}
 	.skill-shape {
 		box-sizing: border-box;
@@ -109,6 +119,9 @@
 	}
 	.skill.active .skill-shape {
 		box-shadow: 0 0 0 3px green;
+	}
+	.skill.active .skill-img {
+		opacity: 1;
 	}
 	.skill[data-type='major'] .skill-shape {
 		width: 100%;

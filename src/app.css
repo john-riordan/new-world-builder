@@ -61,6 +61,10 @@ button {
 	font-family: 'Lato', sans-serif;
 	text-align: center;
 }
+button.disabled {
+	pointer-events: none !important;
+	opacity: 0.35;
+}
 button.subtle {
 	height: 2.625rem;
 	background: hsla(0deg, 0%, 100%, 0.1);
