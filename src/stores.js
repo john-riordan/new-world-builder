@@ -1,5 +1,20 @@
 import { writable, derived } from 'svelte/store';
 import { weapons } from './weapons';
+import { ATTR_PTS } from './constants';
+
+// -----------------------------------------
+// Attribute points
+export const str = writable(5);
+export const dex = writable(5);
+export const int = writable(5);
+export const foc = writable(5);
+export const con = writable(5);
+export const availableAtrPts = derived(
+	[str, dex, int, foc, con],
+	([$str, $dex, $int, $foc, $con]) => {
+		return ATTR_PTS - $str - $dex - $int - $foc - $con;
+	}
+);
 
 // -----------------------------------------
 // Set up individual wep trees
@@ -23,7 +38,7 @@ function TreeStore(store) {
 
 			return {
 				...selected,
-				rows: [...rows.splice(indexToRemove, 1)],
+				rows: [...selected.rows.splice(indexToRemove, 1)],
 				list: [...selected.list.filter((p) => p !== skill.name)]
 			};
 		});

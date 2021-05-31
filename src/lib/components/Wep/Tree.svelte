@@ -22,7 +22,7 @@
 	{#each Array(size.rows) as _, row}
 		{#each Array(size.cols) as _, col}
 			<Skill
-				selected={store}
+				{store}
 				{wepPoints}
 				skillInfo={tree && tree[`${row + 1}_${col + 1}`]}
 				row={row + 1}

@@ -4,7 +4,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let selected;
+	export let store;
 	export let wepPoints;
 	export let skillInfo;
 	export let row;
@@ -15,20 +15,20 @@
 	const requiresPoints = hasRequirement || row > 1 ? true : false;
 
 	$: ptsAvailable = $wepPoints < SKILL_PTS;
-	$: isActive = skillInfo && selected ? $selected.list.includes(skillInfo.name) : false;
+	$: isActive = skillInfo && store ? $store.list.includes(skillInfo.name) : false;
 	$: isAvailable = !skillInfo
 		? false
-		: !selected
+		: !store
 		? true
 		: requresOthers && requiresPoints
-		? $selected.list.includes(skillInfo.required) && $selected.rows.includes(skillInfo.row - 1)
+		? $store.list.includes(skillInfo.required) && $store.rows.includes(skillInfo.row - 1)
 		: requresOthers
-		? $selected.list.includes(skillInfo.required)
+		? $store.list.includes(skillInfo.required)
 		: requiresPoints && skillInfo.type !== 'ultimate'
-		? $selected.rows.includes(skillInfo.row - 1)
+		? $store.rows.includes(skillInfo.row - 1)
 		: skillInfo.row === 1
 		? true
-		: skillInfo.type === 'ultimate' && $selected.list.length >= 10
+		: skillInfo.type === 'ultimate' && $store.list.length >= 10
 		? true
 		: false;
 
