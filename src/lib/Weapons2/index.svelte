@@ -1,42 +1,21 @@
 <script>
-	import {
-		renderedWep,
-		renderedWepData,
-		selectedWeps,
-		wep0Pts,
-		wep1Pts,
-		wep0Trees
-	} from '../../stores';
-	import { wepClasses } from '../../weapons';
+	import { renderedWep, renderedWepData, selectedWeps, wep0Pts, wep1Pts } from '../../stores';
+	import { weapons, wepClasses } from '../../weapons';
 
 	import Wep from '../components/Wep/index.svelte';
 </script>
 
-<!-- <header>
-	{#if $selectedWeps.length === 0}
-		<h1>Select weapons in the grid below</h1>
-	{:else if $selectedWeps.length <= 2}
-		<h1>Equipped Weapons</h1>
-	{/if}
-</header> -->
-
 <div class="wep-container">
-	<div class="wep-list--outer">
+	<div class="col-left">
 		<div class="wep-list">
 			{#each wepClasses as wepClass}
-				<div class="wep-title"><p>{wepClass.title}</p></div>
+				<div class="class-title"><p>{wepClass.title}</p></div>
 				{#each wepClass.list as wep}
 					{#if wep.name}
 						<div
 							class="wep"
 							class:selected={$selectedWeps.includes(wep.name)}
-							on:click={() => {
-								renderedWep.set(wep.name);
-								selectedWeps.addWep(wep.name);
-							}}
-							on:contextmenu|preventDefault={() => {
-								selectedWeps.removeWep(wep.name);
-							}}
+							on:click={() => renderedWep.set(wep.name)}
 						>
 							<img src="sword.png" alt="" />
 							<div>
@@ -57,16 +36,28 @@
 			{/each}
 		</div>
 	</div>
-	<div>
-		<Wep treeLeft={$renderedWepData.tree1} treeRight={$renderedWepData.tree2} />
+	<div class="col-right">
+		{#if $renderedWep}
+			<h1 class="wep-title">{weapons[$renderedWep].title}</h1>
+			{#if $selectedWeps.includes($renderedWep)}
+				<button class="subtle add-remove add" on:click={() => selectedWeps.removeWep($renderedWep)}
+					>Remove this wep from build</button
+				>
+			{:else}
+				<button class="subtle add-remove add" on:click={() => selectedWeps.addWep($renderedWep)}
+					>Use this wep in build</button
+				>
+			{/if}
+			<Wep
+				activeWepindex={$selectedWeps.findIndex((wep) => wep === $renderedWep)}
+				treeLeft={$renderedWepData.tree1}
+				treeRight={$renderedWepData.tree2}
+			/>
+		{/if}
 	</div>
 </div>
 
 <style lang="scss">
-	header {
-		padding-top: 2rem;
-	}
-
 	.wep-container {
 		--gap: 0.5rem;
 		display: grid;
@@ -75,22 +66,27 @@
 		grid-auto-flow: column;
 		gap: var(--gap);
 	}
-	.wep-list--outer {
-		height: 90vh;
+	.col-left {
+		height: 80vh;
 		overflow-y: scroll;
+	}
+	.col-right {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.wep-list {
 		display: grid;
 		gap: var(--gap);
 	}
-	.wep-title {
+	.class-title {
 		font-family: var(--text-script);
 		text-transform: uppercase;
 		font-size: 1.25rem;
 		line-height: 1.5;
 		align-self: center;
 	}
-	.wep-title p {
+	.class-title p {
 		margin: 3rem 0 0;
 	}
 	.wep {
@@ -136,8 +132,17 @@
 		filter: brightness(1.5);
 	}
 
-	.wep.missing {
-		pointer-events: none;
-		opacity: 0.5;
+	.wep-title {
+		text-align: center;
+		font-size: 2.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.4rem;
+		margin-bottom: 0;
+	}
+
+	.add-remove {
+		margin: 2rem 0;
+		width: 16rem;
+		cursor: pointer;
 	}
 </style>

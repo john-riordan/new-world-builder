@@ -106,7 +106,8 @@ export const SWORDMASTER = {
 		name: 'Tactical Strike',
 		type: 'minor',
 		img: `${CDN}/swordability1_mod1.png`,
-		description: `Whirling Blade cooldown reduced by 10% for every enemy hit by Whirling Blade.`
+		description: `Whirling Blade cooldown reduced by 10% for every enemy hit by Whirling Blade.`,
+		etc: ['double-up']
 	},
 	'4_5': {
 		required: 'Leaping Strike',
@@ -122,7 +123,8 @@ export const SWORDMASTER = {
 		name: 'Tactician',
 		type: 'minor',
 		img: `${CDN}/swordability2_mod2.png`,
-		description: `On successful hit with Reverse Stab, all Sword cooldowns are reduced by 25%.`
+		description: `On successful hit with Reverse Stab, all Sword cooldowns are reduced by 25%.`,
+		etc: ['double-up']
 	},
 	'5_2': {
 		required: null,
@@ -239,7 +241,8 @@ export const DEFENDER = {
 		name: 'Improved Rush',
 		type: 'minor',
 		img: `${CDN}/greataxe_ability5_maelstrom.png`,
-		description: `On successful hit all enemies within 5m gain 10% Weaken for 4s.<br /><br />(Weaken reduces damage)`
+		description: `On successful hit all enemies within 5m gain 10% Weaken for 4s.<br /><br />(Weaken reduces damage)`,
+		etc: ['double-up']
 	},
 	'3_5': {
 		required: null,
@@ -280,7 +283,8 @@ export const DEFENDER = {
 		name: 'Concussive Bash',
 		type: 'minor',
 		img: `${CDN}/swordability4_mod1.png`,
-		description: `Shield Bash stun duration increased by 1s.`
+		description: `Shield Bash stun duration increased by 1s.`,
+		etc: ['double-up']
 	},
 	'5_3': {
 		required: 'Improved Rush',
@@ -288,7 +292,8 @@ export const DEFENDER = {
 		name: 'Intimidating Rush',
 		type: 'minor',
 		img: `${CDN}/swordability5_mod1.png`,
-		description: `On successful hit all enemies within 5m are slowed by 30% for 4s.`
+		description: `On successful hit all enemies within 5m are slowed by 30% for 4s.`,
+		etc: ['double-up']
 	},
 	'5_4': {
 		required: null,

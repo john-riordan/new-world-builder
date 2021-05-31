@@ -10,10 +10,10 @@
 	export let store;
 
 	function addSkill(event) {
-		store.addSkill(event.detail.skill);
+		if (store) store.addSkill(event.detail.skill);
 	}
 	function removeSkill(event) {
-		store.removeSkill(event.detail.skill);
+		if (store) store.removeSkill(event.detail.skill);
 	}
 </script>
 

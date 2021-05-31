@@ -7,13 +7,13 @@
 	export let row;
 	export let col;
 
-	const requirement = skillInfo && skillInfo.required;
-	const requresOthers = typeof requirement === 'string';
-	const requiresPoints = requirement && !requresOthers && row !== 1;
+	const hasRequirement = skillInfo && skillInfo.required;
+	const requresOthers = typeof hasRequirement === 'string';
+	const requiresPoints = hasRequirement && !requresOthers && row !== 1;
 
-	$: isActive = false;
+	// $: isActive = false;
 	$: isAvailable = true;
-	// $: isActive = skillInfo ? $selected.includes(skillInfo.name) : false;
+	$: isActive = skillInfo && selected ? $selected.includes(skillInfo.name) : false;
 	// $: isAvailable = requresOthers
 	// 	? $selected.includes(skillInfo.required)
 	// 	: requiresPoints
@@ -52,7 +52,11 @@
 			<span class="required-bar required-bar--tall" />
 		{/if}
 		<div class="skill-shape">
-			<div class="skill-img" style={`background-image: url(${skillInfo.img})`} />
+			<div
+				class="skill-img"
+				style={`background-image: url(${skillInfo.img})`}
+				title={skillInfo.name}
+			/>
 		</div>
 	</div>
 {:else}
