@@ -28,6 +28,3 @@
 	<p>This is a New builds builder app/tool</p> -->
 	<Tabs tabs={wepTabs} />
 </section>
-
-<style>
-</style>

@@ -1,6 +1,8 @@
 :root {
 	--white: hsl(0deg 0% 84%);
 
+	--offwhite: hsla(40, 63%, 92%, 1);
+
 	--black-hsl: 35deg 26% 3%;
 	--black: hsl(var(--black-hsl));
 
@@ -18,7 +20,12 @@
 
 	--gold: hsla(44, 56%, 26%, 1);
 
+	--green: hsla(161, 77%, 54%, 1);
+
+	--yellow: hsla(49, 100%, 68%, 1);
+
 	--text-script: 'IM Fell DW Pica', Times, Times Roman, Times New Roman, serif;
+	--text-default: 'Lato', sans-serif;
 
 	--transition: 0.15s cubic-bezier(0.5, 0.25, 0.25, 0.75);
 }
@@ -30,7 +37,7 @@
 body {
 	min-height: 100vh;
 	margin: 0;
-	font-family: 'Lato', sans-serif;
+	font-family: var(--text-default);
 	font-style: normal;
 	font-weight: 400;
 	line-height: 1.5;
@@ -60,10 +67,12 @@ button {
 	all: unset;
 	font-family: 'Lato', sans-serif;
 	text-align: center;
+	cursor: pointer;
 }
 button.disabled {
 	pointer-events: none !important;
-	opacity: 0.35;
+	opacity: 0.3;
+	cursor: default;
 }
 button.subtle {
 	height: 2.625rem;
@@ -75,16 +84,22 @@ button.subtle {
 button.subtle:hover {
 	background: hsla(0deg, 0%, 100%, 0.2);
 }
-button.major {
-	background-image: linear-gradient(
-		128deg,
-		#1a140a 12.5%,
-		#161009 12.5%,
-		#161009 50%,
-		#1a140a 50%,
-		#1a140a 62.5%,
-		#161009 62.5%,
-		#161009 100%
-	);
+button.minor {
+	height: 3.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--black);
+	border: 2px solid var(--gold);
 	background-size: 10px 13px;
+}
+
+.mask {
+	mask-image: url(/static/mask.png);
+	-webkit-mask-image: url(/static/mask.png);
+}
+
+.mask2 {
+	mask-image: url(/static/mask2.png);
+	-webkit-mask-image: url(/static/mask2.png);
 }

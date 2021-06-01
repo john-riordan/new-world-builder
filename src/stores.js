@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store';
 import { weapons } from './weapons';
-import { ATTR_PTS } from './constants';
+import { ATTR_PTS, SKILL_PTS } from './constants';
 
 // -----------------------------------------
 // Attribute points
@@ -15,6 +15,9 @@ export const availableAtrPts = derived(
 		return ATTR_PTS - $str - $dex - $int - $foc - $con;
 	}
 );
+export const anyPointsSet = derived([str, dex, int, foc, con], ([$str, $dex, $int, $foc, $con]) => {
+	return $str + $dex + $int + $foc + $con > 25;
+});
 
 // -----------------------------------------
 // Set up individual wep trees
@@ -91,6 +94,9 @@ export const wep0Pts = derived([trees[0][0], trees[0][1]], ([$wep0tree0, $wep0tr
 });
 export const wep1Pts = derived([trees[1][0], trees[1][1]], ([$wep1tree0, $wep1tree1]) => {
 	return $wep1tree0.list.length + $wep1tree1.list.length;
+});
+export const wepPtsRemaining = derived([wep0Pts, wep1Pts], ([$wep0Pts, $wep1Pts]) => {
+	return $wep0Pts + $wep1Pts < SKILL_PTS;
 });
 
 // -----------------------------------------

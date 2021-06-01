@@ -19,8 +19,8 @@
 </script>
 
 <div class="tree-pair">
-	<Tree tree={treeLeft} store={treeLeftStore} {wepPoints} />
-	<Tree tree={treeRight} store={treeRightStore} {wepPoints} />
+	<Tree tree={treeLeft} store={treeLeftStore} />
+	<Tree tree={treeRight} store={treeRightStore} />
 </div>
 <div class="controls">
 	{#if $selectedWeps.includes($renderedWep)}

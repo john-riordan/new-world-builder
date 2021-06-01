@@ -1,20 +1,22 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import { SKILL_PTS } from '../../../constants';
+	import { wepPtsRemaining } from '../../../stores';
 
 	const dispatch = createEventDispatcher();
 
 	export let store;
-	export let wepPoints;
 	export let skillInfo;
 	export let row;
 	export let col;
+
+	$: {
+		console.log($wepPtsRemaining);
+	}
 
 	const hasRequirement = skillInfo && skillInfo.required;
 	const requresOthers = typeof hasRequirement === 'string' ? true : false;
 	const requiresPoints = hasRequirement || row > 1 ? true : false;
 
-	$: ptsAvailable = $wepPoints < SKILL_PTS;
 	$: isActive = skillInfo && store ? $store.list.includes(skillInfo.name) : false;
 	$: isAvailable = !skillInfo
 		? false
@@ -49,11 +51,11 @@
 		class="skill"
 		class:active={isActive}
 		class:available={isAvailable}
-		class:noPts={!ptsAvailable}
+		class:noPts={!$wepPtsRemaining}
 		data-type={skillInfo.type}
 		data-row={row}
 		data-col={col}
-		on:click={addSkill}
+		on:click={wepPtsRemaining && addSkill}
 		on:contextmenu|preventDefault={removeSkill}
 	>
 		{#if skillInfo.etc && skillInfo.etc.includes('bend-left')}

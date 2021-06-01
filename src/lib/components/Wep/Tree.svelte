@@ -8,7 +8,6 @@
 
 	export let tree;
 	export let store;
-	export let wepPoints;
 
 	function addSkill(event) {
 		if (store) store.addSkill(event.detail.skill);
@@ -23,7 +22,6 @@
 		{#each Array(size.cols) as _, col}
 			<Skill
 				{store}
-				{wepPoints}
 				skillInfo={tree && tree[`${row + 1}_${col + 1}`]}
 				row={row + 1}
 				col={col + 1}
