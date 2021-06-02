@@ -1,6 +1,7 @@
 <script>
 	import { availableAtrPts, anyPointsSet } from '../../stores';
 	import { MAX_ATTR_PTS, MIN_ATTR_PTS, ATTR_PTS } from '../../constants';
+	import { tooltipAttrBonus } from '$lib/actions/tooltipAttrBonus';
 
 	export let info;
 	export let pts;
@@ -13,6 +14,9 @@
 	$: dot4Active = $pts >= 200;
 	$: dot5Active = $pts >= 250;
 	$: dot6Active = $pts >= 300;
+
+	// REMOVE, FOR TESTING
+	const bonuses = info.bonuses.length ? true : false;
 
 	function add10() {
 		if ($pts + 10 >= MAX_ATTR_PTS || $availableAtrPts - 10 <= 0) {
@@ -47,7 +51,7 @@
 {#if info}
 	<section class="mask container" class:inactive={$anyPointsSet && $pts === MIN_ATTR_PTS}>
 		<div class="left">
-			<button on:click={sub10} on:mouseenter={() => context} class:disabled={$pts === MIN_ATTR_PTS}>
+			<button on:click={sub10} class:disabled={$pts === MIN_ATTR_PTS}>
 				<svg width="21" height="13" viewBox="0 0 21 13">
 					<path
 						fill-rule="evenodd"
@@ -84,11 +88,7 @@
 				</svg>
 				<span>+1</span>
 			</button>
-			<button
-				on:click={add10}
-				on:mouseenter={() => audio_btnHover}
-				class:disabled={$availableAtrPts === 0}
-			>
+			<button on:click={add10} class:disabled={$availableAtrPts === 0}>
 				<svg width="20" height="13" viewBox="0 0 20 13">
 					<path
 						fill-rule="evenodd"
@@ -110,12 +110,38 @@
 				</div>
 				<div class="dots">
 					<div class="dot" />
-					<div class="dot" class:active={dot1Active} />
-					<div class="dot" class:active={dot2Active} />
-					<div class="dot" class:active={dot3Active} />
-					<div class="dot" class:active={dot4Active} />
-					<div class="dot" class:active={dot5Active} />
-					<div class="dot" class:active={dot6Active} />
+					<div
+						class="dot"
+						class:active={dot1Active}
+						use:tooltipAttrBonus={bonuses ? { bonuses: [...info.bonuses[0]], pts: 50 } : {}}
+					/>
+					<div
+						class="dot"
+						class:active={dot2Active}
+						use:tooltipAttrBonus={bonuses ? { bonuses: [...info.bonuses[1]], pts: 100 } : {}}
+					/>
+					<div
+						class="dot"
+						class:active={dot3Active}
+						use:tooltipAttrBonus={bonuses ? { bonuses: [...info.bonuses[2]], pts: 150 } : {}}
+					/>
+					<div
+						class="dot"
+						class:active={dot4Active}
+						use:tooltipAttrBonus={bonuses ? { bonuses: [...info.bonuses[3]], pts: 200 } : {}}
+					/>
+					<div
+						class="dot"
+						class:active={dot5Active}
+						use:tooltipAttrBonus={bonuses ? { bonuses: [...info.bonuses[4]], pts: 250 } : {}}
+					/>
+					<div
+						class="dot"
+						class:active={dot6Active}
+						use:tooltipAttrBonus={bonuses
+							? { bonuses: [...info.bonuses[5]], pts: 300, side: 'left' }
+							: {}}
+					/>
 				</div>
 			</div>
 		</div>
@@ -205,6 +231,7 @@
 
 	.attribute-name {
 		margin: 0;
+		padding-bottom: 0.25rem;
 		font-size: 1.5rem;
 		letter-spacing: 0.2rem;
 		text-transform: uppercase;
@@ -244,8 +271,8 @@
 		width: 100%;
 	}
 	.dot {
-		height: 18px;
-		width: 18px;
+		height: 1.25rem;
+		width: 1.25rem;
 		background: hsla(105, 100%, 1%, 1);
 		border: 1px solid hsla(120, 3%, 21%, 1);
 		border-radius: 50%;
