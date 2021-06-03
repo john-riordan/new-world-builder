@@ -6,7 +6,7 @@
 	export let y;
 
 	const offset = 5;
-	const width = '23rem';
+	const width = '24rem';
 </script>
 
 <div
@@ -33,7 +33,7 @@
 	.container {
 		position: absolute;
 		background: var(--black);
-		line-height: 1.25;
+		line-height: 1.35;
 		width: var(--width, 25rem);
 		padding: 1.25rem;
 		border: 2px solid var(--brown);
@@ -45,8 +45,6 @@
 	}
 	.container.left {
 		left: calc(var(--x-offset) - var(--width) - var(--offset));
-	}
-	.container.right {
 	}
 	.container.bottom {
 		left: calc(var(--x-offset) - calc(var(--width) / 2) - var(--offset));

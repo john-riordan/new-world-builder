@@ -1,5 +1,6 @@
 import { writable, derived } from 'svelte/store';
 import { weapons } from './weapons';
+import { attributes } from './attributes';
 import { ATTR_PTS, SKILL_PTS } from './constants';
 
 // -----------------------------------------
@@ -9,14 +10,38 @@ export const dex = writable(5);
 export const int = writable(5);
 export const foc = writable(5);
 export const con = writable(5);
-export const availableAtrPts = derived(
-	[str, dex, int, foc, con],
-	([$str, $dex, $int, $foc, $con]) => {
-		return ATTR_PTS - $str - $dex - $int - $foc - $con;
-	}
-);
-export const anyPointsSet = derived([str, dex, int, foc, con], ([$str, $dex, $int, $foc, $con]) => {
-	return $str + $dex + $int + $foc + $con > 25;
+export const attrs = derived([str, dex, int, foc, con], ([$str, $dex, $int, $foc, $con]) => {
+	const breakpoint = 50;
+
+	let bonuses = [];
+
+	const strBonus = Array.from(Array(Math.trunc($str / breakpoint))).map((_, index) => {
+		return attributes.str.bonuses[index];
+	});
+	const dexBonus = Array.from(Array(Math.trunc($dex / breakpoint))).map((_, index) => {
+		return attributes.dex.bonuses[index];
+	});
+	const intBonus = Array.from(Array(Math.trunc($int / breakpoint))).map((_, index) => {
+		return attributes.int.bonuses[index];
+	});
+	const focBonus = Array.from(Array(Math.trunc($foc / breakpoint))).map((_, index) => {
+		return attributes.foc.bonuses[index];
+	});
+	const conBonus = Array.from(Array(Math.trunc($con / breakpoint))).map((_, index) => {
+		return attributes.con.bonuses[index];
+	});
+
+	if (strBonus.length) bonuses.push(strBonus);
+	if (dexBonus.length) bonuses.push(dexBonus);
+	if (intBonus.length) bonuses.push(intBonus);
+	if (focBonus.length) bonuses.push(focBonus);
+	if (conBonus.length) bonuses.push(conBonus);
+
+	return {
+		available: ATTR_PTS - $str - $dex - $int - $foc - $con,
+		anyPtsAllocated: $str + $dex + $int + $foc + $con > 25,
+		bonuses: bonuses.filter(Boolean).flat(2)
+	};
 });
 
 // -----------------------------------------

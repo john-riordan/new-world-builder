@@ -1,5 +1,5 @@
 <script>
-	import { availableAtrPts, anyPointsSet } from '../../stores';
+	import { attrs } from '../../stores';
 	import { MAX_ATTR_PTS, MIN_ATTR_PTS, ATTR_PTS } from '../../constants';
 	import { tooltipAttrBonus } from '$lib/actions/tooltipAttrBonus';
 
@@ -19,37 +19,37 @@
 	const bonuses = info.bonuses.length ? true : false;
 
 	function add10() {
-		if ($pts + 10 >= MAX_ATTR_PTS || $availableAtrPts - 10 <= 0) {
-			pts.update((pts) => (pts += $availableAtrPts));
-		} else if ($availableAtrPts - 10 >= 0) {
+		if ($pts + 10 >= MAX_ATTR_PTS || $attrs.available - 10 <= 0) {
+			pts.update((pts) => (pts += $attrs.available));
+		} else if ($attrs.available - 10 >= 0) {
 			pts.update((pts) => (pts += 10));
 		}
 	}
 	function add1() {
-		if ($pts + 1 >= MAX_ATTR_PTS && $availableAtrPts - 1 <= 0) {
+		if ($pts + 1 >= MAX_ATTR_PTS && $attrs.available - 1 <= 0) {
 			pts.set(MAX_ATTR_PTS);
-		} else if ($availableAtrPts - 1 >= 0) {
+		} else if ($attrs.available - 1 >= 0) {
 			pts.update((pts) => (pts += 1));
 		}
 	}
 	function sub10() {
-		if ($pts - 10 <= MIN_ATTR_PTS && $availableAtrPts - 10 <= ATTR_PTS) {
+		if ($pts - 10 <= MIN_ATTR_PTS && $attrs.available - 10 <= ATTR_PTS) {
 			pts.set(MIN_ATTR_PTS);
-		} else if ($availableAtrPts - 10 <= ATTR_PTS) {
+		} else if ($attrs.available - 10 <= ATTR_PTS) {
 			pts.update((pts) => (pts -= 10));
 		}
 	}
 	function sub1() {
-		if ($pts - 1 <= MIN_ATTR_PTS && $availableAtrPts - 1 <= ATTR_PTS) {
+		if ($pts - 1 <= MIN_ATTR_PTS && $attrs.available - 1 <= ATTR_PTS) {
 			pts.set(MIN_ATTR_PTS);
-		} else if ($availableAtrPts - 1 <= ATTR_PTS) {
+		} else if ($attrs.available - 1 <= ATTR_PTS) {
 			pts.update((pts) => (pts -= 1));
 		}
 	}
 </script>
 
 {#if info}
-	<section class="mask container" class:inactive={$anyPointsSet && $pts === MIN_ATTR_PTS}>
+	<section class="mask container" class:inactive={$attrs.anyPtsAllocated && $pts === MIN_ATTR_PTS}>
 		<div class="left">
 			<button on:click={sub10} class:disabled={$pts === MIN_ATTR_PTS}>
 				<svg width="21" height="13" viewBox="0 0 21 13">
@@ -78,7 +78,7 @@
 			<h2 class="attribute-value" class:increased={$pts > 5}>
 				{$pts} <span>(+{$pts - MIN_ATTR_PTS})</span>
 			</h2>
-			<button on:click={add1} class:disabled={$availableAtrPts === 0}>
+			<button on:click={add1} class:disabled={$attrs.available === 0}>
 				<svg width="26" height="30" viewBox="0 0 26 30">
 					<path
 						fill-rule="evenodd"
@@ -88,7 +88,7 @@
 				</svg>
 				<span>+1</span>
 			</button>
-			<button on:click={add10} class:disabled={$availableAtrPts === 0}>
+			<button on:click={add10} class:disabled={$attrs.available === 0}>
 				<svg width="20" height="13" viewBox="0 0 20 13">
 					<path
 						fill-rule="evenodd"

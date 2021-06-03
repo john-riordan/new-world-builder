@@ -43,30 +43,90 @@ export const attributes = {
 		primary: [weapons.bow.name, weapons.rapier.name, weapons.spear.name, weapons.musket.name],
 		secondary: [weapons.straightSword.name, weapons.hatchet.name],
 		bonuses: [
-			['+5% chance to critical hit', '+10 skinning speed'],
-			['+5 thrust damage', '+20% haste for 3s after skinning'],
-			['Dodging cost 10 less stamina', '-10% decrease in weight of skinned items'],
-			['10% bonus backstab and headshot damage', '+10% skinning speed'],
+			['<span>+5%</span> chance to critical hit', '<span>+10</span> skinning speed'],
+			['<span>+5</span> thrust damage', '<span>+20%</span> haste for 3s after skinning'],
 			[
-				'+10% bonus critical hit damage on stunned, slowed, or rooted enemies.',
-				'+10% yield yeild increase when skinning'
+				'Dodging cost <span>10</span> less stamina',
+				'<span>-10%</span> decrease in weight of skinned items'
 			],
-			['Guaranteed critical hit after a dodge roll', 'Ammo has a 15% chance of being returned']
+			['<span>10%</span> bonus backstab and headshot damage', '<span>+10%</span> skinning speed'],
+			[
+				'<span>+10%</span> bonus critical hit damage on stunned, slowed, or rooted enemies.',
+				'<span>+10%</span> yield yeild increase when skinning'
+			],
+			[
+				'Guaranteed critical hit after a dodge roll',
+				'Ammo has a <span>15%</span> chance of being returned'
+			]
 		]
 	},
 	int: {
 		name: 'intelligence',
 		title: 'Intelligence',
-		bonuses: []
+		bonuses: [
+			[
+				'<span>+10%</span> damage to light and heavy magic attacks',
+				'<span>+10%</span> Harvest Speed'
+			],
+			[
+				'<span>+10%</span> critical hit damage',
+				'<span>5%</span> chance for 1 Azoth when harvesting'
+			],
+			[
+				'<span>+15%</span> to Elemental damage',
+				'<span>-10%</span> decreased in weight of harvested items'
+			],
+			['<span>+10</span> mana after a dodge', '<span>+10%</span> harvesting speed'],
+			[
+				'<span>+30%</span> duration to DoT spells',
+				'<span>+10%</span> yield increase when harvesting'
+			],
+			[
+				'<span>+30% </span>damage on first hit of full health target',
+				'<span>-10%</span> reduction in Azoth travel cost'
+			]
+		]
 	},
 	foc: {
 		name: 'focus',
 		title: 'Focus',
-		bonuses: []
+		bonuses: [
+			['<span>+10%</span> mana regen rate', '<span>+10%</span> fishing line tension'],
+			['<span>+20</span> to mana pool', '<span>+10%</span> yield increase when salvaging'],
+			['<span>+20%</span> healing output', '<span>-10%</span> decrease in weight of fishing items'],
+			['<span>+20%</span> duration on casting buffs', '<span>+10%</span> fishing line tension'],
+			[
+				'<span>+30</span> mana on any self or group kill',
+				'<span>+10%</span> increase to caught fish size'
+			],
+			[
+				'When your mana hits 0, gain <span>200%</span> mana regen for 10s (60s cooldown)',
+				'<span>-10%</span> cooldown reduction for Inn fast travel'
+			]
+		]
 	},
 	con: {
 		name: 'constitution',
 		title: 'Constitution',
-		bonuses: []
+		bonuses: [
+			['All healing consumables last <span>20%</span> longer', '<span>+10%</span> logging speed'],
+			[
+				'Increase max health by <span>10%</span> of your physcal armor',
+				'<span>-10%</span> reduction on durability loss for tools'
+			],
+			[
+				'<span>-10%</span> to crit damage taken',
+				'<span>-10%</span> decrease in weight of logging items'
+			],
+			['<span>+20%</span> increase to armor', '<span>+10%</span> logging speed'],
+			[
+				'<span>-80%</span> damage deduction when full health',
+				'<span>+10%</span> yeild increase when logging'
+			],
+			[
+				'<span>+20%</span> duration of stun, slow, and root spells',
+				'<span>25%</span> chance to chop down a tree in a single swing'
+			]
+		]
 	}
 };

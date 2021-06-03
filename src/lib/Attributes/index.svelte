@@ -1,5 +1,5 @@
 <script>
-	import { str, dex, int, foc, con, availableAtrPts, anyPointsSet } from '../../stores';
+	import { str, dex, int, foc, con, attrs } from '../../stores';
 	import { attributes } from '../../attributes';
 	import { MIN_ATTR_PTS } from '../../constants';
 
@@ -16,9 +16,11 @@
 
 <div class="container">
 	<div class="left">
-		<h2 class="mask points-available" class:canAllocate={$availableAtrPts}>{$availableAtrPts}</h2>
+		<h2 class="mask points-available" class:canAllocate={$attrs.available}>{$attrs.available}</h2>
 		<h4 class="subtitle">Points <br />Available</h4>
-		<button class="subtle respec" class:disabled={!$anyPointsSet} on:click={respec}>Respec</button>
+		<button class="subtle respec" class:disabled={!$attrs.anyPtsAllocated} on:click={respec}
+			>Respec</button
+		>
 	</div>
 	<div class="right">
 		<Attribute info={attributes.str} pts={str} />

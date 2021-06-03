@@ -59,14 +59,14 @@
 		on:contextmenu|preventDefault={removeSkill}
 	>
 		{#if skillInfo.etc && skillInfo.etc.includes('bend-left')}
-			<span class="required-bar required-bar--short" />
-			<span class="required-bar required-bar--left" />
+			<span class="required-bar mask2 required-bar--short" />
+			<span class="required-bar mask2 required-bar--left" />
 		{:else if skillInfo.etc && skillInfo.etc.includes('double-up')}
-			<span class="required-bar required-bar--double-tall" />
+			<span class="required-bar mask2 required-bar--double-tall" />
 		{:else if requresOthers}
-			<span class="required-bar required-bar--tall" />
+			<span class="required-bar mask2 required-bar--tall" />
 		{/if}
-		<div class="skill-shape">
+		<div class="mask2 skill-shape">
 			<div
 				class="skill-img"
 				style={`background-image: url(${skillInfo.img})`}
@@ -102,12 +102,18 @@
 	}
 
 	.skill:not(.available) .skill-img,
-	.skill.noPts .skill-img {
-		opacity: 0.25;
+	.skill.noPts .skill-img,
+	.skill:not(.active).available .skill-img {
+		opacity: 0.3;
 	}
+	.skill:not(.active).available .skill-shape {
+		border-color: hsla(201, 98%, 74%, 1);
+	}
+
 	.skill-shape {
 		box-sizing: border-box;
 		background: black;
+		border: 2px solid transparent;
 		z-index: 1;
 	}
 
@@ -120,7 +126,7 @@
 		background-repeat: no-repeat;
 	}
 	.skill.active .skill-shape {
-		box-shadow: 0 0 0 3px green;
+		border-color: var(--pale);
 	}
 	.skill.active .skill-img {
 		opacity: 1;
