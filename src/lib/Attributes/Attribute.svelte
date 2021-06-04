@@ -171,6 +171,7 @@
 	.attribute-value {
 		position: relative;
 		font-size: 4.5rem;
+		letter-spacing: 0;
 		line-height: 1.5;
 		margin: 0;
 		padding: 0 0 1.5rem;
@@ -233,7 +234,6 @@
 		margin: 0;
 		padding-bottom: 0.25rem;
 		font-size: 1.5rem;
-		letter-spacing: 0.2rem;
 		text-transform: uppercase;
 		text-shadow: 0 3px 4px var(--black);
 	}

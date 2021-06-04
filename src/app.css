@@ -29,6 +29,8 @@
 	--text-default: 'Lato', sans-serif;
 
 	--transition: 0.15s cubic-bezier(0.5, 0.25, 0.25, 0.75);
+
+	--app-container: 1700px;
 }
 
 * {
@@ -56,6 +58,8 @@ h5 {
 	font-family: var(--text-script);
 	font-style: normal;
 	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
 }
 
 a {

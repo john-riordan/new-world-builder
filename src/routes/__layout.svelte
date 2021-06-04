@@ -18,7 +18,7 @@
 <style>
 	main {
 		width: 95%;
-		max-width: 1600px;
+		max-width: var(--app-container);
 		margin: 0 auto;
 		padding: 0 3.5rem;
 	}
