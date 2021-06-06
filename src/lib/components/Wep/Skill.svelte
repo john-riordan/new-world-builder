@@ -9,9 +9,9 @@
 	export let row;
 	export let col;
 
-	$: {
-		console.log($wepPtsRemaining);
-	}
+	// $: {
+	// 	console.log($wepPtsRemaining);
+	// }
 
 	const hasRequirement = skillInfo && skillInfo.required;
 	const requresOthers = typeof hasRequirement === 'string' ? true : false;
@@ -91,7 +91,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		aspect-ratio: 1;
 		cursor: pointer;
 		opacity: 1;
 	}

@@ -6,9 +6,9 @@ export const attributes = {
 		title: 'Strength',
 		type: 'Melee focused',
 		primary: [
-			weapons.warHammer.name,
-			weapons.greatAxe.name,
-			weapons.straightSword.name,
+			weapons['war-hammer'].name,
+			weapons['great-axe'].name,
+			weapons['straight-sword'].name,
 			weapons.hatchet.name
 		],
 		secondary: [weapons.spear.name],
@@ -41,7 +41,7 @@ export const attributes = {
 		title: 'Dexterity',
 		type: 'Ranged focused',
 		primary: [weapons.bow.name, weapons.rapier.name, weapons.spear.name, weapons.musket.name],
-		secondary: [weapons.straightSword.name, weapons.hatchet.name],
+		secondary: [weapons['straight-sword'].name, weapons.hatchet.name],
 		bonuses: [
 			['<span>+5%</span> chance to critical hit', '<span>+10</span> skinning speed'],
 			['<span>+5</span> thrust damage', '<span>+20%</span> haste for 3s after skinning'],

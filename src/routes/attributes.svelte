@@ -1,9 +1,13 @@
-<script>
-	import { str, dex, int, foc, con, attrs } from '../../stores';
-	import { attributes } from '../../attributes';
-	import { MIN_ATTR_PTS } from '../../constants';
+<script context="module">
+	export const prerender = true;
+</script>
 
-	import Attribute from './Attribute.svelte';
+<script>
+	import { str, dex, int, foc, con, attrs } from '../stores';
+	import { attributes } from '../attributes';
+	import { MIN_ATTR_PTS } from '../constants';
+
+	import Attribute from '$lib/Attributes/Attribute.svelte';
 
 	function respec() {
 		str.set(MIN_ATTR_PTS);

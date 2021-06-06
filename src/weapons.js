@@ -2,8 +2,8 @@ import { SWORDMASTER, DEFENDER } from './wepTrees/sword';
 import { THROWING, BERZERKER } from './wepTrees/hatchet';
 
 export const weapons = {
-	straightSword: {
-		name: 'straightSword',
+	'straight-sword': {
+		name: 'straight-sword',
 		title: 'Sraight Sword',
 		tree1: {
 			name: 'swordmaster',
@@ -46,8 +46,8 @@ export const weapons = {
 			name: 'impaler'
 		}
 	},
-	greatAxe: {
-		name: 'greatAxe',
+	'great-axe': {
+		name: 'great-axe',
 		title: 'Great Axe',
 		tree1: {
 			name: 'reaper'
@@ -56,8 +56,8 @@ export const weapons = {
 			name: 'mauler'
 		}
 	},
-	warHammer: {
-		name: 'warHammer',
+	'war-hammer': {
+		name: 'war-hammer',
 		title: 'War Hammer',
 		tree1: {
 			name: 'juggernaut'
@@ -86,8 +86,8 @@ export const weapons = {
 			name: 'trapper'
 		}
 	},
-	fireStaff: {
-		name: 'fireStaff',
+	'fire-staff': {
+		name: 'fire-staff',
 		title: 'Fire Staff',
 		tree1: {
 			name: 'fireMage'
@@ -96,8 +96,8 @@ export const weapons = {
 			name: 'pyroMancer'
 		}
 	},
-	lifeStaff: {
-		name: 'lifeStaff',
+	'life-staff': {
+		name: 'life-staff',
 		title: 'Life Staff',
 		tree1: {
 			name: 'healing'
@@ -106,8 +106,8 @@ export const weapons = {
 			name: 'protector'
 		}
 	},
-	iceGauntlet: {
-		name: 'iceGauntlet',
+	'ice-gauntlet': {
+		name: 'ice-gauntlet',
 		title: 'Ice Gauntlet',
 		tree1: {
 			name: 'iceTempest'
@@ -121,11 +121,11 @@ export const weapons = {
 export const wepClasses = [
 	{
 		title: 'One-Handed Weapons',
-		list: [weapons.straightSword, weapons.rapier, weapons.hatchet]
+		list: [weapons['straight-sword'], weapons.rapier, weapons.hatchet]
 	},
 	{
 		title: 'Two-Handed Weapons',
-		list: [weapons.spear, weapons.greatAxe, weapons.warHammer]
+		list: [weapons.spear, weapons['great-axe'], weapons['war-hammer']]
 	},
 	{
 		title: 'Ranged Weapons',
@@ -133,6 +133,6 @@ export const wepClasses = [
 	},
 	{
 		title: 'Magic',
-		list: [weapons.fireStaff, weapons.lifeStaff, weapons.iceGauntlet]
+		list: [weapons['fire-staff'], weapons['life-staff'], weapons['ice-gauntlet']]
 	}
 ];

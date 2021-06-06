@@ -1,5 +1,5 @@
 <script>
-	import Header from '$lib/Header/index.svelte';
+	import Tabs from '$lib/components/Tabs/index.svelte';
 	import '../app.css';
 </script>
 
@@ -7,6 +7,23 @@
 <div class="bg bg-top" />
 
 <!-- <Header /> -->
+
+<Tabs
+	tabs={[
+		{
+			title: 'Attributes',
+			url: '/attributes'
+		},
+		{
+			title: 'Weapons',
+			url: '/weapons'
+		},
+		{
+			title: 'Item Affixes',
+			url: '/affixes'
+		}
+	]}
+/>
 
 <main>
 	<slot />

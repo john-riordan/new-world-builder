@@ -101,6 +101,35 @@ button.minor {
 	background-size: 10px 13px;
 }
 
+.tab-list {
+	display: flex;
+	border-bottom: 1px solid var(--white);
+}
+.tab {
+	display: flex;
+	align-items: center;
+	height: 3.75rem;
+	padding: 1rem;
+	border: 1px solid var(--grey);
+	border-bottom: none;
+	font-size: 1.25rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: var(--text-script);
+	letter-spacing: 4px;
+	cursor: pointer;
+}
+.tab:not(:last-of-type) {
+	border-right: none;
+}
+.tab.active {
+	background: var(--grey);
+}
+
+.tab a {
+	text-decoration: none;
+}
+
 .mask {
 	mask-image: url(/static/mask.png);
 	-webkit-mask-image: url(/static/mask.png);

@@ -22,7 +22,7 @@
 		{#each Array(size.cols) as _, col}
 			<Skill
 				{store}
-				skillInfo={tree && tree[`${row + 1}_${col + 1}`]}
+				skillInfo={tree && tree.skills[`${row + 1}_${col + 1}`]}
 				row={row + 1}
 				col={col + 1}
 				on:addSkill={addSkill}
