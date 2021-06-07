@@ -8,6 +8,7 @@
 	export let skillInfo;
 	export let row;
 	export let col;
+	export let ptsRemaining;
 
 	// $: {
 	// 	console.log($wepPtsRemaining);
@@ -17,10 +18,11 @@
 	const requresOthers = typeof hasRequirement === 'string' ? true : false;
 	const requiresPoints = hasRequirement || row > 1 ? true : false;
 
+	$: activeWep = store ? true : false;
 	$: isActive = skillInfo && store ? $store.list.includes(skillInfo.name) : false;
-	$: isAvailable = !skillInfo
+	$: isSelectable = !skillInfo
 		? false
-		: !store
+		: !activeWep
 		? true
 		: requresOthers && requiresPoints
 		? $store.list.includes(skillInfo.required) && $store.rows.includes(skillInfo.row - 1)
@@ -47,15 +49,16 @@
 </script>
 
 {#if skillInfo}
-	<div
+	<button
 		class="skill"
 		class:active={isActive}
-		class:available={isAvailable}
+		class:selectable={ptsRemaining && isSelectable}
+		class:wepActive={activeWep}
 		class:noPts={!$wepPtsRemaining}
 		data-type={skillInfo.type}
 		data-row={row}
 		data-col={col}
-		on:click={wepPtsRemaining && addSkill}
+		on:click={ptsRemaining && isSelectable && addSkill}
 		on:contextmenu|preventDefault={removeSkill}
 	>
 		{#if skillInfo.etc && skillInfo.etc.includes('bend-left')}
@@ -66,14 +69,16 @@
 		{:else if requresOthers}
 			<span class="required-bar mask2 required-bar--tall" />
 		{/if}
-		<div class="mask2 skill-shape">
+		<div class="skill-shape">
+			<div class="mask2 color-fill" />
+			<div class="border" />
 			<div
 				class="skill-img"
 				style={`background-image: url(${skillInfo.img})`}
 				title={skillInfo.name}
 			/>
 		</div>
-	</div>
+	</button>
 {:else}
 	<div class="skill empty" />
 {/if}
@@ -86,32 +91,37 @@
 	}
 	.skill {
 		--bar-thickness: 5%;
-		--bar-color: black;
+		--bar-color: hsl(26deg 4% 25%);
 		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		cursor: pointer;
+		padding: 0.5rem;
+		cursor: default;
 		opacity: 1;
 	}
-	.skill:not(.available),
+	.skill.wepActive {
+		cursor: pointer;
+	}
+	.skill:not(.selectable),
 	.skill.noPts {
 		cursor: default;
-		pointer-events: none;
 	}
 
-	.skill:not(.available) .skill-img,
-	.skill.noPts .skill-img,
-	.skill:not(.active).available .skill-img {
+	.skill.wepActive:not(.selectable) .skill-img,
+	.skill.noPts .skill-img {
 		opacity: 0.3;
 	}
-	.skill:not(.active).available .skill-shape {
+	.skill.wepActive:not(.active).selectable .skill-shape {
 		border-color: hsla(201, 98%, 74%, 1);
+	}
+	.skill.wepActive:not(.active).selectable .required-bar {
+		--bar-color: var(--pale);
 	}
 
 	.skill-shape {
-		box-sizing: border-box;
-		background: black;
+		position: relative;
+		background: var(--brown-dark);
 		border: 2px solid transparent;
 		z-index: 1;
 	}
@@ -124,17 +134,47 @@
 		background-size: 80%;
 		background-repeat: no-repeat;
 	}
-	.skill.active .skill-shape {
+	.skill:not(.wepActive) .skill-shape,
+	.skill.wepActive.active .skill-shape {
 		border-color: var(--pale);
 	}
+	.skill:not(.wepActive) .skill-shape .color-fill,
+	.skill.wepActive.active .skill-shape .color-fill {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(var(--tree-color, grey) 0%, black 140%);
+		opacity: 0.8;
+	}
+	.skill:not(.wepActive) .skill-shape .border,
+	.skill.wepActive.active .skill-shape .border {
+		position: absolute;
+		top: -0.5rem;
+		left: -0.5rem;
+		bottom: -0.5rem;
+		right: -0.5rem;
+		border: 2px solid hsla(36, 8%, 24%, 1);
+	}
+
 	.skill.active .skill-img {
-		opacity: 1;
+		opacity: 1 !important;
+	}
+	.skill.active .required-bar {
+		--bar-color: var(--pale) !important;
 	}
 	.skill[data-type='major'] .skill-shape {
 		width: 100%;
 	}
 	.skill[data-type='minor'] .skill-shape {
 		width: 60%;
+		border-radius: 50%;
+	}
+	.skill[data-type='minor'] .skill-shape .border,
+	.skill[data-type='minor'] .skill-shape .color-fill,
+	.skill[data-type^='ult'] .skill-shape .border,
+	.skill[data-type^='ult'] .skill-shape .color-fill {
 		border-radius: 50%;
 	}
 	.skill[data-type='minor'] .skill-img {

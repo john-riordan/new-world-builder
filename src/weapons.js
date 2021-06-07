@@ -7,21 +7,25 @@ export const weapons = {
 		title: 'Sraight Sword',
 		tree1: {
 			name: 'swordmaster',
-			skills: SWORDMASTER
+			skills: SWORDMASTER,
+			color: '--skill-red'
 		},
 		tree2: {
 			name: 'defender',
-			skills: DEFENDER
+			skills: DEFENDER,
+			color: '--skill-red'
 		}
 	},
 	rapier: {
 		name: 'rapier',
 		title: 'Rapier',
 		tree1: {
-			name: 'blood'
+			name: 'blood',
+			color: '--skill-red'
 		},
 		tree2: {
-			name: 'grace'
+			name: 'grace',
+			color: '--skill-red'
 		}
 	},
 	hatchet: {
@@ -29,91 +33,109 @@ export const weapons = {
 		title: 'Hatchet',
 		tree1: {
 			name: 'berzerker',
-			skills: BERZERKER
+			skills: BERZERKER,
+			color: '--skill-orange'
 		},
 		tree2: {
 			name: 'throwing',
-			skills: THROWING
+			skills: THROWING,
+			color: '--skill-olive'
 		}
 	},
 	spear: {
 		name: 'spear',
 		title: 'Spear',
 		tree1: {
-			name: 'zoner'
+			name: 'zoner',
+			color: '--skill-olive'
 		},
 		tree2: {
-			name: 'impaler'
+			name: 'impaler',
+			color: '--skill-red'
 		}
 	},
 	'great-axe': {
 		name: 'great-axe',
 		title: 'Great Axe',
 		tree1: {
-			name: 'reaper'
+			name: 'reaper',
+			color: '--skill-red'
 		},
 		tree2: {
-			name: 'mauler'
+			name: 'mauler',
+			color: '--skill-red'
 		}
 	},
 	'war-hammer': {
 		name: 'war-hammer',
 		title: 'War Hammer',
 		tree1: {
-			name: 'juggernaut'
+			name: 'juggernaut',
+			color: '--skill-red'
 		},
 		tree2: {
-			name: 'crowdCrusher'
+			name: 'crowdCrusher',
+			color: '--skill-purple'
 		}
 	},
 	bow: {
 		name: 'bow',
 		title: 'Bow',
 		tree1: {
-			name: 'skirmisher'
+			name: 'skirmisher',
+			color: '--skill-olive'
 		},
 		tree2: {
-			name: 'hunter'
+			name: 'hunter',
+			color: '--skill-olive'
 		}
 	},
 	musket: {
 		name: 'musket',
 		title: 'Musket',
 		tree1: {
-			name: 'sharpshooter'
+			name: 'sharpshooter',
+			color: '--skill-olive'
 		},
 		tree2: {
-			name: 'trapper'
+			name: 'trapper',
+			color: '--skill-purple'
 		}
 	},
 	'fire-staff': {
 		name: 'fire-staff',
 		title: 'Fire Staff',
 		tree1: {
-			name: 'fireMage'
+			name: 'fireMage',
+			color: '--skill-blue'
 		},
 		tree2: {
-			name: 'pyroMancer'
+			name: 'pyroMancer',
+			color: '--skill-blue'
 		}
 	},
 	'life-staff': {
 		name: 'life-staff',
 		title: 'Life Staff',
 		tree1: {
-			name: 'healing'
+			name: 'healing',
+			color: '--skill-turq'
 		},
 		tree2: {
-			name: 'protector'
+			name: 'protector',
+			color: '--skill-turq'
 		}
 	},
 	'ice-gauntlet': {
 		name: 'ice-gauntlet',
 		title: 'Ice Gauntlet',
 		tree1: {
-			name: 'iceTempest'
+			name: 'iceTempest',
+			color: '--skill-blue'
 		},
 		tree2: {
-			name: 'builder'
+			name: 'builder',
+			color: '--skill-blue'
 		}
 	}
 };

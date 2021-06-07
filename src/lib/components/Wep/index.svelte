@@ -1,41 +1,46 @@
 <script>
 	import Tree from './Tree.svelte';
 
-	import { selectedWeps, renderedWep, trees, wep0Pts, wep1Pts } from '../../../stores';
+	import { selectedWeps, trees, wep0Pts, wep1Pts } from '../../../stores';
+	import { SKILL_PTS } from '../../../constants';
 
-	export let activeWepindex;
+	export let wepName;
 	export let treeLeft;
 	export let treeRight;
 
+	$: activeWepindex = $selectedWeps.findIndex((wep) => wep === wepName);
 	$: isValidIndex = activeWepindex === 0 || activeWepindex === 1;
 	$: treeLeftStore = isValidIndex ? trees[activeWepindex][0] : null;
 	$: treeRightStore = isValidIndex ? trees[activeWepindex][1] : null;
-	$: wepPoints = activeWepindex === 0 ? wep0Pts : activeWepindex === 1 ? wep1Pts : null;
+	$: appliedPoints = activeWepindex === 0 ? wep0Pts : activeWepindex === 1 ? wep1Pts : null;
+	$: ptsRemaining = $appliedPoints <= SKILL_PTS ? SKILL_PTS - $appliedPoints : 0;
 
 	function resetTrees() {
 		treeLeftStore.resetTree();
 		treeRightStore.resetTree();
 	}
+
+	$: console.log($selectedWeps, wepName, activeWepindex);
 </script>
 
 <div class="tree-pair">
-	<Tree tree={treeLeft} store={treeLeftStore} />
-	<Tree tree={treeRight} store={treeRightStore} />
+	<Tree tree={treeLeft} store={treeLeftStore} {ptsRemaining} />
+	<Tree tree={treeRight} store={treeRightStore} {ptsRemaining} />
 </div>
 <div class="controls">
-	{#if $selectedWeps.includes($renderedWep)}
-		<button class="subtle add-remove add" on:click={() => selectedWeps.removeWep($renderedWep)}
+	{#if $selectedWeps.includes(wepName)}
+		<button class="subtle add-remove add" on:click={() => selectedWeps.removeWep(wepName)}
 			>Remove this wep from build</button
 		>
 	{:else}
-		<button class="subtle add-remove add" on:click={() => selectedWeps.addWep($renderedWep)}
+		<button class="subtle add-remove add" on:click={() => selectedWeps.addWep(wepName)}
 			>Use this wep in build</button
 		>
 	{/if}
-	{#if $wepPoints}
-		<button class="subtle reset" on:click={resetTrees}>Reset</button>
-	{:else if $wepPoints === 0}
-		<button class="disabled subtle reset" on:click={resetTrees}>Reset</button>
+	{#if activeWepindex >= 0}
+		<button class="subtle reset" on:click={resetTrees}>Reset {ptsRemaining}</button>
+	{:else if activeWepindex >= 0 && $appliedPoints === 0}
+		<button class="disabled subtle reset" on:click={resetTrees}>Reset {ptsRemaining}</button>
 	{/if}
 </div>
 
@@ -43,7 +48,7 @@
 	.tree-pair {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 6rem;
+		gap: 9rem;
 		width: 100%;
 	}
 	.controls {

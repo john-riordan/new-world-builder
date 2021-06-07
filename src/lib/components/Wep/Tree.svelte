@@ -8,6 +8,7 @@
 
 	export let tree;
 	export let store;
+	export let ptsRemaining;
 
 	function addSkill(event) {
 		if (store) store.addSkill(event.detail.skill);
@@ -17,11 +18,12 @@
 	}
 </script>
 
-<div class="grid">
+<div class="grid" style="--tree-color: var({tree.color})">
 	{#each Array(size.rows) as _, row}
 		{#each Array(size.cols) as _, col}
 			<Skill
 				{store}
+				{ptsRemaining}
 				skillInfo={tree && tree.skills[`${row + 1}_${col + 1}`]}
 				row={row + 1}
 				col={col + 1}

@@ -25,6 +25,13 @@
 
 	--yellow: hsla(49, 100%, 68%, 1);
 
+	--skill-red: hsla(348, 29%, 36%, 1);
+	--skill-orange: hsla(22, 49%, 51%, 1);
+	--skill-olive: hsla(59, 100%, 32%, 1);
+	--skill-purple: hsla(279, 50%, 23%, 1);
+	--skill-blue: hsla(192, 57%, 31%, 1);
+	--skill-turq: hsla(162, 44%, 29%, 1);
+
 	--text-script: 'IM Fell DW Pica', Times, Times Roman, Times New Roman, serif;
 	--text-default: 'Lato', sans-serif;
 

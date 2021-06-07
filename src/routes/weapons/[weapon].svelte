@@ -18,9 +18,7 @@
 	export let data;
 	export let error;
 
-	import { renderedWep, renderedWepData, selectedWeps, wep0Pts, wep1Pts } from '../../stores';
-
-	$: activeWepindex = $selectedWeps.findIndex((wep) => wep === $renderedWep);
+	const renderedWep = data && data.name;
 
 	import Wep from '$lib/components/Wep/index.svelte';
 </script>
@@ -32,5 +30,5 @@
 {#if data}
 	<h1>{data.title}</h1>
 
-	<Wep {activeWepindex} treeLeft={data.tree1} treeRight={data.tree2} />
+	<Wep wepName={renderedWep} treeLeft={data.tree1} treeRight={data.tree2} />
 {/if}
