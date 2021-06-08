@@ -19,13 +19,11 @@
 		treeLeftStore.resetTree();
 		treeRightStore.resetTree();
 	}
-
-	$: console.log($selectedWeps, wepName, activeWepindex);
 </script>
 
 <div class="tree-pair">
-	<Tree tree={treeLeft} store={treeLeftStore} {ptsRemaining} />
-	<Tree tree={treeRight} store={treeRightStore} {ptsRemaining} />
+	<Tree treeIndex={0} tree={treeLeft} store={treeLeftStore} {ptsRemaining} />
+	<Tree treeIndex={1} tree={treeRight} store={treeRightStore} {ptsRemaining} />
 </div>
 <div class="controls">
 	{#if $selectedWeps.includes(wepName)}

@@ -12,8 +12,11 @@
 	--brown-dark-hsl: 40deg 5% 12%;
 	--brown-dark: hsl(var(--brown-dark-hsl));
 
-	--grey-hsl: 0deg 1% 28%;
+	--grey-hsl: 0deg 0% 30%;
 	--grey: hsl(var(--grey-hsl));
+
+	--grey-pale-hsl: 0deg 0% 65%;
+	--grey-pale: hsl(var(--grey-pale-hsl));
 
 	--pale-hsl: 43deg 100% 90%;
 	--pale: hsl(var(--pale-hsl));

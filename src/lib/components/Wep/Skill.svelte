@@ -1,6 +1,9 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+
 	import { wepPtsRemaining } from '../../../stores';
+	import { tooltipWepAbility } from '$lib/actions/tooltipWepAbility';
+	import { hoverSound } from '$lib/actions/hoverSound';
 
 	const dispatch = createEventDispatcher();
 
@@ -9,6 +12,7 @@
 	export let row;
 	export let col;
 	export let ptsRemaining;
+	export let tooltipSide;
 
 	// $: {
 	// 	console.log($wepPtsRemaining);
@@ -75,7 +79,8 @@
 			<div
 				class="skill-img"
 				style={`background-image: url(${skillInfo.img})`}
-				title={skillInfo.name}
+				use:tooltipWepAbility={{ abilityInfo: skillInfo, side: tooltipSide }}
+				use:hoverSound={{ type: 'btn-hover' }}
 			/>
 		</div>
 	</button>

@@ -9,6 +9,7 @@
 	export let tree;
 	export let store;
 	export let ptsRemaining;
+	export let treeIndex;
 
 	function addSkill(event) {
 		if (store) store.addSkill(event.detail.skill);
@@ -27,6 +28,7 @@
 				skillInfo={tree && tree.skills[`${row + 1}_${col + 1}`]}
 				row={row + 1}
 				col={col + 1}
+				tooltipSide={treeIndex === 1 ? 'left' : 'right'}
 				on:addSkill={addSkill}
 				on:removeSkill={removeSkill}
 			/>
