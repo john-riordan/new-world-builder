@@ -43,13 +43,13 @@
 	@keyframes fadeInRight {
 		from {
 			opacity: 0;
-			left: calc(var(--x-offset) - var(--width) - var(--buffer) - 6px);
+			left: calc(var(--x-offset) - var(--width) - var(--buffer) - 4px);
 		}
 	}
 	@keyframes fadeInLeft {
 		from {
 			opacity: 0;
-			left: calc(var(--x-offset) + var(--offset) + var(--buffer) + 6px);
+			left: calc(var(--x-offset) + var(--offset) + var(--buffer) + 4px);
 		}
 	}
 
@@ -109,7 +109,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 1.5rem 0;
+		padding: 1rem 0 1.5rem;
 	}
 	.middle > div {
 		flex: 1;
