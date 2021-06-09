@@ -1,6 +1,10 @@
 <script>
 	import Tabs from '$lib/components/Tabs/index.svelte';
 	import '../app.css';
+
+	import { selectedWeps, wep0Pts, wep1Pts, attrs } from '../../src/stores';
+
+	$: console.log($attrs);
 </script>
 
 <div class="bg bg-bottom" />
@@ -28,6 +32,42 @@
 <main>
 	<slot />
 </main>
+
+<div class="build">
+	{#if $attrs.primary}
+		<div class="attrs">
+			<div>Primary: {$attrs.primary.key}({$attrs.primary.pts})</div>
+			{#if $attrs.secondary}
+				<div>Secondary: {$attrs.secondary.key}({$attrs.secondary.pts})</div>
+			{/if}
+		</div>
+	{/if}
+	<!-- <div>{$attrs.primary.key}: {$attrs.primary.pts}</div> -->
+	<div class="weps">
+		{#if $selectedWeps[0]}
+			<div class="wep">
+				<h4>{$selectedWeps[0]}</h4>
+				<p class="pts">{$wep0Pts} Points spent</p>
+			</div>
+		{:else}
+			<div class="wep">
+				<h4>Select Wep 1</h4>
+				<p class="pts">-</p>
+			</div>
+		{/if}
+		{#if $selectedWeps[1]}
+			<div class="wep">
+				<h4>{$selectedWeps[1]}</h4>
+				<p class="pts">{$wep1Pts} Points spent</p>
+			</div>
+		{:else}
+			<div class="wep">
+				<h4>Select Wep 2</h4>
+				<p class="pts">-</p>
+			</div>
+		{/if}
+	</div>
+</div>
 
 <!-- <footer>
 	<p>Footer</p>
@@ -58,5 +98,33 @@
 		bottom: 0;
 		background: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/texture-bottom.jpg)
 			no-repeat bottom;
+	}
+
+	.build {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		bottom: 2rem;
+		right: 2rem;
+		padding: 1.75rem;
+		background: var(--brown);
+		border: 1px solid var(--grey);
+		z-index: 9;
+	}
+
+	.build .attrs,
+	.build .weps {
+		display: flex;
+	}
+	.build .attrs {
+		gap: 1rem;
+	}
+	.build .wep {
+		width: 17rem;
+	}
+
+	.wep h4 {
+		margin: 0;
 	}
 </style>

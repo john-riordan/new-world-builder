@@ -1,7 +1,7 @@
 import { writable, derived } from 'svelte/store';
 import { weapons } from './weapons';
 import { attributes } from './attributes';
-import { ATTR_PTS, SKILL_PTS } from './constants';
+import { ATTR_PTS, SKILL_PTS, MIN_ATTR_PTS } from './constants';
 
 // -----------------------------------------
 // Attribute points
@@ -37,9 +37,16 @@ export const attrs = derived([str, dex, int, foc, con], ([$str, $dex, $int, $foc
 	if (focBonus.length) bonuses.push(focBonus);
 	if (conBonus.length) bonuses.push(conBonus);
 
+	const attrKeys = ['str', 'dex', 'int', 'foc', 'con'];
+	const orderedAttrs = [$str, $dex, $int, $foc, $con]
+		.map((attr, i) => ({ key: attrKeys[i], pts: attr }))
+		.sort((z, a) => a.pts - z.pts);
+
 	return {
 		available: ATTR_PTS - $str - $dex - $int - $foc - $con,
 		anyPtsAllocated: $str + $dex + $int + $foc + $con > 25,
+		primary: orderedAttrs[0].pts > MIN_ATTR_PTS ? orderedAttrs[0] : null,
+		secondary: orderedAttrs[1].pts > MIN_ATTR_PTS ? orderedAttrs[1] : null,
 		bonuses: bonuses.filter(Boolean).flat(2)
 	};
 });
