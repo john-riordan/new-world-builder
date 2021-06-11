@@ -46,7 +46,7 @@
 	.tree-pair {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 9rem;
+		gap: 2rem;
 		width: 100%;
 	}
 	.controls {
