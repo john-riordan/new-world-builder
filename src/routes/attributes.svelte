@@ -1,11 +1,23 @@
 <script context="module">
 	export const prerender = true;
+
+	import { attributes } from '../attributes';
+
+	export async function load() {
+		return {
+			props: {
+				data: attributes
+			}
+		};
+	}
 </script>
 
 <script>
 	import { str, dex, int, foc, con, attrs } from '../stores';
-	import { attributes } from '../attributes';
+
 	import { MIN_ATTR_PTS } from '../constants';
+
+	export let data;
 
 	import Attribute from '$lib/Attributes/Attribute.svelte';
 
@@ -38,11 +50,11 @@
 		</ul>
 	</div>
 	<div class="right">
-		<Attribute info={attributes.str} pts={str} />
-		<Attribute info={attributes.dex} pts={dex} />
-		<Attribute info={attributes.int} pts={int} />
-		<Attribute info={attributes.foc} pts={foc} />
-		<Attribute info={attributes.con} pts={con} />
+		<Attribute info={data.str} pts={str} />
+		<Attribute info={data.dex} pts={dex} />
+		<Attribute info={data.int} pts={int} />
+		<Attribute info={data.foc} pts={foc} />
+		<Attribute info={data.con} pts={con} />
 	</div>
 </div>
 

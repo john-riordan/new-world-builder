@@ -1,4 +1,6 @@
 <script context="module">
+	export const prerender = true;
+
 	import { weapons } from '../../weapons';
 
 	export async function load({ page }) {

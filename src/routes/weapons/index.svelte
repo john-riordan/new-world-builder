@@ -1,4 +1,6 @@
 <script context="module">
+	export const prerender = true;
+
 	import { wepClasses } from '../../weapons';
 
 	export async function load() {

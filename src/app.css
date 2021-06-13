@@ -149,3 +149,21 @@ button.minor {
 	mask-image: url(/static/mask2.png);
 	-webkit-mask-image: url(/static/mask2.png);
 }
+
+.decoration-top,
+.decoration-bottom {
+	position: absolute;
+	background-position-x: 0;
+	background-position-y: -305px;
+	width: 486px;
+	height: 51px;
+	background-image: url(//d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/new-world-sprites.png);
+}
+.decoration-top {
+	left: 50%;
+	transform: translateX(-50%);
+}
+.decoration-bottom {
+	left: 50%;
+	transform: rotateX(180deg) translateX(-50%);
+}
