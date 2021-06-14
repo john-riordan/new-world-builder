@@ -1,4 +1,4 @@
-<div class="container">
+<div class="line-container">
 	<div class="borders borders-inline" />
 	<div class="borders borders-block" />
 	<div>
@@ -7,12 +7,12 @@
 </div>
 
 <style>
-	.container {
+	.line-container {
+		--line-overflow: 40px;
 		position: relative;
-		padding: 1.5rem;
 	}
 
-	.container > * {
+	.line-container > * {
 		position: relative;
 	}
 
@@ -27,18 +27,18 @@
 	/* Left and right borders */
 	.borders-inline {
 		position: absolute;
-		inset: 0;
+		inset: -1px;
 	}
 	.borders-inline::before,
 	.borders-inline::after {
 		width: 1px;
-		height: 110%;
-		transform: translateY(-5%);
+		height: calc(100% + var(--line-overflow));
+		transform: translateY(calc(var(--line-overflow) / 2 * -1));
 		-webkit-mask-image: linear-gradient(
 			to bottom,
 			transparent 0%,
-			black 5%,
-			black 90%,
+			black var(--line-overflow),
+			black calc(100% - var(--line-overflow)),
 			transparent 100%
 		);
 	}
@@ -52,18 +52,18 @@
 	/* Top and bottom borders */
 	.borders-block {
 		position: absolute;
-		inset: 0;
+		inset: -1px;
 	}
 	.borders-block::before,
 	.borders-block::after {
 		height: 1px;
-		width: 110%;
-		transform: translateX(-5%);
+		width: calc(100% + var(--line-overflow));
+		transform: translateX(calc(var(--line-overflow) / 2 * -1));
 		-webkit-mask-image: linear-gradient(
 			to right,
 			transparent 0%,
-			black 5%,
-			black 90%,
+			black var(--line-overflow),
+			black calc(100% - var(--line-overflow)),
 			transparent 100%
 		);
 	}

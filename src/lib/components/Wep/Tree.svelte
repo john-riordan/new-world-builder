@@ -23,7 +23,7 @@
 <div>
 	<h2 class="tree-name">{tree.name}</h2>
 	<LineBorder>
-		<div class="grid" style="--tree-color: var({tree.color})">
+		<div class="tree-grid" style="--tree-color: var({tree.color})">
 			{#each Array(size.rows) as _, row}
 				{#each Array(size.cols) as _, col}
 					<Skill
@@ -43,10 +43,11 @@
 </div>
 
 <style>
-	.grid {
+	.tree-grid {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(6, 1fr);
+		padding: 1rem;
 	}
 
 	.tree-name {

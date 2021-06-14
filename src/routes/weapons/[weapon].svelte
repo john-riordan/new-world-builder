@@ -18,7 +18,6 @@
 
 <script>
 	export let data;
-	export let error;
 
 	const renderedWep = data && data.name;
 

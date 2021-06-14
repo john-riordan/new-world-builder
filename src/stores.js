@@ -152,11 +152,13 @@ export const shareLink = derived(
 	([$weps, $wep0tree0, $wep0tree1, $wep1tree0, $wep1tree1]) => {
 		const params = {
 			weps: $weps,
-			w0t0: $wep0tree0,
-			w0t1: $wep0tree1,
-			w1t0: $wep1tree0,
-			w1t1: $wep1tree1
+			w0t0: $wep0tree0.list,
+			w0t1: $wep0tree1.list,
+			w1t0: $wep1tree0.list,
+			w1t1: $wep1tree1.list
 		};
+
+		console.log($wep0tree0);
 
 		return new URLSearchParams(params).toString();
 	}

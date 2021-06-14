@@ -1,47 +1,57 @@
+<script context="module">
+	export const load = async ({ page }) => ({
+		props: {
+			key: page.path
+		}
+	});
+</script>
+
 <script>
-	import BuildOverview from '$lib/components/BuildOverview/index.svelte'
+	import Header from '$lib/components/Header/index.svelte';
+	import Footer from '$lib/components/Footer/index.svelte';
+	import PageTransition from '$lib/components/PageTransition/index.svelte';
+
+	import BuildOverview from '$lib/components/BuildOverview/index.svelte';
 	import Tabs from '$lib/components/Tabs/index.svelte';
 	import '../app.css';
+
+	export let key;
 </script>
 
 <div class="bg bg-bottom" />
 <div class="bg bg-top" />
 
-<!-- <Header /> -->
+<Header />
 
-<Tabs
-	tabs={[
-		{
-			title: 'Attributes',
-			url: '/attributes'
-		},
-		{
-			title: 'Weapons',
-			url: '/weapons'
-		},
-		{
-			title: 'Item Affixes',
-			url: '/affixes'
-		}
-	]}
-/>
-
-<main>
-	<slot />
+<main class="container">
+	<Tabs
+		tabs={[
+			{
+				title: 'Attributes',
+				url: '/attributes'
+			},
+			{
+				title: 'Weapons',
+				url: '/weapons'
+			},
+			{
+				title: 'Item Affixes',
+				url: '/affixes'
+			}
+		]}
+	/>
+	<PageTransition refresh={key}>
+		<slot />
+	</PageTransition>
 </main>
 
 <BuildOverview />
 
+<Footer />
 
-<!-- <footer>
-	<p>Footer</p>
-</footer> -->
 <style>
 	main {
-		width: 95%;
-		max-width: var(--app-container);
-		margin: 0 auto;
-		padding: 0 3.5rem;
+		min-height: 95vh;
 	}
 
 	.bg {

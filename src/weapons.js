@@ -5,6 +5,7 @@ export const weapons = {
 	'straight-sword': {
 		name: 'straight-sword',
 		title: 'Sraight Sword',
+		damage_type: 'slash',
 		tree1: {
 			name: 'swordmaster',
 			skills: SWORDMASTER,
@@ -19,6 +20,7 @@ export const weapons = {
 	rapier: {
 		name: 'rapier',
 		title: 'Rapier',
+		damage_type: 'thrust',
 		tree1: {
 			name: 'blood',
 			color: '--skill-red'
@@ -31,6 +33,7 @@ export const weapons = {
 	hatchet: {
 		name: 'hatchet',
 		title: 'Hatchet',
+		damage_type: 'slash',
 		tree1: {
 			name: 'berzerker',
 			skills: BERZERKER,
@@ -45,6 +48,7 @@ export const weapons = {
 	spear: {
 		name: 'spear',
 		title: 'Spear',
+		damage_type: 'thrust',
 		tree1: {
 			name: 'zoner',
 			color: '--skill-olive'
@@ -57,6 +61,7 @@ export const weapons = {
 	'great-axe': {
 		name: 'great-axe',
 		title: 'Great Axe',
+		damage_type: 'slash',
 		tree1: {
 			name: 'reaper',
 			color: '--skill-red'
@@ -69,6 +74,7 @@ export const weapons = {
 	'war-hammer': {
 		name: 'war-hammer',
 		title: 'War Hammer',
+		damage_type: 'strike',
 		tree1: {
 			name: 'juggernaut',
 			color: '--skill-red'
@@ -81,6 +87,7 @@ export const weapons = {
 	bow: {
 		name: 'bow',
 		title: 'Bow',
+		damage_type: 'thrust',
 		tree1: {
 			name: 'skirmisher',
 			color: '--skill-olive'
@@ -93,6 +100,7 @@ export const weapons = {
 	musket: {
 		name: 'musket',
 		title: 'Musket',
+		damage_type: 'thrust',
 		tree1: {
 			name: 'sharpshooter',
 			color: '--skill-olive'
@@ -105,6 +113,7 @@ export const weapons = {
 	'fire-staff': {
 		name: 'fire-staff',
 		title: 'Fire Staff',
+		damage_type: 'fire',
 		tree1: {
 			name: 'fireMage',
 			color: '--skill-blue'
@@ -117,6 +126,7 @@ export const weapons = {
 	'life-staff': {
 		name: 'life-staff',
 		title: 'Life Staff',
+		damage_type: 'nature',
 		tree1: {
 			name: 'healing',
 			color: '--skill-turq'
@@ -129,6 +139,7 @@ export const weapons = {
 	'ice-gauntlet': {
 		name: 'ice-gauntlet',
 		title: 'Ice Gauntlet',
+		damage_type: 'ice',
 		tree1: {
 			name: 'iceTempest',
 			color: '--skill-blue'

@@ -1,0 +1,66 @@
+{
+  "ancients": {
+    "name": "ancients",
+    "title": "Ancients",
+    "weakness": [
+      {
+        "damage_type": "strike",
+        "amount": 0.20
+      },
+      {
+        "damage_type": "lightning",
+        "amount": 0.30
+      }
+    ],
+    "resists": [
+      {
+        "damage_type": "slash",
+        "amount": 0.15
+      },
+      {
+        "damage_type": "nature",
+        "amount": 0.40
+      },
+      {
+        "damage_type": "fire",
+        "amount": 0.20
+      }
+    ],
+    "img": ""
+  },
+  "corrupted": {
+    "name": "corrupted",
+    "title": "Corrupted",
+    "weakness": [],
+    "resists": [],
+    "img": ""
+  },
+  "lost": {
+    "name": "lost",
+    "title": "Lost",
+    "weakness": [],
+    "resists": [],
+    "img": ""
+  },
+  "darkness": {
+    "name": "darkness",
+    "title": "Darkness",
+    "weakness": [],
+    "resists": [],
+    "img": ""
+  },
+  "angry_earth": {
+    "name": "angry_earth",
+    "title": "Angry Earth",
+    "weakness": [],
+    "resists": [],
+    "img": ""
+  },
+  "beast": {
+    "name": "beast",
+    "title": "Beast",
+    "weakness": [],
+    "resists": [],
+    "img": ""
+  }
+}

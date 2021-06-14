@@ -14,6 +14,7 @@
 </script>
 
 <script>
+	import StripedBg from '$lib/components/StripedBg/index.svelte';
 	import { selectedWeps, wep0Pts, wep1Pts } from '../../stores';
 
 	export let data;
@@ -38,17 +39,19 @@
 					class="wep"
 					class:selected={$selectedWeps.includes(wep.name)}
 				>
-					<img src="sword.png" alt="" />
-					<div>
-						<p class="title">{wep.title}</p>
-						{#if $selectedWeps.includes(wep.name)}
-							<p class="pts">
-								{$selectedWeps.indexOf(wep.name) === 0 ? $wep0Pts : $wep1Pts} Points spent
-							</p>
-						{:else}
-							<p class="pts">--</p>
-						{/if}
-					</div>
+					<StripedBg>
+						<img src="sword.png" alt="" />
+						<div>
+							<p class="title">{wep.title}</p>
+							{#if $selectedWeps.includes(wep.name)}
+								<p class="pts">
+									{$selectedWeps.indexOf(wep.name) === 0 ? $wep0Pts : $wep1Pts} Points spent
+								</p>
+							{:else}
+								<p class="pts">--</p>
+							{/if}
+						</div>
+					</StripedBg>
 				</a>
 			{:else}
 				<div class="wep empty" />

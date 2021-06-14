@@ -1,0 +1,26 @@
+{
+  "thrust": {
+    "effective": [],
+    "ineffective": []
+  },
+  "slash": {
+    "effective": [],
+    "ineffective": []
+  },
+  "strike": {
+    "effective": [],
+    "ineffective": []
+  },
+  "fire": {
+    "effective": [],
+    "ineffective": []
+  },
+  "ice": {
+    "effective": [],
+    "ineffective": []
+  },
+  "nature": {
+    "effective": [],
+    "ineffective": []
+  }
+}

@@ -32,6 +32,10 @@
 		height: 85vh;
 	}
 
+	section > * {
+		position: relative;
+	}
+
 	.title {
 		position: relative;
 		margin-bottom: 10rem;
