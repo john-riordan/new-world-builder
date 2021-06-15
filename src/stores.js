@@ -158,8 +158,6 @@ export const shareLink = derived(
 			w1t1: $wep1tree1.list
 		};
 
-		console.log($wep0tree0);
-
 		return new URLSearchParams(params).toString();
 	}
 );

@@ -37,6 +37,10 @@
 			{
 				title: 'Item Affixes',
 				url: '/affixes'
+			},
+			{
+				title: 'Monster Types',
+				url: '/monsters'
 			}
 		]}
 	/>
