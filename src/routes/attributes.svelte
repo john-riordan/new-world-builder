@@ -30,7 +30,7 @@
 	}
 </script>
 
-<div class="container">
+<div class="attrs-container">
 	<div class="left">
 		<div class="points">
 			<div class="mask2 compass" />
@@ -59,10 +59,10 @@
 </div>
 
 <style>
-	.container {
+	.attrs-container {
 		display: flex;
 		padding-top: 5rem;
-		gap: 1rem;
+		gap: 3rem;
 	}
 	.left {
 		flex: 1;

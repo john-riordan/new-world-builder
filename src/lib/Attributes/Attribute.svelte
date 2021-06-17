@@ -49,7 +49,10 @@
 </script>
 
 {#if info}
-	<section class="mask container" class:inactive={$attrs.anyPtsAllocated && $pts === MIN_ATTR_PTS}>
+	<section
+		class="mask attr-container"
+		class:inactive={$attrs.anyPtsAllocated && $pts === MIN_ATTR_PTS}
+	>
 		<div class="left">
 			<button on:click={sub10} class:disabled={$pts === MIN_ATTR_PTS}>
 				<svg width="21" height="13" viewBox="0 0 21 13">
@@ -149,16 +152,16 @@
 {/if}
 
 <style>
-	.container {
+	.attr-container {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
 	}
-	.container.inactive {
+	.attr-container.inactive {
 		opacity: 0.6;
 		transition: opacity var(--transition);
 	}
-	.container.inactive:hover {
+	.attr-container.inactive:hover {
 		opacity: 1;
 	}
 	.left {
