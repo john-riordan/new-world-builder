@@ -1,6 +1,7 @@
 <script>
 	import { cubicInOut } from 'svelte/easing';
 	import { selectedWeps, wep0Pts, wep1Pts, attrs } from '../../../stores';
+	import { weapons } from '../../../weapons';
 	import StripedBg from '$lib/components/StripedBg/index.svelte';
 	import LineBorder from '$lib/components/LineBorder/index.svelte';
 
@@ -19,6 +20,11 @@
 			}
 		};
 	}
+
+	$: wep1 = weapons[$selectedWeps[0]];
+	$: wep2 = weapons[$selectedWeps[1]];
+
+	$: console.log(wep1, wep2)
 </script>
 
 {#if buildStarted}
@@ -35,22 +41,22 @@
 						</div>
 					{/if}
 					<div class="weps">
-						{#if $selectedWeps[0]}
-							<div class="wep">
-								<h4>{$selectedWeps[0]}</h4>
+						{#if wep1}
+							<a href={`/weapons/${wep1.name}`} class="wep">
+								<h4>{wep1.title}</h4>
 								<p class="pts">{$wep0Pts} Points spent</p>
-							</div>
+							</a>
 						{:else}
 							<div class="wep">
 								<h4>Select Wep 1</h4>
 								<p class="pts">-</p>
 							</div>
 						{/if}
-						{#if $selectedWeps[1]}
-							<div class="wep">
-								<h4>{$selectedWeps[1]}</h4>
+						{#if wep2}
+							<a href={`/weapons/${wep2.name}`} class="wep">
+								<h4>{wep2.title}</h4>
 								<p class="pts">{$wep1Pts} Points spent</p>
-							</div>
+							</a>
 						{:else}
 							<div class="wep">
 								<h4>Select Wep 2</h4>
@@ -92,6 +98,7 @@
 	}
 	.build .wep {
 		width: 17rem;
+		text-decoration: none;
 	}
 
 	.wep h4 {
