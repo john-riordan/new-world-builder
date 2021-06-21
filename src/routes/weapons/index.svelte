@@ -40,16 +40,18 @@
 					class:selected={$selectedWeps.includes(wep.name)}
 				>
 					<StripedBg>
-						<img src="sword.png" alt="" />
-						<div>
-							<p class="title">{wep.title}</p>
-							{#if $selectedWeps.includes(wep.name)}
-								<p class="pts">
-									{$selectedWeps.indexOf(wep.name) === 0 ? $wep0Pts : $wep1Pts} Points spent
-								</p>
-							{:else}
-								<p class="pts">--</p>
-							{/if}
+						<div class="wep-inner">
+							<img src={`/static/weps/${wep.name}.webp`} alt="" />
+							<div>
+								<p class="title">{wep.title}</p>
+								{#if $selectedWeps.includes(wep.name)}
+									<p class="pts">
+										{$selectedWeps.indexOf(wep.name) === 0 ? $wep0Pts : $wep1Pts} Points spent
+									</p>
+								{:else}
+									<p class="pts">--</p>
+								{/if}
+							</div>
 						</div>
 					</StripedBg>
 				</a>
@@ -64,14 +66,7 @@
 	header {
 		padding-top: 2rem;
 	}
-	.selected-weps {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 0.75rem;
-		margin-bottom: 4rem;
-		padding-bottom: 4rem;
-		border-bottom: 1px solid var(--grey);
-	}
+
 	.wep-grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
@@ -94,9 +89,11 @@
 		text-decoration: none;
 		overflow: hidden;
 	}
+	.wep-inner {
+		padding: 1.75rem;
+	}
 	.wep:not(.empty) {
 		position: relative;
-		padding: 1.75rem;
 		background: hsla(var(--brown-dark-hsl) / 0.75);
 		border: 1px solid hsla(var(--grey-hsl) / 0.5);
 		cursor: pointer;
@@ -109,7 +106,7 @@
 		transform: translateY(-50%);
 		top: 50%;
 		max-height: 100%;
-		filter: brightness(1.15);
+		filter: brightness(1.15) drop-shadow(0px 2px 17px var(--black));
 		transition: filter 0.2s ease-out;
 	}
 

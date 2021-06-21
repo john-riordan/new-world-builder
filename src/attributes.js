@@ -4,6 +4,7 @@ export const attributes = {
 	str: {
 		name: 'strength',
 		title: 'Strength',
+		short: 'Str',
 		type: 'Melee focused',
 		primary: [
 			weapons['war-hammer'].name,
@@ -39,6 +40,7 @@ export const attributes = {
 	dex: {
 		name: 'dexterity',
 		title: 'Dexterity',
+		short: 'Dex',
 		type: 'Ranged focused',
 		primary: [weapons.bow.name, weapons.rapier.name, weapons.spear.name, weapons.musket.name],
 		secondary: [weapons['straight-sword'].name, weapons.hatchet.name],
@@ -63,6 +65,7 @@ export const attributes = {
 	int: {
 		name: 'intelligence',
 		title: 'Intelligence',
+		short: 'Int',
 		bonuses: [
 			[
 				'<span>+10%</span> damage to light and heavy magic attacks',
@@ -90,6 +93,7 @@ export const attributes = {
 	foc: {
 		name: 'focus',
 		title: 'Focus',
+		short: 'Foc',
 		bonuses: [
 			['<span>+10%</span> mana regen rate', '<span>+10%</span> fishing line tension'],
 			['<span>+20</span> to mana pool', '<span>+10%</span> yield increase when salvaging'],
@@ -108,6 +112,7 @@ export const attributes = {
 	con: {
 		name: 'constitution',
 		title: 'Constitution',
+		short: 'Con',
 		bonuses: [
 			['All healing consumables last <span>20%</span> longer', '<span>+10%</span> logging speed'],
 			[

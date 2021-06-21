@@ -3,15 +3,16 @@
 
 	import { monsters } from '../monsters';
 	import { gems } from '../gems';
+	import { weapons } from '../weapons';
 
 	export async function load() {
 		return {
 			props: {
 				data: {
 					monsters: Object.values(monsters),
-					gems: Object.values(gems)
-				},
-				error: !monsters && 'No Weapons Found'
+					gems: Object.values(gems),
+					weapons: Object.values(weapons)
+				}
 			}
 		};
 	}
@@ -45,6 +46,13 @@
 										<img
 											src={`gems/${
 												data.gems.find((gem) => gem.element === weakness.damage_type).name
+											}.webp`}
+											alt=""
+										/>
+									{:else if data.weapons.find((wep) => wep.damage_type === weakness.damage_type)}
+										<img
+											src={`weps/${
+												data.weapons.find((wep) => wep.damage_type === weakness.damage_type).name
 											}.webp`}
 											alt=""
 										/>

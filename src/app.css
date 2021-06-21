@@ -86,9 +86,14 @@ img {
 	display: block;
 }
 
+button,
+input,
+select {
+	font-family: 'Lato', sans-serif;
+}
+
 button {
 	all: unset;
-	font-family: 'Lato', sans-serif;
 	text-align: center;
 	cursor: pointer;
 }

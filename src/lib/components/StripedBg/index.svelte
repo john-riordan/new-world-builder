@@ -6,6 +6,7 @@
 <style>
 	span {
 		display: block;
+		position: relative;
 	}
 	.striped-container > :global(*) {
 		position: relative;

@@ -173,6 +173,6 @@
 		flex: 4;
 		display: grid;
 		grid-template-rows: repeat(5, 8rem);
-		gap: 2rem;
+		gap: 1rem;
 	}
 </style>

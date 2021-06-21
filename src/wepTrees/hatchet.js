@@ -5,7 +5,8 @@ export const THROWING = {
 		row: 1,
 		name: 'Rending Throw',
 		type: 'major',
-		img: `${CDN}/hatchetability2.png`
+		img: `${CDN}/hatchetability2.png`,
+		description: ``
 	},
 	'1_2': {
 		required: null,
@@ -141,113 +142,132 @@ export const BERZERKER = {
 	'1_2': {
 		required: null,
 		name: 'Enraged Strikes',
+		row: 1,
 		type: 'minor',
 		img: `${CDN}/hatchetability3_mod2.png`
 	},
 	'1_3': {
 		required: null,
+		row: 1,
 		name: 'Berserk',
 		type: 'major',
 		img: `${CDN}/hatchetability5.png`
 	},
 	'1_4': {
 		required: null,
+		row: 1,
 		name: 'Accumulated Power',
 		type: 'minor',
 		img: `${CDN}/firestaffability4_mod1.png`
 	},
 	'2_1': {
 		required: null,
+		row: 2,
 		name: 'Feral Rush',
 		type: 'major',
 		img: `${CDN}/hatchetability4.png`
 	},
 	'2_3': {
 		required: 'Berserk',
+		row: 2,
 		name: 'On The Hunt',
 		type: 'minor',
 		img: `${CDN}/hatchetability5_mod1.png`
 	},
 	'2_4': {
 		required: 3,
+		row: 2,
 		name: 'Relentless Fury',
 		type: 'minor',
 		img: `${CDN}/lifestaffability6_mod1.png`
 	},
 	'2_5': {
 		required: 3,
+		row: 2,
 		name: 'Desperate Refresh',
 		type: 'minor',
 		img: `${CDN}/swordability6_mod1.png`
 	},
 	'3_1': {
 		required: 'Feral Rush',
+		row: 3,
 		name: 'Dispatch',
 		type: 'minor',
 		img: `${CDN}/hatchetability3_mod2.png`
 	},
 	'3_2': {
 		required: 5,
+		row: 3,
 		name: 'Against All Odds',
 		type: 'minor',
 		img: `${CDN}/hatchetpassive2.png`
 	},
 	'3_3': {
 		required: 'On The Hunt',
+		row: 3,
 		name: 'Berserking Refresh',
 		type: 'minor',
 		img: `${CDN}/hatchetability6_mod1.png`
 	},
 	'3_5': {
 		required: 5,
+		row: 3,
 		name: 'Raging Torrent',
 		type: 'major',
 		img: `${CDN}/hatchetability1_mod3.png`
 	},
 	'4_1': {
 		required: 'Dispatch',
+		row: 4,
 		name: 'Crippling Strikes',
 		type: 'minor',
 		img: `${CDN}/hatchetability5_mod2.png`
 	},
 	'4_3': {
 		required: 'Berserking Refresh',
+		row: 4,
 		name: 'Berserking Purge',
 		type: 'minor',
 		img: `${CDN}/hatchetability6.png`
 	},
 	'4_4': {
 		required: 9,
+		row: 4,
 		name: 'Fortifying Strikes',
 		type: 'minor',
 		img: `${CDN}/hatchetpassive4.png`
 	},
 	'4_5': {
 		required: 'Raging Torrent',
+		row: 4,
 		name: 'Aggressive Approach',
 		type: 'minor',
 		img: `${CDN}/greataxe_reaperpass5_pursuit.png`
 	},
 	'5_2': {
 		required: 10,
+		row: 5,
 		name: 'Frenzied Purge',
 		type: 'minor',
 		img: `${CDN}/hatchetability6.png`
 	},
 	'5_3': {
 		required: 'Berserking Purge',
+		row: 5,
 		name: 'Uninterruptible Berserk',
 		type: 'minor',
 		img: `${CDN}/hatchetability5_mod2.png`
 	},
 	'5_5': {
 		required: 10,
+		row: 5,
 		name: 'Final Blow',
 		type: 'minor',
 		img: `${CDN}/hatchetpassive2.png`
 	},
 	'6_3': {
 		required: 11,
+		row: 6,
 		name: 'Defy Death',
 		type: 'ult',
 		img: `${CDN}/hatchetability5_mod5.png`

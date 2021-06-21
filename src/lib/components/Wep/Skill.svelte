@@ -14,10 +14,6 @@
 	export let ptsRemaining;
 	export let tooltipSide;
 
-	// $: {
-	// 	console.log($wepPtsRemaining);
-	// }
-
 	const hasRequirement = skillInfo && skillInfo.required;
 	const requresOthers = typeof hasRequirement === 'string' ? true : false;
 	const requiresPoints = hasRequirement || row > 1 ? true : false;

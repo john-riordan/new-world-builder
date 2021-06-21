@@ -23,8 +23,6 @@
 
 	$: wep1 = weapons[$selectedWeps[0]];
 	$: wep2 = weapons[$selectedWeps[1]];
-
-	$: console.log(wep1, wep2)
 </script>
 
 {#if buildStarted}
