@@ -7,7 +7,7 @@ export const SWORDMASTER = {
 		name: 'Whirling Blade',
 		type: 'major',
 		img: `${CDN}/swordability1.png`,
-		description: `Deatl 145% weapon damage to all enemies within 2 meters.`,
+		description: `Deal 145% weapon damage to all enemies within 2 meters.`,
 		cooldown: 15
 	},
 	'1_4': {
