@@ -2,6 +2,7 @@ import { SWORDMASTER, DEFENDER } from './wepTrees/sword';
 import { THROWING, BERZERKER } from './wepTrees/hatchet';
 import { BLOOD, GRACE } from './wepTrees/rapier';
 import { ZONER, IMPALER } from './wepTrees/spear';
+import { REAPER, MAULER } from './wepTrees/greatAxe';
 
 export const weapons = {
 	'straight-sword': {
@@ -70,10 +71,12 @@ export const weapons = {
 		damage_type: 'slash',
 		tree1: {
 			name: 'reaper',
+			skills: REAPER,
 			color: '--skill-red'
 		},
 		tree2: {
 			name: 'mauler',
+			skills: MAULER,
 			color: '--skill-red'
 		}
 	},
