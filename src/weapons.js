@@ -3,6 +3,7 @@ import { THROWING, BERZERKER } from './wepTrees/hatchet';
 import { BLOOD, GRACE } from './wepTrees/rapier';
 import { ZONER, IMPALER } from './wepTrees/spear';
 import { REAPER, MAULER } from './wepTrees/greatAxe';
+import { JUGGERNAUT, CROWD_CRUSHER } from './wepTrees/warHammer';
 
 export const weapons = {
 	'straight-sword': {
@@ -86,10 +87,12 @@ export const weapons = {
 		damage_type: 'strike',
 		tree1: {
 			name: 'juggernaut',
+			skills: JUGGERNAUT,
 			color: '--skill-red'
 		},
 		tree2: {
 			name: 'crowdCrusher',
+			skills: CROWD_CRUSHER,
 			color: '--skill-purple'
 		}
 	},

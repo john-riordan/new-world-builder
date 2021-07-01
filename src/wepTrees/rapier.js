@@ -152,7 +152,7 @@ export const BLOOD = {
 	'6_3': {
 		required: 'Fuel',
 		row: 6,
-		name: 'Finalize',
+		name: 'Bloody End',
 		type: 'ultimate',
 		img: `${CDN}/rapier_ability3mod3_deadlyfinish.png`,
 		description: `Finish deatls 150% of bleed damage instead of only 110%.`

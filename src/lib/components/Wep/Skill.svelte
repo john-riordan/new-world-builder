@@ -17,6 +17,7 @@
 	const hasRequirement = skillInfo && skillInfo.required;
 	const requresOthers = typeof hasRequirement === 'string' ? true : false;
 	const requiresPoints = hasRequirement || row > 1 ? true : false;
+	const isUltimate = skillInfo ? skillInfo.type === 'ultimate' : false;
 
 	$: activeWep = store ? true : false;
 	$: isActive = skillInfo && store ? $store.list.includes(skillInfo.name) : false;
@@ -24,15 +25,20 @@
 		? false
 		: !activeWep
 		? true
-		: requresOthers && requiresPoints
+		: requresOthers && requiresPoints && !isUltimate
 		? $store.list.includes(skillInfo.required) && $store.rows.includes(skillInfo.row - 1)
-		: requresOthers
+		: requresOthers && !isUltimate
 		? $store.list.includes(skillInfo.required)
-		: requiresPoints && skillInfo.type !== 'ultimate'
+		: requiresPoints && !isUltimate
 		? $store.rows.includes(skillInfo.row - 1)
 		: skillInfo.row === 1
 		? true
-		: skillInfo.type === 'ultimate' && $store.list.length >= 10
+		: isUltimate &&
+		  requresOthers &&
+		  $store.list.includes(skillInfo.required) &&
+		  $store.list.length >= 10
+		? true
+		: isUltimate && !requresOthers && $store.list.length >= 10
 		? true
 		: false;
 
