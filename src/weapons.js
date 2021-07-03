@@ -5,6 +5,7 @@ import { ZONER, IMPALER } from './wepTrees/spear';
 import { REAPER, MAULER } from './wepTrees/greatAxe';
 import { JUGGERNAUT, CROWD_CRUSHER } from './wepTrees/warHammer';
 import { SKIRMISHER, HUNTER } from './wepTrees/bow';
+import { SHARPSHOOTER, TRAPPER } from './wepTrees/musket';
 
 export const weapons = {
 	'straight-sword': {
@@ -118,10 +119,12 @@ export const weapons = {
 		damage_type: 'thrust',
 		tree1: {
 			name: 'sharpshooter',
+			skills: SHARPSHOOTER,
 			color: '--skill-olive'
 		},
 		tree2: {
 			name: 'trapper',
+			skills: TRAPPER,
 			color: '--skill-purple'
 		}
 	},
