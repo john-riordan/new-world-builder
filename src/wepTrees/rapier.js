@@ -41,7 +41,7 @@ export const BLOOD = {
 		name: 'Unerring',
 		type: 'minor',
 		img: `${CDN}/rapier_bloodmasterpass4_bleeddamage.png`,
-		description: `Deal 5.0% more damage to targets with a Rapier bleed.`
+		description: `Deal 5% more damage to targets with a Rapier bleed.`
 	},
 	'2_3': {
 		required: null,
@@ -49,7 +49,7 @@ export const BLOOD = {
 		name: 'Flourish and Finish',
 		type: 'major',
 		img: `${CDN}/rapier_ability3_flourish.png`,
-		description: `Flourish performs an attack knocking back enemies. Pressing 'Light Attack' at the end of Flourish will continue this ability by automatically performing 'Finish'. Finish lunges forward, consuming all Rapier bleeds on any target hit dealing 110.0% of their damage immediately.`,
+		description: `Flourish performs an attack knocking back enemies. Pressing 'Light Attack' at the end of Flourish will continue this ability by automatically performing 'Finish'. Finish lunges forward, consuming all Rapier bleeds on any target hit dealing 110% of their damage immediately.`,
 		cooldown: 20
 	},
 	'2_5': {
@@ -75,7 +75,7 @@ export const BLOOD = {
 		name: 'With Flair',
 		type: 'minor',
 		img: `${CDN}/rapier_ability3mod1_grit.png`,
-		description: `Gain Grit on both Flourish and Finish.`
+		description: `Gain Grit on both Flourish and Finish (attack cannot be interrupted).`
 	},
 	'3_4': {
 		required: null,
@@ -83,7 +83,7 @@ export const BLOOD = {
 		name: 'Light Edge',
 		type: 'minor',
 		img: `${CDN}/rapier_bloodmasterpass5_doubleslash.png`,
-		description: `Increase damage from both middle swipe attacks in the light attack chain by 8.0%.`
+		description: `Increase damage from both middle swipe attacks in the light attack chain by 8%.`
 	},
 	'3_5': {
 		required: 'Overwhelm',
@@ -99,7 +99,7 @@ export const BLOOD = {
 		name: 'And Again',
 		type: 'minor',
 		img: `${CDN}/rapier_ability1mod2_compoundattack.png`,
-		description: `If you hit any target, even on a blocked hit, reduce Tondo's cooldown by 15%.`
+		description: `If you hit any target, even on a blocked hit, reduce Tondo's cooldown by 25%.`
 	},
 	'4_2': {
 		required: null,
@@ -107,7 +107,7 @@ export const BLOOD = {
 		name: 'Heavy Puncture',
 		type: 'minor',
 		img: `${CDN}/rapier_bloodmasterpass1_lightbleeds.png`,
-		description: `Any heavy attack on a bleeding enemy will extend their Rapier bleeds by 2.0 seconds. This will also apply to future stacked applications of the same bleed extending the entire stack.`
+		description: `Any heavy attack on a bleeding enemy will extend their Rapier bleeds by 2 seconds. This will also apply to future stacked applications of the same bleed extending the entire stack.`
 	},
 	'4_3': {
 		required: 'With Flair',
@@ -131,7 +131,7 @@ export const BLOOD = {
 		name: 'Proper Spacing',
 		type: 'minor',
 		img: `${CDN}/rapier_evasionpass2_controlledbreathing.png`,
-		description: `Increase the damage of Tondo by 10% if you are at least 3.5 meters away from your target.`
+		description: `Increase the damage of Tondo by 100% if you are at least 4 meters away from your target.`
 	},
 	'5_3': {
 		required: 'Swagger',
@@ -139,7 +139,7 @@ export const BLOOD = {
 		name: 'Fuel',
 		type: 'minor',
 		img: `${CDN}/rapier_bloodmasterpass2_heavybleeds.png`,
-		description: `Each tick of damage from Tondo's bleed reduces the cooldown of Flourish abd Finish by 5%.`
+		description: `Each tick of damage from Tondo's bleed reduces the cooldown of Flourish and Finish by 3.5%.`
 	},
 	'5_5': {
 		required: 'To the Bone',
@@ -193,7 +193,7 @@ export const GRACE = {
 		img: `${CDN}/rapier_ability4_riposte.png`,
 		description: `Enter into a defensive stance for 1 second. If struck during this ability, counter the attacker stunning them briefly for 1.5 seconds. You are briefly invulnerable upon a successful Riposte.
 		<br /><br />
-		Taunt Gem Compatible: If you have a Carnelian gem equiped in your rapier, This ability cause a 4.0s taunts to all foes within 5m. (Taunt causes monsters to focus only on you.)`,
+		Taunt Gem Compatible: If you have a Carnelian gem equiped in your rapier, This ability cause a 4s taunts to all foes within 5m. (Taunt causes monsters to focus only on you.)`,
 		cooldown: 20
 	},
 	'2_3': {
@@ -202,7 +202,7 @@ export const GRACE = {
 		name: 'Breathe In',
 		type: 'minor',
 		img: `${CDN}/rapier_ability6mod1_breath.png`,
-		description: `Gain +20 stamina immediately on use.`
+		description: `Gain +20 stamina immediately on case of Evade.`
 	},
 	'2_4': {
 		required: null,
@@ -218,7 +218,7 @@ export const GRACE = {
 		name: 'Flech',
 		type: 'major',
 		img: `${CDN}/rapier_ability5_aeriallunge.png`,
-		description: `Leave the ground lunging forward for 10m in a stabbing motion piercing through enemies.`,
+		description: `Leave the ground lunging forward for 10m in a stabbing motion piercing through enemies dealing 145% damage.`,
 		cooldown: 17
 	},
 	'3_1': {
@@ -243,7 +243,7 @@ export const GRACE = {
 		name: 'Allegro',
 		type: 'minor',
 		img: `${CDN}/rapier_bloodmasterpass2_heavybleeds.png`,
-		description: `Critical strikes reduce all cooldown by 5%.`
+		description: `Gain 20% movement speed for 3s after casting Evade.`
 	},
 	'3_5': {
 		required: 'Fleche',
@@ -251,7 +251,7 @@ export const GRACE = {
 		name: 'Quick Lunge',
 		type: 'minor',
 		img: `${CDN}/rapier_ability5mod1_renewedvigor.png`,
-		description: `Killing with this Fleche reduces its cooldown by 80%.`
+		description: `Killing with Fleche reduces its cooldown by 80%.`
 	},
 	'4_1': {
 		required: 'Insult to Injury',
@@ -259,7 +259,7 @@ export const GRACE = {
 		name: 'Priority',
 		type: 'minor',
 		img: `${CDN}/rapier_ability4mod2_priority.png`,
-		description: `Reduct the cooldown of other Rapier abilities when landing a Riposte stun.`
+		description: `Reduce the cooldown of other Rapier abilities by 20% when landing a Riposte stun.`
 	},
 	'4_3': {
 		required: 'Allegro',
@@ -307,7 +307,7 @@ export const GRACE = {
 		name: 'Interruption',
 		type: 'minor',
 		img: `${CDN}/rapier_ability5mod2_wake.png`,
-		description: `Pressing Light Attack any time during Fleche will stop and perform a static, continuation attack.`
+		description: `Pressing Light Attack any time during Fleche will stop and perform a static, continuation attack dealing 115% damage.`
 	},
 	'6_3': {
 		required: null,

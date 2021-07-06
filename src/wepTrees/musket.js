@@ -31,7 +31,7 @@ export const SHARPSHOOTER = {
 		name: 'Powder Burn',
 		type: 'major',
 		img: `${CDN}/musketpassive11.png`,
-		description: `Overload musket with gun powder, causing the next shot to deal 120% Weapon Damage and cause a Burn status effect that deals 20% Weapon Damage per second for 9 seconds. Does not stack or combine with other overload shots.`,
+		description: `Overload musket with gun powder, causing the next shot to deal 110% Weapon Damage and cause a Burn status effect that deals 20% Weapon Damage per second for 9 seconds. Does not stack or combine with other overload shots.`,
 		cooldown: 15
 	},
 	'2_2': {
@@ -88,7 +88,7 @@ export const SHARPSHOOTER = {
 		name: `Shooter's Stance`,
 		type: 'major',
 		img: `${CDN}/musketability2.png`,
-		description: `Player enters a shooting aim stance to enhance shooting performance. Shots deal 105% Weapon damage. While in stance rotation Angle is limited to 180 degrees, mobility is reduced to zero, accuracy is increased by 10%, and reload time is reduced by 75%. Mode will exit after three shots.`,
+		description: `Player enters a shooting aim stance to enhance shooting performance. While in stance mobility is reduced to zero and reload time is reduced by 75%. Mode will exit after three shots.`,
 		cooldown: 20
 	},
 	'4_1': {
@@ -129,7 +129,7 @@ export const SHARPSHOOTER = {
 		name: 'Hit Your Mark',
 		type: 'minor',
 		img: `${CDN}/musketpassive1.png`,
-		description: `Increased Headshot and critical hit damage the further the target is from you (max of 30% at 125 meters).
+		description: `Increased Headshot and critical hit damage the further the target is from you (max of 30% at 100 meters).
     <br /><br />
     Does not forgo damage fall off.`
 	},
@@ -185,7 +185,7 @@ export const TRAPPER = {
 		name: 'Back It Up',
 		type: 'minor',
 		img: `${CDN}/musketability3.png`,
-		description: `Walking/Strafing movement speed Increased by 30% when an enemy is within 8 meters of player.`
+		description: `Walking/Strafing movement speed Increased by 10% when an enemy is within 8 meters of player.`
 	},
 	'2_1': {
 		required: null,
@@ -193,7 +193,7 @@ export const TRAPPER = {
 		name: 'Stopping Power',
 		type: 'major',
 		img: `${CDN}/musketability2_mod2.png`,
-		description: `Overload musket with gun powder, causing the next shot to deal 115% Weapon Damage, staggering target and knocking them back 3 meters. Does not stack or combine with other Overloaded shots.`,
+		description: `Overload musket with gun powder, causing the next shot to deal 120% Weapon Damage, staggering target and knocking them back 3 meters. Does not stack or combine with other Overloaded shots.`,
 		cooldown: 18
 	},
 	'2_2': {
@@ -202,7 +202,7 @@ export const TRAPPER = {
 		name: 'Weakened Defense',
 		type: 'minor',
 		img: `${CDN}/spear_vaultkick_empoweronblockbreak.png`,
-		description: `Increases stamina damage to blocking enemies using shields by 200% and deal 10% of Armor Penetration to targets that aren't blocking with a shield.`
+		description: `Doubles the stamina damage from standard shots dealt to enemies blocking with shields and deal 10% of Armor Penetration to targets that aren't blocking with a shield.`
 	},
 	'2_3': {
 		required: 'Traps',
@@ -234,7 +234,7 @@ export const TRAPPER = {
 		name: 'Hustle',
 		type: 'minor',
 		img: `${CDN}/bowpassive5.png`,
-		description: `After a Dodge gain Haste, increasing movement speed by 30% for 3 seconds.`
+		description: `After a Dodge gain Haste, increasing movement speed by 10% for 3 seconds.`
 	},
 	'3_5': {
 		required: null,
@@ -242,7 +242,7 @@ export const TRAPPER = {
 		name: 'Sticky Bomb',
 		type: 'major',
 		img: `${CDN}/musketability6.png`,
-		description: `A bomb that can be thrown a short range and sticks to anything it makes contact with. Detonation will occur 5 seconds after impact dealing 150% weapon damage to all targets within 3 meters.`,
+		description: `A bomb that can be thrown a short range and sticks to anything it makes contact with. Detonation will occur 5 seconds after impact dealing 175% weapon damage to all targets within 3 meters.`,
 		cooldown: 12
 	},
 	'4_2': {
@@ -259,7 +259,7 @@ export const TRAPPER = {
 		name: 'Scent of Blood',
 		type: 'minor',
 		img: `${CDN}/musketability4_mod1.png`,
-		description: `Regen 50% of weapon damage dealt as health when dealing damage to trapped targets.`,
+		description: `Regen 100% of weapon damage dealt as health when dealing damage to trapped targets.`,
 		etc: ['double-up']
 	},
 	'4_4': {
@@ -268,7 +268,7 @@ export const TRAPPER = {
 		name: 'Tactical Reload',
 		type: 'minor',
 		img: `${CDN}/bowpassive5.png`,
-		description: `When you dodge reload your musket (can only trigger once every 2s).`
+		description: `When you dodge reload your musket (can only trigger once every 6s).`
 	},
 	'4_5': {
 		required: 'Sticky Bomb',
@@ -309,14 +309,14 @@ export const TRAPPER = {
 		name: `Sticky Slow`,
 		type: 'minor',
 		img: `${CDN}/musketpassive6.png`,
-		description: `Direct hits with Sticky Bomb cause the target to be slowed by 20% for 5s.`
+		description: `Direct hits with Sticky Bomb cause the target to be slowed by 15% for 5s.`
 	},
 	'6_3': {
 		required: null,
 		row: 6,
-		name: `Compounded Adrenaline`,
+		name: `Lethal Combo`,
 		type: 'ultimate',
 		img: `${CDN}/lifestaffpassive7.png`,
-		description: `If a target is hit by any two of the Trapper abilities within a 4s period, reduces all cooldowns by 20%, obtain a 20% faster Stamina Regen rate, and +20% movement speed bonus for 5 seconds.`
+		description: `Increase Muskey damage by 25% agaisnt targets affected by Trapper status effects.`
 	}
 };

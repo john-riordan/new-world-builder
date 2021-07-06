@@ -124,25 +124,45 @@ export const selectedWeps = {
 export const wep0Pts = derived([trees[0][0], trees[0][1]], ([$wep0tree0, $wep0tree1]) => {
 	return $wep0tree0.list.length + $wep0tree1.list.length;
 });
+export const wep0Skills = derived(
+	[selectedWeps, trees[0][0], trees[0][1]],
+	([$selectedWeps, $tree1Store, $tree2Store]) => {
+		const skillList = [...$tree1Store.list, ...$tree2Store.list];
+		const wep = $selectedWeps[0] ? weapons[$selectedWeps[0]] : null;
+		const skills = wep
+			? [
+					...Object.values(wep.tree1.skills).map((skill) => ({ ...skill, color: wep.tree1.color })),
+					...Object.values(wep.tree2.skills).map((skill) => ({ ...skill, color: wep.tree2.color }))
+			  ]
+			: null;
+
+		return skillList
+			.map((skill) => skills.find((s) => s.name === skill && s.type === 'major'))
+			.filter(Boolean);
+	}
+);
 export const wep1Pts = derived([trees[1][0], trees[1][1]], ([$wep1tree0, $wep1tree1]) => {
 	return $wep1tree0.list.length + $wep1tree1.list.length;
 });
+export const wep1Skills = derived(
+	[selectedWeps, trees[1][0], trees[1][1]],
+	([$selectedWeps, $tree1Store, $tree2Store]) => {
+		const skillList = [...$tree1Store.list, ...$tree2Store.list];
+		const wep = $selectedWeps[1] ? weapons[$selectedWeps[1]] : null;
+		const skills = wep
+			? [
+					...Object.values(wep.tree1.skills).map((skill) => ({ ...skill, color: wep.tree1.color })),
+					...Object.values(wep.tree2.skills).map((skill) => ({ ...skill, color: wep.tree2.color }))
+			  ]
+			: null;
+
+		return skillList
+			.map((skill) => skills.find((s) => s.name === skill && s.type === 'major'))
+			.filter(Boolean);
+	}
+);
 export const wepPtsRemaining = derived([wep0Pts, wep1Pts], ([$wep0Pts, $wep1Pts]) => {
 	return $wep0Pts + $wep1Pts < SKILL_PTS;
-});
-
-// -----------------------------------------
-// Rendered weapon
-export const renderedWep = writable(null);
-export const renderedWepData = derived(renderedWep, ($renderedWep) => {
-	if (weapons[$renderedWep]) {
-		return {
-			tree1: weapons[$renderedWep].tree1.skills,
-			tree2: weapons[$renderedWep].tree2.skills
-		};
-	}
-
-	return {};
 });
 
 // -----------------------------------------

@@ -6,7 +6,7 @@ export const REAPER = {
 		name: 'Reap',
 		type: 'major',
 		img: `${CDN}/greataxe_mauraderpass1_empoweredswing.png`,
-		description: `Extend your axe 5m pulling foes to you and dealing 100% weapon damage.
+		description: `Extend your axe 5m pulling foes to you and dealing 110% weapon damage.
     <br /><br />
     Taunt Gem Compatible: If you have a Carnelian gem equiped in your great axe, This ability cause a 4.0s taunts when it hits. (Taunt causes monsters to focus only on you.)`,
 		cooldown: 18
@@ -17,7 +17,7 @@ export const REAPER = {
 		name: 'Greed',
 		type: 'minor',
 		img: `${CDN}/greataxe_ability4_judgementsreach.png`,
-		description: `Light attacks with your Great Axe give you 10% damage for 5s (max 3 stacks).`
+		description: `Light attacks with your Great Axe give you 5% damage for 5s (max 3 stacks).`
 	},
 	'1_5': {
 		required: null,
@@ -33,7 +33,7 @@ export const REAPER = {
 		name: 'Greed',
 		type: 'major',
 		img: `${CDN}/greataxe_ability2_engage.png`,
-		description: `Charge 10m dealing 130% weapon damage when you reach a target or Press LMB.
+		description: `Charge 10m dealing 120% weapon damage when you reach a target or Press LMB.
 		<br /><br />
 		This ability has Unstoppable (you cannot be interrupted).`,
 		cooldown: 20
@@ -68,7 +68,7 @@ export const REAPER = {
 		name: `Frenzied Momentum`,
 		type: 'minor',
 		img: `${CDN}/hatchetability5_mod1.png`,
-		description: `Charge now deals 130% - 150% weapon damage based on how far you traveled.`
+		description: `Charge now deals 120% - 140% weapon damage based on how far you traveled.`
 	},
 	'3_2': {
 		required: null,
@@ -84,7 +84,7 @@ export const REAPER = {
 		name: `Execute`,
 		type: 'major',
 		img: `${CDN}/greataxe_ability3_executioner.png`,
-		description: `A powerful overhead attack dealing 175% weapon damage. Execute deals 30% more damage vs foes under 50% health.`,
+		description: `A powerful overhead attack dealing 200% weapon damage. Execute deals 50% more damage vs foes under 50% health.`,
 		cooldown: 25
 	},
 	'4_2': {
@@ -93,7 +93,7 @@ export const REAPER = {
 		name: `Keen Edge`,
 		type: 'minor',
 		img: `${CDN}/greataxe_mauraderpass5_unendingslice.png`,
-		description: `Critical hit damage increased by 15%.`
+		description: `Critical hit damage increased by 10%.`
 	},
 	'4_3': {
 		required: 'The Collector',
@@ -110,7 +110,7 @@ export const REAPER = {
 		name: `Critical Condition`,
 		type: 'minor',
 		img: `${CDN}/greataxe_mauraderpass4_painlesswounds.png`,
-		description: `Critical Great Axe attacks against foes below 50% health occur 15% more often.`
+		description: `Critical Great Axe attacks against foes below 50% health crit 15% more often.`
 	},
 	'4_5': {
 		required: 'Execute',
@@ -126,7 +126,7 @@ export const REAPER = {
 		name: `Unpredictable Strike`,
 		type: 'minor',
 		img: `${CDN}/greataxe_ability2pass2_chargedswing.png`,
-		description: `During Charge you may press RMB to execute a swing attack dealing 150% - 175% weapon damage based on how far you traveled.`,
+		description: `During Charge you may press RMB to execute a swing attack dealing 140% - 165% weapon damage based on how far you traveled.`,
 		etc: ['double-up']
 	},
 	'5_2': {
@@ -143,7 +143,7 @@ export const REAPER = {
 		name: `Fatal Attraction`,
 		type: 'minor',
 		img: `${CDN}/greataxe_ability4pass2_fatalattraction.png`,
-		description: `After you pull with Reap, do a spin attacking dealing 122% weapon damage.`
+		description: `After you pull with Reap, do a spin attacking dealing 115% weapon damage.`
 	},
 	'5_5': {
 		required: 'Unstoppable Greed',
@@ -178,7 +178,7 @@ export const MAULER = {
 		name: `Maelstrom`,
 		type: 'major',
 		img: `${CDN}/greataxe_ability5_maelstrom.png`,
-		description: `Fast-spinning attack that pulls targets closer to you and deals 115% weapon damage.`,
+		description: `Fast-spinning attack that pulls targets closer to you and deals 100% weapon damage.`,
 		cooldown: 20
 	},
 	'1_4': {
@@ -244,7 +244,7 @@ export const MAULER = {
 		name: `Gravity Well`,
 		type: 'major',
 		img: `${CDN}/greataxe_ability6_gravitywell.png`,
-		description: `Throw an axe to create a vortex that pulls foes to its center for 3s. Ends with a damaging Burst dealing 100% weapon damage. Range 10m.`,
+		description: `Throw an axe to create a vortex that pulls foes to its center for 3s. Ends with a damaging Burst dealing 125% weapon damage. Range 10m.`,
 		cooldown: 30
 	},
 	'4_1': {
@@ -261,7 +261,7 @@ export const MAULER = {
 		name: `No Reprieve`,
 		type: 'minor',
 		img: `${CDN}/greataxe_ability5pass3_noreprieve.png`,
-		description: `Maelstrom does an extra spin attack pulling in foes and dealing 115% weapon damage.`
+		description: `Maelstrom does an extra spin attack pulling in foes and dealing 100% weapon damage.`
 	},
 	'4_4': {
 		required: null,
@@ -309,7 +309,7 @@ export const MAULER = {
 		name: `Unyeilding`,
 		type: 'minor',
 		img: `${CDN}/greataxe_ability5pass2_refreshingwell.png`,
-		description: `Allies gain 20% Fortify while standing in your well (Fortify reduces damage dealt).`
+		description: `Allies gain 20% Fortify while standing in your well (Fortify reduces damage taken).`
 	},
 	'6_3': {
 		required: null,

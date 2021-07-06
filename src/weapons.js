@@ -6,6 +6,8 @@ import { REAPER, MAULER } from './wepTrees/greatAxe';
 import { JUGGERNAUT, CROWD_CRUSHER } from './wepTrees/warHammer';
 import { SKIRMISHER, HUNTER } from './wepTrees/bow';
 import { SHARPSHOOTER, TRAPPER } from './wepTrees/musket';
+import { FIRE_MAGE, PYROMANCER } from './wepTrees/fireStaff';
+import { HEALING, PROTECTOR } from './wepTrees/lifeStaff';
 
 export const weapons = {
 	'straight-sword': {
@@ -134,10 +136,12 @@ export const weapons = {
 		damage_type: 'fire',
 		tree1: {
 			name: 'fireMage',
+			skills: FIRE_MAGE,
 			color: '--skill-blue'
 		},
 		tree2: {
 			name: 'pyroMancer',
+			skills: PYROMANCER,
 			color: '--skill-blue'
 		}
 	},
@@ -147,10 +151,12 @@ export const weapons = {
 		damage_type: 'nature',
 		tree1: {
 			name: 'healing',
+			skills: HEALING,
 			color: '--skill-turq'
 		},
 		tree2: {
 			name: 'protector',
+			skills: PROTECTOR,
 			color: '--skill-turq'
 		}
 	},

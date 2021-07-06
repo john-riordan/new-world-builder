@@ -6,7 +6,7 @@ export const JUGGERNAUT = {
 		name: 'Armor Breaker',
 		type: 'major',
 		img: `${CDN}/warhammerability1.png`,
-		description: `A Powerful swing that penetrates 35% of the Target's armor and deals 120% Weapon damage.`,
+		description: `A Powerful swing that penetrates 35% of the Target's armor and deals 140% Weapon damage.`,
 		cooldown: 12
 	},
 	'1_2': {
@@ -23,7 +23,7 @@ export const JUGGERNAUT = {
 		name: 'Hammer Time',
 		type: 'minor',
 		img: `${CDN}/firestaffability2_mod1.png`,
-		description: `Gain Empower on a Heavy Attack, increasing attack damage by 10% for 2 seconds.`
+		description: `Gain Empower on a Heavy Attack, increasing attack damage by 10% for 4 seconds.`
 	},
 	'2_1': {
 		required: 'Armor Breaker',
@@ -47,7 +47,7 @@ export const JUGGERNAUT = {
 		name: 'Mighty Gavel',
 		type: 'major',
 		img: `${CDN}/warhammerability3.png`,
-		description: `An overhead leaping attack that crushes down on enemies dealing 120% weapon damage.`,
+		description: `An overhead leaping attack that crushes down on enemies dealing 140% weapon damage.`,
 		cooldown: 22
 	},
 	'2_5': {
@@ -64,7 +64,7 @@ export const JUGGERNAUT = {
 		name: 'Lasting Trauma',
 		type: 'minor',
 		img: `${CDN}/spear_perforate_bonusrend.png`,
-		description: `Armor Breaker applies Rend, reducing damage absorbtion by 20% for 2 seconds.`
+		description: `Armor Breaker applies Rend, reducing damage absorbtion by 5% for 10 seconds.`
 	},
 	'3_3': {
 		required: 'Mighty Gavel',
@@ -72,7 +72,7 @@ export const JUGGERNAUT = {
 		name: 'Summary Judgment',
 		type: 'minor',
 		img: `${CDN}/swordability1_mod3.png`,
-		description: `Increase damage done by Mighty Gavel attack by 20% to targets under 30% health.`
+		description: `Increase damage done by Mighty Gavel attack by 30% to targets under 20% health.`
 	},
 	'3_4': {
 		required: null,
@@ -88,7 +88,7 @@ export const JUGGERNAUT = {
 		name: 'Wrecking Ball',
 		type: 'major',
 		img: `${CDN}/warhammerability6.png`,
-		description: `Strike the ground around a target with Hammer dealing 100% weapon damage and flattening the enemy.`,
+		description: `Strike the ground around a target with Hammer dealing 120% weapon damage and flattening the enemy.`,
 		cooldown: 15
 	},
 	'4_2': {
@@ -154,7 +154,7 @@ export const JUGGERNAUT = {
 		name: 'Justice for All',
 		type: 'ultimate',
 		img: `${CDN}/warhammerability3_mod4.png`,
-		description: `Press Basic Attack during Mighty Gavel to add a second attack that deals 110% weapon damage.`
+		description: `Press Basic Attack during Mighty Gavel to add a second attack that deals 180% weapon damage.`
 	}
 };
 
@@ -173,7 +173,7 @@ export const CROWD_CRUSHER = {
 		name: 'Clear Out',
 		type: 'major',
 		img: `${CDN}/warhammerability2.png`,
-		description: `A wide swing that knocks enemies back 4 meters to create distance, deals 110% weapon damage.`,
+		description: `A wide swing that knocks enemies back 4 meters to create distance, deals 115% weapon damage.`,
 		cooldown: 15
 	},
 	'1_4': {
@@ -182,7 +182,7 @@ export const CROWD_CRUSHER = {
 		name: 'I Can Do This All Day',
 		type: 'minor',
 		img: `${CDN}/spear_vaultkick_empoweronblockbreak.png`,
-		description: `Reduce Stamina consumption by 30.0% when Blocking Melee Attacks.`
+		description: `Reduce Stamina consumption by 30% when Blocking Melee Attacks.`
 	},
 	'2_1': {
 		required: null,
@@ -190,9 +190,9 @@ export const CROWD_CRUSHER = {
 		name: 'Shockwave',
 		type: 'major',
 		img: `${CDN}/warhammerability5.png`,
-		description: `Slam the Hammer into the ground causing a 3.0 meter radius AOE earthquake that deals 90.0% weapon damage. Applies Stun to all impacted targets for 1.75 Seconds.
+		description: `Slam the Hammer into the ground causing a 3 meter radius AOE earthquake that deals 80% weapon damage. Applies Stun to all impacted targets for 2 Seconds.
 		<br /><br />
-		Taunt Gem Compatible: If you have a Carnelian gem equiped in your war hammer, This ability cause a 6.0s taunts when it hits. (Taunt causes monsters to focus only on you.)`,
+		Taunt Gem Compatible: If you have a Carnelian gem equiped in your war hammer, This ability cause a 6s taunts when it hits. (Taunt causes monsters to focus only on you.)`,
 		cooldown: 20
 	},
 	'2_3': {
@@ -208,7 +208,7 @@ export const CROWD_CRUSHER = {
 		row: 2,
 		name: 'Guarded Sprint',
 		type: 'minor',
-		img: `${CDN}/musketpassive2.png`,
+		img: `${CDN}/rapier_evasionpass4_artofbattle.png`,
 		description: `Reduce damage taken by 10% while sprinting.`
 	},
 	'2_5': {
@@ -249,7 +249,7 @@ export const CROWD_CRUSHER = {
 		name: 'Path of Destiny',
 		type: 'major',
 		img: `${CDN}/warhammerability4.png`,
-		description: `A powerful ground strike that erupts a linear wave of energy in front of the player, dealing 125% weapon damage to all targets in its path.`,
+		description: `A powerful ground strike that erupts a linear wave of energy in front of the player, dealing 110% weapon damage to all targets in its path.`,
 		cooldown: 22
 	},
 	'4_1': {
@@ -315,6 +315,6 @@ export const CROWD_CRUSHER = {
 		name: 'Aftershock',
 		type: 'ultimate',
 		img: `${CDN}/warhammerability2_mod4.png`,
-		description: `Ability cooldowns are reduced by 5% for each enemy hit with Path of Destiny.`
+		description: `Whenever a target is effected by a Crowd Control effect, they are slowed by 20% for 4 seconds.`
 	}
 };

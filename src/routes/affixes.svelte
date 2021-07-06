@@ -25,6 +25,8 @@
 
 	$: selectedKey = primary && secondary && `${primary}_${secondary}`;
 	$: selected = selectedKey && data[selectedKey];
+
+	$: console.log(primary);
 </script>
 
 <svelte:head>
@@ -62,7 +64,9 @@
 	<h1 class="suffix-string non-selected">Select primary and secondary attributes...</h1>
 {/if}
 
-<div class="grid">
+<div class="decoration-line--wide" />
+
+<div class="grid" data-primary={primary} data-secondary={secondary}>
 	<div />
 	<div class="title primary-title">
 		<h2>Primary</h2>
@@ -70,8 +74,19 @@
 	<div class="title secondary-title">
 		<h2>Secondary</h2>
 	</div>
+	<div />
+	{#each Object.values(attrs) as attr}
+		<div class="grid-item-attr">
+			<span>{attr.title}</span>
+		</div>
+	{/each}
+	{#each Object.values(attrs) as attr}
+		<div class="grid-item-attr" data-attr={attr.short.toLowerCase()}>
+			<span>{attr.title}</span>
+		</div>
+	{/each}
 	{#each Object.entries(data) as [key, { title }], i}
-		<div class="grid-item" class:highlight={selectedKey === key}>
+		<div class="grid-item" class:highlight={selectedKey === key} data-primary={key.split('_')[0]}>
 			<h4 class="grid-item--title">{title}</h4>
 			{#if key.split('_')[0] === key.split('_')[1]}
 				<span class="grid-item--val"><span>(+30) </span>{attrs[key.split('_')[0]].title}</span>
@@ -104,7 +119,6 @@
 		text-align: center;
 		margin: 0;
 		padding: 2rem 0;
-		margin: 3rem 0;
 		color: var(--grey-pale);
 	}
 	.suffix-string span {
@@ -115,20 +129,35 @@
 	}
 
 	.grid {
+		--gap: 0.5rem;
+
 		display: grid;
-		grid-template-columns: 0.5fr repeat(6, 1fr);
-		grid-template-rows: repeat(7, 1fr);
-		gap: 0.25rem;
+		grid-template-columns: 0.25fr 0.5fr repeat(5, 1fr);
+		grid-template-rows: 0.25fr 0.5fr repeat(5, 1fr);
+		gap: var(--gap);
+		grid-auto-flow: row dense;
 	}
 	.grid > div {
+		position: relative;
 		text-align: center;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding: 0.75rem 0;
+		padding: 1rem 0;
+	}
+	.grid > div > * {
+		position: relative;
+	}
+	.title h2 {
+		margin: 0;
+	}
+	[data-attr] {
+		grid-column-start: 2;
+		grid-column-end: 3;
 	}
 	.grid-item {
+		position: relative;
 		border: 2px solid var(--brown-dark);
 		background: hsla(var(--brown-dark-hsl) / 0.75);
 	}
@@ -141,7 +170,7 @@
 	}
 	.grid-item--title {
 		font-size: 1.25rem;
-		margin: 0 0 0.25rem;
+		margin: 0;
 	}
 	.grid-item--val {
 		color: var(--grey-pale);
@@ -163,5 +192,29 @@
 		grid-column-start: 2;
 		grid-column-end: 8;
 		grid-row: 1;
+	}
+
+	/* Highlight primary selected row */
+	[data-primary='str'] [data-attr='str']::before,
+	[data-primary='dex'] [data-attr='dex']::before,
+	[data-primary='int'] [data-attr='int']::before,
+	[data-primary='foc'] [data-attr='foc']::before,
+	[data-primary='con'] [data-attr='con']::before {
+		content: '';
+		position: absolute;
+		inset: 0 calc(var(--gap) * -1) 0 0;
+		background: linear-gradient(to right, transparent, var(--grey));
+		opacity: 0.3;
+	}
+	[data-primary='str'] [data-primary='str']::before,
+	[data-primary='dex'] [data-primary='dex']::before,
+	[data-primary='int'] [data-primary='int']::before,
+	[data-primary='foc'] [data-primary='foc']::before,
+	[data-primary='con'] [data-primary='con']::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: var(--grey);
+		opacity: 0.35;
 	}
 </style>

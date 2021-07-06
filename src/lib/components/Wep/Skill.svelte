@@ -64,6 +64,9 @@
 		data-type={skillInfo.type}
 		data-row={row}
 		data-col={col}
+		style={`--skill-color: var(${
+			skillInfo.type === 'major' || skillInfo.required ? '--tree-color' : '--grey'
+		})`}
 		on:click={ptsRemaining && isSelectable && addSkill}
 		on:contextmenu|preventDefault={removeSkill}
 	>
@@ -76,7 +79,7 @@
 			<span class="required-bar mask2 required-bar--tall" />
 		{/if}
 		<div class="skill-shape">
-			<div class="mask2 color-fill" />
+			<div class="mask2 colorFill" />
 			<div class="border" />
 			<div
 				class="skill-img"
@@ -145,14 +148,14 @@
 	.skill.wepActive.active .skill-shape {
 		border-color: var(--pale);
 	}
-	.skill:not(.wepActive) .skill-shape .color-fill,
-	.skill.wepActive.active .skill-shape .color-fill {
+	.skill:not(.wepActive) .skill-shape .colorFill,
+	.skill.wepActive.active .skill-shape .colorFill {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: radial-gradient(var(--tree-color, grey) 0%, black 140%);
+		background: radial-gradient(var(--skill-color, grey) 0%, black 140%);
 		opacity: 0.8;
 	}
 	.skill:not(.wepActive) .skill-shape .border,
@@ -175,13 +178,13 @@
 		width: 100%;
 	}
 	.skill[data-type='minor'] .skill-shape {
-		width: 60%;
+		width: 70%;
 		border-radius: 50%;
 	}
 	.skill[data-type='minor'] .skill-shape .border,
-	.skill[data-type='minor'] .skill-shape .color-fill,
+	.skill[data-type='minor'] .skill-shape .colorFill,
 	.skill[data-type^='ult'] .skill-shape .border,
-	.skill[data-type^='ult'] .skill-shape .color-fill {
+	.skill[data-type^='ult'] .skill-shape .colorFill {
 		border-radius: 50%;
 	}
 	.skill[data-type='minor'] .skill-img {
@@ -210,9 +213,9 @@
 	}
 	.skill .required-bar--left {
 		top: 0%;
-		left: -50%;
+		left: calc(-50% - var(--gap));
 		height: var(--bar-thickness);
-		width: 100%;
+		width: calc(100% + var(--gap));
 	}
 	.skill .required-bar--double-tall {
 		bottom: 50%;

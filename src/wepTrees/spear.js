@@ -14,7 +14,7 @@ export const ZONER = {
 		name: 'Javelin',
 		type: 'major',
 		img: `${CDN}/spear_javelin.png`,
-		description: `Throw your spear, dealing 125.0% weapon damage and staggering on hit.`,
+		description: `Throw your spear, dealing 125% weapon damage and staggering on hit.`,
 		cooldown: 15
 	},
 	'1_4': {
@@ -209,7 +209,7 @@ export const IMPALER = {
 		img: `${CDN}/spear_skewer_bonusdmgvsmaxhp.png`,
 		description: `+20% damage against targets that have full health.`
 	},
-	'2_3': {
+	'2_4': {
 		required: null,
 		name: 'Finishing Blows',
 		row: 2,
@@ -291,7 +291,7 @@ export const IMPALER = {
 		row: 5,
 		type: 'minor',
 		img: `${CDN}/spear_cdronbleedkill.png`,
-		description: `Critical hits extend the duration of Spear debuffs by 2s.`
+		description: `Critical hits extend the duration of Spear debuffs by 20%.`
 	},
 	'5_4': {
 		required: null,
@@ -315,6 +315,6 @@ export const IMPALER = {
 		row: 6,
 		type: 'ultimate',
 		img: `${CDN}/spear_bonusdmgvsdebuff.png`,
-		description: `+15% damage per debuff on target.`
+		description: `+10% damage per debuff on target (30% max).`
 	}
 };

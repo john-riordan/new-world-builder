@@ -49,7 +49,7 @@ export const SWORDMASTER = {
 		name: 'Opportunity',
 		type: 'minor',
 		img: `${CDN}/swordability1_mod2.png`,
-		description: `Whirling Blade causes 20% Rend for 5s.<br /><br />(Rend reduces targets armor)`
+		description: `Whirling Blade causes 5% Rend for 10s.<br /><br />(Rend reduces targets armor)`
 	},
 	'2_4': {
 		required: null,
@@ -89,7 +89,7 @@ export const SWORDMASTER = {
 		name: 'Leaping Strike',
 		type: 'major',
 		img: `${CDN}/swordability3.png`,
-		description: `Leap 4 meters and deal 125% weapon damage.`,
+		description: `Leap 4 meters and deal 135% weapon damage.`,
 		cooldown: 25
 	},
 	'4_2': {
@@ -98,7 +98,7 @@ export const SWORDMASTER = {
 		name: 'Opportunist',
 		type: 'minor',
 		img: `${CDN}/warhammerpassive2.png`,
-		description: `Deal 20% more damage to to slowed enemies.`
+		description: `Deal 10% more damage to to slowed enemies.`
 	},
 	'4_3': {
 		required: 'Opportunity',
@@ -143,7 +143,7 @@ export const SWORDMASTER = {
 		description: `On critical hit can 20% haste for 5s.<br /><br />(Haste increases movement speed)`
 	},
 	'5_5': {
-		required: null,
+		required: 'Final Strike',
 		row: 5,
 		name: 'Cowardly Punishment',
 		type: 'minor',
@@ -167,7 +167,7 @@ export const DEFENDER = {
 		name: 'Sturdy Shield',
 		type: 'minor',
 		img: `${CDN}/swordpassive14.png`,
-		description: `Shields provide 15% more armor.`
+		description: `Gain an additional 15% physical armor.`
 	},
 	'1_3': {
 		required: null,
@@ -184,7 +184,7 @@ export const DEFENDER = {
 		name: 'Sturdy Grip',
 		type: 'minor',
 		img: `${CDN}/rapier_ability4mod1_insult_to_injury.png`,
-		description: `Stamina damage is reduced by 25% when blocking a melee attack with a shield.`
+		description: `Stamina damage is reduced by 15% when blocking a melee attack with a shield.`
 	},
 	'2_1': {
 		required: null,
@@ -217,7 +217,7 @@ export const DEFENDER = {
 		name: 'High Grip',
 		type: 'minor',
 		img: `${CDN}/swordpassive8.png`,
-		description: `Stamina damage is reduced by 25% when blocking a ranged attack with a shield.`
+		description: `Stamina damage is reduced by 15% when blocking a ranged attack with a shield.`
 	},
 	'3_1': {
 		required: 'Shield Bash',
@@ -259,7 +259,7 @@ export const DEFENDER = {
 		name: 'Final Blow',
 		type: 'minor',
 		img: `${CDN}/swordability3_mod2.png`,
-		description: `The 3rd swing of your light attack deals 30% more damage and generates more threat.`
+		description: `The 3rd swing of your light attack deals 15% more damage and generates more threat.`
 	},
 	'4_4': {
 		required: null,

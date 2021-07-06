@@ -177,7 +177,7 @@ button.minor {
 	background-position-y: -305px;
 	width: 486px;
 	height: 51px;
-	background-image: url(//d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/new-world-sprites.png);
+	background-image: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/new-world-sprites.png);
 }
 .decoration-top {
 	left: 50%;
@@ -186,4 +186,14 @@ button.minor {
 .decoration-bottom {
 	left: 50%;
 	transform: rotateX(180deg) translateX(-50%);
+}
+
+.decoration-line--wide {
+	background-position-x: 75%;
+	background-position-y: -225px;
+	width: 100%;
+	height: 10px;
+	margin: 3rem 0;
+	background-repeat: no-repeat;
+	background-image: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/new-world-sprites.png);
 }

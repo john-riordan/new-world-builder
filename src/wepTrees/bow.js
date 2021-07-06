@@ -23,7 +23,7 @@ export const SKIRMISHER = {
 		name: 'Catch Me If You Can',
 		type: 'minor',
 		img: `${CDN}/greataxe_reaperpass5_pursuit.png`,
-		description: `If surrounded by 3 or more foes within 3m of you gain 33% Haste (movement speed).`
+		description: `If surrounded by 3 or more foes within 3m of you gain 20% Haste (movement speed).`
 	},
 	'2_2': {
 		required: null,
@@ -31,7 +31,7 @@ export const SKIRMISHER = {
 		name: 'Impale',
 		type: 'minor',
 		img: `${CDN}/bowability6_mod2.png`,
-		description: `If you hit a foe with 100% health cause 30% slow for 2s.`
+		description: `If you hit a foe with 100% health cause 10% slow for 2s.`
 	},
 	'2_3': {
 		required: 'Evade Shot',
@@ -44,10 +44,10 @@ export const SKIRMISHER = {
 	'2_4': {
 		required: null,
 		row: 2,
-		name: 'Evasive Knockback',
+		name: 'Closing In',
 		type: 'minor',
 		img: `${CDN}/rapier_ability4mod2_priority.png`,
-		description: `Evade Shot causes knockback of 2m.`
+		description: `Hitting a for below 50% health reduces bow ability recharge by 5%.`
 	},
 	'2_5': {
 		required: null,
@@ -60,11 +60,11 @@ export const SKIRMISHER = {
 	'3_1': {
 		required: null,
 		row: 3,
-		name: 'Rapid Shot',
+		name: 'Poison Shot',
 		type: 'major',
-		img: `${CDN}/bowability1.png`,
-		description: `Shoot 3 consecutive arrows. The first two dealing 100% weapon damage each. The last shot causes a knockback and deal 125% weapon damage.`,
-		cooldown: 20
+		img: `${CDN}/bowability5.png`,
+		description: `Shoot a poison arrow that on hit or land creates a cloud of poison 3m wide that lasts 10s. Foes entering the cloud are poisoned dealing 10% weapon damage per second for 20s.`,
+		cooldown: 35
 	},
 	'3_2': {
 		required: null,
@@ -72,7 +72,7 @@ export const SKIRMISHER = {
 		name: 'Dodge and Weave',
 		type: 'minor',
 		img: `${CDN}/bowpassive12.png`,
-		description: `After you dodge gain 20% haste (movement speed) for 5 seconds.`
+		description: `After you dodge gain 10% haste (movement speed) for 2 seconds.`
 	},
 	'3_4': {
 		required: null,
@@ -104,7 +104,7 @@ export const SKIRMISHER = {
 		name: `Go the Distance`,
 		type: 'minor',
 		img: `${CDN}/bowability2_mod2.png`,
-		description: `Evase Shot grants you 5s of 33% haste (movement speed).`,
+		description: `Evase Shot grants you 5s of 15% haste (movement speed).`,
 		etc: ['double-up']
 	},
 	'4_4': {
@@ -113,7 +113,7 @@ export const SKIRMISHER = {
 		name: `Archer's Speed`,
 		type: 'minor',
 		img: `${CDN}/firestaffability4_mod3.png`,
-		description: `Gain 20s haste for 5s when you swap to your bow (10s cooldown).`
+		description: `Gain 10s haste for 5s when you swap to your bow (10s cooldown).`
 	},
 	'5_1': {
 		required: 'Infected Arrows',
@@ -137,7 +137,7 @@ export const SKIRMISHER = {
 		name: `Battle Precision`,
 		type: 'minor',
 		img: `${CDN}/bowability5_mod2.png`,
-		description: `Debuffs last 20% longer.`
+		description: `Debuffs and DoTs last 20% longer.`
 	},
 	'5_5': {
 		required: 'Barbed Arrows',
@@ -145,7 +145,7 @@ export const SKIRMISHER = {
 		name: `Hooked Arrows`,
 		type: 'minor',
 		img: `${CDN}/bowability6_mod2.png`,
-		description: `Rain of Arrows causes a 30% slow for 12s.`,
+		description: `Rain of Arrows causes a15% slow for 4s.`,
 		etc: ['double-up']
 	},
 	'6_3': {
@@ -154,7 +154,7 @@ export const SKIRMISHER = {
 		name: `Knee Shot`,
 		type: 'ultimate',
 		img: `${CDN}/bowpassive7.png`,
-		description: `Leg shots cause a 50% slow for 4s.`
+		description: `Leg shots cause a 10% slow for 2s.`
 	}
 };
 
@@ -240,7 +240,7 @@ export const HUNTER = {
 		name: 'Opening Strike',
 		type: 'minor',
 		img: `${CDN}/swordpassive5.png`,
-		description: `Heavy attacks deal 20% more damage to foes iwth 100% health.`
+		description: `Heavy attacks deal 20% more damage to foes with 100% health.`
 	},
 	'3_5': {
 		required: 'Splinter Shot',
@@ -313,6 +313,6 @@ export const HUNTER = {
 		name: 'Concussion',
 		type: 'ultimate',
 		img: `${CDN}/musketpassive5.png`,
-		description: `When you land a headshot, deal 20% more damage with a 100% chance to get your arrow back.`
+		description: `When you land a headshot, deal 20% more damage with a 50% chance to get your arrow back.`
 	}
 };

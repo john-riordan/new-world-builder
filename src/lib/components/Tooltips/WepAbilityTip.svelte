@@ -1,6 +1,4 @@
 <script>
-	import { fade } from 'svelte/transition';
-
 	export let abilityInfo;
 	export let side = 'right';
 	export let offset = 0;
@@ -14,6 +12,7 @@
 	class="container"
 	class:left={side === 'left'}
 	class:right={side === 'right'}
+	class:top={side === 'top'}
 	style="
     --offset: {offset}px;
     --y-offset: {y}px;
@@ -36,7 +35,9 @@
 		</div>
 	</div>
 	<p>{@html abilityInfo.description}</p>
-	<footer>Mana cost:</footer>
+	{#if abilityInfo.mana}
+		<footer>Mana cost: {abilityInfo.mana}</footer>
+	{/if}
 </div>
 
 <style>
@@ -79,6 +80,11 @@
 		left: calc(var(--x-offset) + var(--offset) + var(--buffer));
 		animation: fadeInLeft 0.2s ease-in-out;
 	}
+	.container.top {
+		left: calc(var(--x-offset));
+		top: var(--y-offset);
+		transform: translateY(calc(-100% - var(--buffer))) translateX(calc(-50% + var(--offset) / 1.5));
+	}
 
 	.container::before {
 		content: '';
@@ -99,11 +105,18 @@
 		clip-path: polygon(0 0, 100% 0, 100% 100%);
 		right: -12px;
 	}
+	.container.top::before {
+		clip-path: polygon(0 0, 100% 0, 100% 100%);
+		bottom: -12px;
+		top: unset;
+		right: calc(50%);
+		transform: rotate(135deg);
+	}
 
 	.ability-name {
 		margin: 0;
 		color: var(--white);
-		font-size: 1.5rem;
+		font-size: 1.35rem;
 	}
 	.middle {
 		display: flex;
@@ -124,6 +137,15 @@
 	}
 	.cooldown-value {
 		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--white);
+	}
+
+	p {
+		font-size: 1.125rem;
+	}
+
+	p > :global(b) {
 		font-weight: 700;
 		color: var(--white);
 	}

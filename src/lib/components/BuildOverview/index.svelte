@@ -1,9 +1,10 @@
 <script>
 	import { cubicInOut } from 'svelte/easing';
-	import { selectedWeps, wep0Pts, wep1Pts, attrs } from '../../../stores';
+	import { selectedWeps, wep0Pts, wep0Skills, wep1Pts, wep1Skills, attrs } from '../../../stores';
 	import { weapons } from '../../../weapons';
 	import StripedBg from '$lib/components/StripedBg/index.svelte';
 	import LineBorder from '$lib/components/LineBorder/index.svelte';
+	import SkillList from './SkillList.svelte';
 
 	$: buildStarted = $selectedWeps[0] || $selectedWeps[1] || $attrs.primary;
 
@@ -23,6 +24,9 @@
 
 	$: wep1 = weapons[$selectedWeps[0]];
 	$: wep2 = weapons[$selectedWeps[1]];
+
+	$: console.log('wep 0', $wep0Skills);
+	$: console.log('wep 1', $wep1Skills);
 </script>
 
 {#if buildStarted}
@@ -43,22 +47,26 @@
 							<a href={`/weapons/${wep1.name}`} class="wep">
 								<h4>{wep1.title}</h4>
 								<p class="pts">{$wep0Pts} Points spent</p>
+								<SkillList skills={$wep0Skills} />
 							</a>
 						{:else}
 							<div class="wep">
 								<h4>Select Wep 1</h4>
 								<p class="pts">-</p>
+								<SkillList skills={$wep0Skills} />
 							</div>
 						{/if}
 						{#if wep2}
 							<a href={`/weapons/${wep2.name}`} class="wep">
 								<h4>{wep2.title}</h4>
 								<p class="pts">{$wep1Pts} Points spent</p>
+								<SkillList skills={$wep1Skills} />
 							</a>
 						{:else}
 							<div class="wep">
 								<h4>Select Wep 2</h4>
 								<p class="pts">-</p>
+								<SkillList skills={$wep1Skills} />
 							</div>
 						{/if}
 					</div>
@@ -76,20 +84,20 @@
 		background: var(--brown);
 		transform: translateX(-50%);
 		z-index: 9;
-		box-shadow: 0 2.8px 5.5px -36px rgba(0, 0, 0, 0.197), 0 6.7px 13.3px -36px rgba(0, 0, 0, 0.283),
-			0 12.5px 25px -36px rgba(0, 0, 0, 0.35), 0 22.3px 44.7px -36px rgba(0, 0, 0, 0.417),
-			0 41.8px 83.6px -36px rgba(0, 0, 0, 0.503), 0 100px 200px -36px rgba(0, 0, 0, 0.7);
+		box-shadow: 0 3px 6px -36px rgba(0, 0, 0, 0.5), 0 7px 13px -36px rgba(0, 0, 0, 0.4),
+			0 12px 25px -36px rgba(0, 0, 0, 0.3), 0 22px 44px -36px rgba(0, 0, 0, 0.5),
+			0 41px 83px -36px rgba(0, 0, 0, 0.7), 0 100px 200px -36px rgba(0, 0, 0, 0.8);
 	}
 	.build-inner {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-		padding: 2rem;
+		padding: 1.5rem;
 	}
 
 	.build .attrs,
 	.build .weps {
 		display: flex;
+	}
+	.build .weps {
+		gap: 1rem;
 	}
 	.build .attrs {
 		gap: 1rem;

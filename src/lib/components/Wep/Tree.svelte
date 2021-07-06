@@ -44,9 +44,12 @@
 
 <style>
 	.tree-grid {
+		--gap: 0.5rem;
+
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(6, 1fr);
+		gap: var(--gap);
 		padding: 1rem;
 	}
 
