@@ -8,6 +8,7 @@ import { SKIRMISHER, HUNTER } from './wepTrees/bow';
 import { SHARPSHOOTER, TRAPPER } from './wepTrees/musket';
 import { FIRE_MAGE, PYROMANCER } from './wepTrees/fireStaff';
 import { HEALING, PROTECTOR } from './wepTrees/lifeStaff';
+import { ICE_TEMPEST, BUILDER } from './wepTrees/iceGauntlet';
 
 export const weapons = {
 	'straight-sword': {
@@ -166,10 +167,12 @@ export const weapons = {
 		damage_type: 'ice',
 		tree1: {
 			name: 'iceTempest',
+			skills: ICE_TEMPEST,
 			color: '--skill-blue'
 		},
 		tree2: {
 			name: 'builder',
+			skills: BUILDER,
 			color: '--skill-blue'
 		}
 	}
