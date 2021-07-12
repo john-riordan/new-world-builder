@@ -70,6 +70,7 @@ h5 {
 	font-weight: 400;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
+	margin: 0;
 }
 
 a {
@@ -120,13 +121,6 @@ button.minor {
 	background: var(--black);
 	border: 2px solid var(--gold);
 	background-size: 10px 13px;
-}
-
-.container {
-	width: 95%;
-	max-width: var(--app-container);
-	margin: 0 auto;
-	padding: 0 3.5rem;
 }
 
 .tab-list {

@@ -1,6 +1,6 @@
 export const monsters = {
-	ancients: {
-		name: 'ancients',
+	ancient: {
+		name: 'ancient',
 		title: 'Ancients',
 		weakness: [
 			{

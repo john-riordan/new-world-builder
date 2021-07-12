@@ -23,7 +23,7 @@
 
 <Header />
 
-<main class="container">
+<main>
 	<Tabs
 		tabs={[
 			{
@@ -41,6 +41,10 @@
 			{
 				title: 'Monster Types',
 				url: '/monsters'
+			},
+			{
+				title: 'Dungeons',
+				url: '/dungeons'
 			}
 		]}
 	/>
@@ -56,6 +60,10 @@
 <style>
 	main {
 		min-height: 95vh;
+		width: 95%;
+		max-width: var(--app-container);
+		margin: 0 auto;
+		padding: 0 3.5rem;
 	}
 
 	.bg {

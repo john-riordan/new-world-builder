@@ -25,8 +25,6 @@
 
 	$: selectedKey = primary && secondary && `${primary}_${secondary}`;
 	$: selected = selectedKey && data[selectedKey];
-
-	$: console.log(primary);
 </script>
 
 <svelte:head>

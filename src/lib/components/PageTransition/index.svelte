@@ -9,3 +9,9 @@
 		<slot />
 	</div>
 {/key}
+
+<style>
+	div {
+		position: relative;
+	}
+</style>
