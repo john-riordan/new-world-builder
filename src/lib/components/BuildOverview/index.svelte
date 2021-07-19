@@ -1,113 +1,110 @@
 <script>
-	import { cubicInOut } from 'svelte/easing';
-	import { selectedWeps, wep0Pts, wep0Skills, wep1Pts, wep1Skills, attrs } from '../../../stores';
-	import { weapons } from '../../../weapons';
-	import StripedBg from '$lib/components/StripedBg/index.svelte';
-	import LineBorder from '$lib/components/LineBorder/index.svelte';
-	import SkillList from './SkillList.svelte';
+  import { cubicInOut } from 'svelte/easing';
+  import { selectedWeps, wep0Pts, wep0Skills, wep1Pts, wep1Skills, attrs } from '../../../stores';
+  import { weapons } from '../../../weapons';
+  import StripedBg from '$lib/components/StripedBg/index.svelte';
+  import LineBorder from '$lib/components/LineBorder/index.svelte';
+  import SkillList from './SkillList.svelte';
 
-	$: buildStarted = $selectedWeps[0] || $selectedWeps[1] || $attrs.primary;
+  $: buildStarted = $selectedWeps[0] || $selectedWeps[1] || $attrs.primary;
 
-	export function enter() {
-		return {
-			duration: 350,
-			css: (t, u) => {
-				const eased = cubicInOut(u);
+  export function enter() {
+    return {
+      duration: 350,
+      css: (t, u) => {
+        const eased = cubicInOut(u);
 
-				return `
+        return `
 					transform: translateX(-50%) translateY(${100 * eased}%);
 					opacity: ${t};
 				`;
-			}
-		};
-	}
+      }
+    };
+  }
 
-	$: wep1 = weapons[$selectedWeps[0]];
-	$: wep2 = weapons[$selectedWeps[1]];
-
-	$: console.log('wep 0', $wep0Skills);
-	$: console.log('wep 1', $wep1Skills);
+  $: wep1 = weapons[$selectedWeps[0]];
+  $: wep2 = weapons[$selectedWeps[1]];
 </script>
 
 {#if buildStarted}
-	<div class="build" transition:enter>
-		<LineBorder>
-			<StripedBg>
-				<div class="build-inner">
-					{#if $attrs.primary}
-						<div class="attrs">
-							<div>Primary: {$attrs.primary.key}({$attrs.primary.pts})</div>
-							{#if $attrs.secondary}
-								<div>Secondary: {$attrs.secondary.key}({$attrs.secondary.pts})</div>
-							{/if}
-						</div>
-					{/if}
-					<div class="weps">
-						{#if wep1}
-							<a href={`/weapons/${wep1.name}`} class="wep">
-								<h4>{wep1.title}</h4>
-								<p class="pts">{$wep0Pts} Points spent</p>
-								<SkillList skills={$wep0Skills} />
-							</a>
-						{:else}
-							<div class="wep">
-								<h4>Select Wep 1</h4>
-								<p class="pts">-</p>
-								<SkillList skills={$wep0Skills} />
-							</div>
-						{/if}
-						{#if wep2}
-							<a href={`/weapons/${wep2.name}`} class="wep">
-								<h4>{wep2.title}</h4>
-								<p class="pts">{$wep1Pts} Points spent</p>
-								<SkillList skills={$wep1Skills} />
-							</a>
-						{:else}
-							<div class="wep">
-								<h4>Select Wep 2</h4>
-								<p class="pts">-</p>
-								<SkillList skills={$wep1Skills} />
-							</div>
-						{/if}
-					</div>
-				</div>
-			</StripedBg>
-		</LineBorder>
-	</div>
+  <div class="build" transition:enter>
+    <LineBorder>
+      <StripedBg>
+        <div class="build-inner">
+          {#if $attrs.primary}
+            <div class="attrs">
+              <div>Primary: {$attrs.primary.key}({$attrs.primary.pts})</div>
+              {#if $attrs.secondary}
+                <div>Secondary: {$attrs.secondary.key}({$attrs.secondary.pts})</div>
+              {/if}
+            </div>
+          {/if}
+          <div class="weps">
+            {#if wep1}
+              <a href={`/weapons/${wep1.name}`} class="wep">
+                <h4>{wep1.title}</h4>
+                <p class="pts">{$wep0Pts} Points spent</p>
+                <SkillList skills={$wep0Skills} />
+              </a>
+            {:else}
+              <div class="wep">
+                <h4>Select Wep 1</h4>
+                <p class="pts">-</p>
+                <SkillList skills={$wep0Skills} />
+              </div>
+            {/if}
+            {#if wep2}
+              <a href={`/weapons/${wep2.name}`} class="wep">
+                <h4>{wep2.title}</h4>
+                <p class="pts">{$wep1Pts} Points spent</p>
+                <SkillList skills={$wep1Skills} />
+              </a>
+            {:else}
+              <div class="wep">
+                <h4>Select Wep 2</h4>
+                <p class="pts">-</p>
+                <SkillList skills={$wep1Skills} />
+              </div>
+            {/if}
+          </div>
+        </div>
+      </StripedBg>
+    </LineBorder>
+  </div>
 {/if}
 
 <style>
-	.build {
-		position: fixed;
-		bottom: 1rem;
-		left: 50%;
-		background: var(--brown);
-		transform: translateX(-50%);
-		z-index: 9;
-		box-shadow: 0 3px 6px -36px rgba(0, 0, 0, 0.5), 0 7px 13px -36px rgba(0, 0, 0, 0.4),
-			0 12px 25px -36px rgba(0, 0, 0, 0.3), 0 22px 44px -36px rgba(0, 0, 0, 0.5),
-			0 41px 83px -36px rgba(0, 0, 0, 0.7), 0 100px 200px -36px rgba(0, 0, 0, 0.8);
-	}
-	.build-inner {
-		padding: 1.5rem;
-	}
+  .build {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    background: var(--brown);
+    transform: translateX(-50%);
+    z-index: 9;
+    box-shadow: 0 3px 6px -36px rgba(0, 0, 0, 0.5), 0 7px 13px -36px rgba(0, 0, 0, 0.4),
+      0 12px 25px -36px rgba(0, 0, 0, 0.3), 0 22px 44px -36px rgba(0, 0, 0, 0.5),
+      0 41px 83px -36px rgba(0, 0, 0, 0.7), 0 100px 200px -36px rgba(0, 0, 0, 0.8);
+  }
+  .build-inner {
+    padding: 1.5rem;
+  }
 
-	.build .attrs,
-	.build .weps {
-		display: flex;
-	}
-	.build .weps {
-		gap: 1rem;
-	}
-	.build .attrs {
-		gap: 1rem;
-	}
-	.build .wep {
-		width: 17rem;
-		text-decoration: none;
-	}
+  .build .attrs,
+  .build .weps {
+    display: flex;
+  }
+  .build .weps {
+    gap: 1rem;
+  }
+  .build .attrs {
+    gap: 1rem;
+  }
+  .build .wep {
+    width: 17rem;
+    text-decoration: none;
+  }
 
-	.wep h4 {
-		margin: 0;
-	}
+  .wep h4 {
+    margin: 0;
+  }
 </style>

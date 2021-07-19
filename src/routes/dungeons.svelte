@@ -38,7 +38,14 @@
   function lvlColor(index) {
     return `${5 + index * 10}%`;
   }
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 </script>
+
+<svelte:head>
+  <title>Dungeons | World Forge</title>
+</svelte:head>
 
 <div class="page-container">
   <div class="map-container--outer">
@@ -96,24 +103,31 @@
             <div class="preview-container">
               <div
                 class="monster-bg mask2"
-                style={`background-image: url(monsters/${
+                style={`background-image: url(${
                   data.monsters[selectedDungeon.monsters].name
                 }.jpg);`}
               />
-              <h4>{selectedDungeon.name}</h4>
-              <p>Monster Type: {data.monsters[selectedDungeon.monsters].title}</p>
-              <p>Weak to:</p>
-              <ul class="inline-list">
-                {#each data.monsters[selectedDungeon.monsters].weakness as weakness}
-                  <li><span>{weakness.damage_type}</span></li>
-                {/each}
-              </ul>
-              <p>Resists:</p>
-              <ul class="inline-list">
-                {#each data.monsters[selectedDungeon.monsters].resists as resist}
-                  <li><span>{resist.damage_type}</span></li>
-                {/each}
-              </ul>
+              <h4 class="selected-dungeon--name">{selectedDungeon.name}</h4>
+              <div>
+                <p class="selected-dungeon--monsters weak">Monster Type:</p>
+                <p class="strong">{data.monsters[selectedDungeon.monsters].title}</p>
+              </div>
+              <div>
+                <p class="weak">Weak to:</p>
+                <ul class="inline-list strong">
+                  {#each data.monsters[selectedDungeon.monsters].weakness as weakness}
+                    <li><span>{capitalizeFirstLetter(weakness.damage_type)}</span></li>
+                  {/each}
+                </ul>
+              </div>
+              <div>
+                <p class="weak">Resists:</p>
+                <ul class="inline-list strong">
+                  {#each data.monsters[selectedDungeon.monsters].resists as resist}
+                    <li><span>{capitalizeFirstLetter(resist.damage_type)}</span></li>
+                  {/each}
+                </ul>
+              </div>
             </div>
           {:else}
             <div class="preview-container empty">
@@ -188,7 +202,7 @@
 
   .preview-container {
     position: relative;
-    height: 150px;
+    height: 180px;
     margin-top: 1rem;
     padding-top: 1rem;
     font-size: 0.875rem;
@@ -196,6 +210,7 @@
   }
   .preview-container > * {
     position: relative;
+    margin-bottom: 0.5rem;
   }
   .preview-container.empty {
     display: grid;
@@ -216,6 +231,16 @@
       transparent 70%
     );
     box-shadow: inset 0 1px 0 var(--offwhite);
+  }
+
+  .selected-dungeon--name {
+    margin-bottom: 0.5rem;
+  }
+  .weak {
+    color: var(--grey-pale);
+  }
+  .strong {
+    font-weight: 700;
   }
 
   .map-container--outer {

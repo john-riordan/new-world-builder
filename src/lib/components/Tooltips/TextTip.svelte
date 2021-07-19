@@ -1,26 +1,27 @@
 <script>
-	export let text;
-	export let x;
-	export let y;
+  export let text;
+  export let x;
+  export let y;
 
-	const offset = 5;
+  const offset = 5;
 </script>
 
 <div
-	style="
+  style="
     top: {y + offset}px;
     left: {x + offset}px;
   "
 >
-	{text}
+  {text}
 </div>
 
 <style>
-	div {
-		position: absolute;
-		background: var(--black);
-		width: 30rem;
-		padding: 1.25rem;
-		border: 1px solid var(--brown);
-	}
+  div {
+    position: absolute;
+    background: var(--brown-dark);
+    max-width: 40ch;
+    min-width: 20ch;
+    padding: 1.25rem;
+    border: 1px solid var(--grey);
+  }
 </style>
