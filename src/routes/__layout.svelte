@@ -38,6 +38,14 @@
   <meta property="og:image" content="/og-image.jpg" />
   <meta property="og:image:width" content="1920" />
   <meta property="og:image:height" content="1080" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@johnriordan" />
+  <meta name="twitter:title" content="World Forge" />
+  <meta
+    name="twitter:description"
+    content="World Forge is the go to interactive builder for the MMO PC game from Amazon Games, providing players with up-to-date builds, weapons, dungeons, and more."
+  />
+  <meta name="twitter:image" content="/og-image.jpg" />
 </svelte:head>
 
 <div class="bg bg-bottom" />
