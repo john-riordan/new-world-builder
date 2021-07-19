@@ -1,0 +1,102 @@
+{
+	"str_str": {
+		"name": "soldier",
+		"title": "Soldier"
+	},
+	"str_con": {
+		"name": "barbarian",
+		"title": "Barbarian"
+	},
+	"str_dex": {
+		"name": "fighter",
+		"title": "Figher"
+	},
+	"str_int": {
+		"name": "spellsword",
+		"title": "Spellsword"
+	},
+	"str_foc": {
+		"name": "monk",
+		"title": "Monk"
+	},
+	"con_str": {
+		"name": "knight",
+		"title": "Knight"
+	},
+	"con_con": {
+		"name": "sentry",
+		"title": "Sentry"
+	},
+	"con_dex": {
+		"name": "warden",
+		"title": "Warden"
+	},
+	"con_int": {
+		"name": "druid",
+		"title": "Druid"
+	},
+	"con_foc": {
+		"name": "nomad",
+		"title": "Nomad"
+	},
+	"dex_str": {
+		"name": "cavalier",
+		"title": "Cavalier"
+	},
+	"dex_con": {
+		"name": "brigand",
+		"title": "brigand"
+	},
+	"dex_dex": {
+		"name": "ranger",
+		"title": "Ranger"
+	},
+	"dex_int": {
+		"name": "assassin",
+		"title": "Assassin"
+	},
+	"dex_foc": {
+		"name": "duelist",
+		"title": "Duelist"
+	},
+	"int_str": {
+		"name": "battlemage",
+		"title": "Battlemage"
+	},
+	"int_con": {
+		"name": "occultist",
+		"title": "Occultist"
+	},
+	"int_dex": {
+		"name": "trickster",
+		"title": "Trickster"
+	},
+	"int_int": {
+		"name": "scholar",
+		"title": "Scholar"
+	},
+	"int_foc": {
+		"name": "mage",
+		"title": "Mage"
+	},
+	"foc_str": {
+		"name": "zealot",
+		"title": "Zealot"
+	},
+	"foc_con": {
+		"name": "cleric",
+		"title": "Cleric"
+	},
+	"foc_dex": {
+		"name": "artificer",
+		"title": "Artificer"
+	},
+	"foc_int": {
+		"name": "priest",
+		"title": "Priest"
+	},
+	"foc_foc": {
+		"name": "sage",
+		"title": "Sage"
+	}
+}

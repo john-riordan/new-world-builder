@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "key": "amarine",
+      "name": "Amarine Excavation",
+      "monsters": "ancient",
+      "level": 25,
+      "x-coord": "35%",
+      "y-coord": "68%",
+      "star-x": "57%",
+      "star-y": "4%"
+    },
+    {
+      "key": "starstone",
+      "name": "Starstone Barrows",
+      "monsters": "ancient",
+      "level": 35,
+      "x-coord": "38%",
+      "y-coord": "58.5%",
+      "star-x": "41%",
+      "star-y": "36%"
+    },
+    {
+      "key": "depths",
+      "name": "The Depths",
+      "monsters": "corrupted",
+      "level": 45,
+      "x-coord": "78%",
+      "y-coord": "47%",
+      "star-x": "47%",
+      "star-y": "5%"
+    },
+    {
+      "key": "shipyard",
+      "name": "Dynasty Shipyard",
+      "monsters": "corrupted",
+      "level": 55,
+      "x-coord": "8.5%",
+      "y-coord": "55.5%",
+      "star-x": "0%",
+      "star-y": "20%"
+    },
+    {
+      "key": "lazarus",
+      "name": "Lazarus Instrumentality",
+      "monsters": "ancient",
+      "level": 65,
+      "x-coord": "62.5%",
+      "y-coord": "63.5%",
+      "star-x": "5%",
+      "star-y": "-4%"
+    },
+    {
+      "key": "garden",
+      "name": "Garden of Genesis",
+      "monsters": "angry_earth",
+      "level": 65,
+      "x-coord": "62%",
+      "y-coord": "19.5%",
+      "star-x": "0%",
+      "star-y": "-1%"
+    }
+  ]
+}

@@ -1,59 +1,75 @@
 <script context="module">
-	export const prerender = true;
+  export const prerender = true;
 </script>
 
 <script>
-	import Counter from '$lib/Counter/index.svelte';
+  import Button from '$lib/components/Button/index.svelte';
 </script>
 
 <svelte:head>
-	<title>Home</title>
+  <title>World Forge | New World Builder</title>
 </svelte:head>
 
 <section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
+  <div class="title">
+    <div class="decoration-top" />
+    <h1 class="mask">World Forge</h1>
+    <p class="subtitle">A Build Planner for New World</p>
+    <div class="decoration-bottom" />
+  </div>
 
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
+  <a href="/weapons" sveltekit:prefetch>
+    <Button type="major">Start Building</Button>
+  </a>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+  }
 
-	h1 {
-		width: 100%;
-	}
+  section > * {
+    position: relative;
+  }
 
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
+  .title {
+    position: relative;
+    margin-bottom: 10rem;
+    line-height: 2;
+    padding: 3.5rem 0 3rem;
+    text-align: center;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsla(var(--black-hsl) / 0.2) 50%,
+      transparent 100%
+    );
+  }
+  .title :global(.decoration-top) {
+    top: -46px;
+  }
+  .title :global(.decoration-bottom) {
+    bottom: -46px;
+  }
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+  h1 {
+    font-size: 6rem;
+    line-height: 1;
+    letter-spacing: 2rem;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+  }
+
+  section :global(svg) {
+    width: 12rem;
+  }
+  svg {
+  }
 </style>
