@@ -38,7 +38,6 @@
 </script>
 
 <script>
-  import { tooltipText } from '$lib/actions/tooltipText';
   import { capitalizeFirstLetter } from '$lib/helpers/';
 
   import LineBorder from '$lib/components/LineBorder/index.svelte';
@@ -71,12 +70,7 @@
               <ul class="list">
                 {#each monster.weakness as { item }}
                   <li>
-                    <img
-                      src={`${item.name}.webp`}
-                      alt={item.title}
-                      class="gem-img"
-                      use:tooltipText={{ text: 'test' }}
-                    />
+                    <img src={`${item.name}.webp`} alt={item.title} class="gem-img" />
                     <p>
                       {capitalizeFirstLetter(item.damage_type || item.element)}
                       <span>({item.title})</span>
@@ -90,12 +84,7 @@
               <ul class="list">
                 {#each monster.resists as { item }}
                   <li>
-                    <img
-                      src={`${item.name}.webp`}
-                      alt={item.title}
-                      class="gem-img"
-                      use:tooltipText={{ text: 'test' }}
-                    />
+                    <img src={`${item.name}.webp`} alt={item.title} class="gem-img" />
                     <p>
                       {capitalizeFirstLetter(item.damage_type || item.element)}
                       <span>({item.title})</span>
@@ -176,7 +165,7 @@
   }
   .list li img {
     width: 2.5rem;
-    margin-right: 0.5rem;
+    margin-right: 0.75rem;
   }
   .list li span {
     margin-left: 0.375rem;

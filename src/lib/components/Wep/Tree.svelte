@@ -25,7 +25,7 @@
 <div>
   <h2 class="tree-name">{tree.name}</h2>
   <LineBorder>
-    <div class="backdrop-fill" style={`--y-axis-count: ${maxRow};`} />
+    <!-- <div class="backdrop-fill" style={`--y-axis-count: ${maxRow};`} /> -->
     <div class="tree-grid" style="--tree-color: var({tree.color})">
       {#each Array(size.rows) as _, row}
         {#each Array(size.cols) as _, col}
