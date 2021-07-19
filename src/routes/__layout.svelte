@@ -18,36 +18,6 @@
   export let key;
 </script>
 
-<svelte:head>
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <meta
-    name="description"
-    content="World Forge is the go to interactive builder for the MMO PC game from Amazon Games, providing players with up-to-date builds, weapons, dungeons, and more."
-  />
-  <meta
-    name="keywords"
-    content="New World,  New World Amazon, New World Forge, New World Resources, New World MMO, MMO, MMORPG, online game"
-  />
-  <link rel="canonical" href="https://www.wordforge.gg" />
-  <meta property="og:url" content="http://worldforge.gg" />
-  <meta property="og:title" content="World Forge" />
-  <meta
-    property="og:description"
-    content="World Forge is the go to interactive builder for the MMO PC game from Amazon Games, providing players with up-to-date builds, weapons, dungeons, and more."
-  />
-  <meta property="og:image" content="https://i.imgur.com/u74QhZ3.jpg" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@johnriordan" />
-  <meta name="twitter:title" content="World Forge" />
-  <meta
-    name="twitter:description"
-    content="World Forge is the go to interactive builder for the MMO PC game from Amazon Games, providing players with up-to-date builds, weapons, dungeons, and more."
-  />
-  <meta name="twitter:image" content="https://i.imgur.com/u74QhZ3.jpg" />
-</svelte:head>
-
 <div class="bg bg-bottom" />
 <div class="bg bg-top" />
 
