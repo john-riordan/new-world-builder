@@ -157,7 +157,7 @@ export const REAPER = {
     required: null,
     row: 6,
     name: `Blood Lust`,
-    type: 'minor',
+    type: 'ultimate',
     img: `${CDN}/greataxe_marauderultimate_maraudersfury.png`,
     description: `You move 30% faster and deal 15% more damage when looking at a foe within 15 meters.`
   }
@@ -201,7 +201,7 @@ export const MAULER = {
   '2_3': {
     required: 'Maelstrom',
     row: 2,
-    name: `Storm's reach`,
+    name: `Storms Reach`,
     type: 'minor',
     img: `${CDN}/greataxe_ability5pass1_deadlyseas.png`,
     description: `Extends the reach of Maelstroms pull range by 50%.`
@@ -231,7 +231,7 @@ export const MAULER = {
     description: `After you pull an enemy your foe is held 10% longer.`
   },
   '3_3': {
-    required: `Storm's Reach`,
+    required: `Storms Reach`,
     row: 3,
     name: `Absorb`,
     type: 'minor',
