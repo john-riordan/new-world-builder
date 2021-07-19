@@ -35,7 +35,7 @@
     property="og:description"
     content="World Forge is the go to interactive builder for the MMO PC game from Amazon Games, providing players with up-to-date builds, weapons, dungeons, and more."
   />
-  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:image" content="https://i.imgur.com/u74QhZ3.jpg" />
   <meta property="og:image:width" content="1920" />
   <meta property="og:image:height" content="1080" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -45,7 +45,7 @@
     name="twitter:description"
     content="World Forge is the go to interactive builder for the MMO PC game from Amazon Games, providing players with up-to-date builds, weapons, dungeons, and more."
   />
-  <meta name="twitter:image" content="/og-image.jpg" />
+  <meta name="twitter:image" content="https://i.imgur.com/u74QhZ3.jpg" />
 </svelte:head>
 
 <div class="bg bg-bottom" />
