@@ -124,8 +124,8 @@ button.minor {
 }
 
 .mask {
-  mask-image: url(/static/mask.png);
-  -webkit-mask-image: url(/static/mask.png);
+  mask-image: url(/static/mask.webp);
+  -webkit-mask-image: url(/static/mask.webp);
 }
 .mask2 {
   mask-image: url(/static/mask2.png);
@@ -142,7 +142,7 @@ button.minor {
   background-position-y: -305px;
   width: 486px;
   height: 51px;
-  background-image: url(/new-world-sprites.png);
+  background-image: url(/new-world-sprites.webp);
 }
 .decoration-top {
   left: 50%;
@@ -160,5 +160,5 @@ button.minor {
   height: 10px;
   margin: 2rem 0;
   background-repeat: no-repeat;
-  background-image: url(/new-world-sprites.png);
+  background-image: url(/new-world-sprites.webp);
 }

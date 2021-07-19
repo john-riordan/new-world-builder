@@ -130,7 +130,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-image: url(/new-world-sprites.png);
+    background-image: url(/new-world-sprites.webp);
     background-repeat: no-repeat;
     background-position: 66% 74%;
     -webkit-mask-image: linear-gradient(to right, black 0%, black 30%, black 70%, transparent 100%);

@@ -31,7 +31,7 @@
     width: 1279px;
     height: 1px;
     transform: translateX(-50%);
-    background: url(/new-world-sprites.png) -10px -229px;
+    background: url(/new-world-sprites.webp) -10px -229px;
     opacity: 0.5;
   }
   p {
