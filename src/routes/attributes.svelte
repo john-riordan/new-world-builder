@@ -150,7 +150,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-image: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/new-world-sprites.png);
+    background-image: url(/new-world-sprites.png);
     background-repeat: no-repeat;
     background-position: 66% 74%;
     -webkit-mask-image: linear-gradient(to right, black 0%, black 30%, black 70%, transparent 100%);

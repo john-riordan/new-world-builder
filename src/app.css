@@ -132,7 +132,7 @@ button.minor {
   -webkit-mask-image: url(/static/mask2.png);
 }
 .striped-bg {
-  background: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/hatch-texture.png);
+  background: url(/hatch-texture.png);
 }
 
 .decoration-top,
@@ -142,7 +142,7 @@ button.minor {
   background-position-y: -305px;
   width: 486px;
   height: 51px;
-  background-image: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/new-world-sprites.png);
+  background-image: url(/new-world-sprites.png);
 }
 .decoration-top {
   left: 50%;
@@ -160,5 +160,5 @@ button.minor {
   height: 10px;
   margin: 2rem 0;
   background-repeat: no-repeat;
-  background-image: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/new-world-sprites.png);
+  background-image: url(/new-world-sprites.png);
 }

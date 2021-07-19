@@ -77,12 +77,10 @@
   }
   .bg-top {
     top: 0;
-    background: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/diamond-texture-top.png)
-      no-repeat top;
+    background: url(/diamond-texture-top.png) no-repeat top;
   }
   .bg-bottom {
     bottom: 0;
-    background: url(https://d2lchq0n03yu65.cloudfront.net/statics/2021-05-20/images/texture-bottom.jpg)
-      no-repeat bottom;
+    background: url(/texture-bottom.jpg) no-repeat bottom;
   }
 </style>
