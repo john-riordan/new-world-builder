@@ -2,6 +2,7 @@
   import { cubicInOut } from 'svelte/easing';
   import { selectedWeps, wep0Pts, wep0Skills, wep1Pts, wep1Skills, attrs } from '../../../stores';
   import { weapons } from '../../../weapons';
+  import { attributes } from '../../../attributes';
   import StripedBg from '$lib/components/StripedBg/index.svelte';
   import LineBorder from '$lib/components/LineBorder/index.svelte';
   import SkillList from './SkillList.svelte';
@@ -33,9 +34,15 @@
         <div class="build-inner">
           {#if $attrs.primary}
             <div class="attrs">
-              <div>Primary: {$attrs.primary.key}({$attrs.primary.pts})</div>
+              <span class="attr-text">
+                Primary: {attributes[$attrs.primary.key].title}
+                <span>({$attrs.primary.pts})</span>
+              </span>
               {#if $attrs.secondary}
-                <div>Secondary: {$attrs.secondary.key}({$attrs.secondary.pts})</div>
+                <span class="attr-text">
+                  Secondary: {attributes[$attrs.primary.key].title}
+                  <span>({$attrs.secondary.pts})</span>
+                </span>
               {/if}
             </div>
           {/if}
@@ -43,26 +50,26 @@
             {#if wep1}
               <a href={`/weapons/${wep1.name}`} class="wep">
                 <h4>{wep1.title}</h4>
-                <p class="pts">{$wep0Pts} Points spent</p>
+                <!-- <p class="pts">{$wep0Pts} Points spent</p> -->
                 <SkillList skills={$wep0Skills} />
               </a>
             {:else}
-              <div class="wep">
+              <div class="wep no-wep">
                 <h4>Select Wep 1</h4>
-                <p class="pts">-</p>
+                <!-- <p class="pts">-</p> -->
                 <SkillList skills={$wep0Skills} />
               </div>
             {/if}
             {#if wep2}
               <a href={`/weapons/${wep2.name}`} class="wep">
                 <h4>{wep2.title}</h4>
-                <p class="pts">{$wep1Pts} Points spent</p>
+                <!-- <p class="pts">{$wep1Pts} Points spent</p> -->
                 <SkillList skills={$wep1Skills} />
               </a>
             {:else}
-              <div class="wep">
+              <div class="wep no-wep">
                 <h4>Select Wep 2</h4>
-                <p class="pts">-</p>
+                <!-- <p class="pts">-</p> -->
                 <SkillList skills={$wep1Skills} />
               </div>
             {/if}
@@ -86,22 +93,35 @@
       0 41px 83px -36px rgba(0, 0, 0, 0.7), 0 100px 200px -36px rgba(0, 0, 0, 0.8);
   }
   .build-inner {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .build .attrs,
   .build .weps {
     display: flex;
+    gap: 0.75rem;
   }
   .build .weps {
-    gap: 1rem;
+    flex: 1;
   }
-  .build .attrs {
-    gap: 1rem;
+  .attr-text {
+    flex: 1;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: hsla(var(--grey-pale-hsl) / 0.5);
+    margin-bottom: 0.25rem;
   }
-  .build .wep {
+  .attr-text span {
+    color: hsla(var(--grey-pale-hsl) / 1);
+    font-weight: 700;
+  }
+  .wep {
     width: 17rem;
     text-decoration: none;
+  }
+  .wep.no-wep {
+    opacity: 0.35;
   }
 
   .wep h4 {

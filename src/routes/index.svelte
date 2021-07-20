@@ -19,7 +19,7 @@
   </div>
 
   <a href="/weapons" sveltekit:prefetch>
-    <Button type="major">Start Building</Button>
+    <Button>Start Building</Button>
   </a>
 </section>
 

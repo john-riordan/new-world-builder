@@ -86,13 +86,20 @@ function TreeStore(store) {
   this.removeSkill = (skill) => {
     this.store.update((selected) => {
       const indexToRemove = selected.rows.findIndex((num) => num === skill.row);
-      console.log(selected, indexToRemove);
 
-      return {
-        ...selected,
-        rows: [...selected.rows.splice(indexToRemove, 1)],
-        list: [...selected.list.filter((p) => p !== skill.name)]
-      };
+      const rows = [...selected.rows];
+
+      if (indexToRemove >= -1) {
+        rows.splice(indexToRemove, 1);
+
+        return {
+          ...selected,
+          rows: [...rows],
+          list: [...selected.list.filter((p) => p !== skill.name)]
+        };
+      }
+
+      return { ...selected };
     });
   };
   this.resetTree = (wepIndex, treeIndex) => {

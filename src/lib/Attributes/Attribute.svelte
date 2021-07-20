@@ -19,8 +19,6 @@
   const bonuses = info.bonuses.length ? true : false;
   $: MAX_ALLOCATE_PTS = $perfectGear ? PERFECT_ATTR_PTS : ATTR_PTS;
 
-  $: console.log(MAX_ALLOCATE_PTS);
-
   function add10() {
     if ($pts + 10 >= MAX_ALLOCATE_PTS || $attrs.available - 10 <= 0) {
       pts.update((pts) => (pts += $attrs.available));
