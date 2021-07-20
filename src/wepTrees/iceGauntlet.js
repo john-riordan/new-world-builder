@@ -94,7 +94,7 @@ export const ICE_TEMPEST = {
     description: `Increase duration of Wind Chill by 1 second.`
   },
   '4_3': {
-    required: 'Empowering Spikes',
+    required: 'Empowered Spikes',
     row: 4,
     name: 'Deadly Path',
     type: 'minor',

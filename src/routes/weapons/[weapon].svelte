@@ -76,12 +76,16 @@
           <p>Primary Stat:</p>
           <h5>{attributes[data.primary].title}</h5>
         </div>
-        <div>
-          <p>Secondary Stat:</p>
-          {#if data.secondary}
+        {#if data.secondary}
+          <div>
+            <p>Secondary Stat:</p>
             <h5>{attributes[data.secondary].title}</h5>
-          {/if}
-        </div>
+          </div>
+        {:else}
+          <div>
+            <p>No Secondary Stat</p>
+          </div>
+        {/if}
       </div>
     </div>
     <div class="wep-right tree-pair">

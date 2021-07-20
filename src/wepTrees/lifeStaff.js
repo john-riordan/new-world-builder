@@ -87,7 +87,7 @@ export const HEALING = {
     mana: 15
   },
   '4_1': {
-    required: 'Privelege',
+    required: 'Privilege',
     row: 4,
     name: 'Shared Struggle',
     type: 'minor',

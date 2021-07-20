@@ -13,7 +13,7 @@
 </script>
 
 <script>
-  import { str, dex, int, foc, con, attrs } from '../stores';
+  import { str, dex, int, foc, con, attrs, perfectGear } from '../stores';
 
   import { MIN_ATTR_PTS } from '../constants';
 
@@ -44,6 +44,10 @@
     <button class="subtle respec" class:disabled={!$attrs.anyPtsAllocated} on:click={respec}
       >Respec</button
     >
+    <label for="perfect" class="perfect-gear">
+      <input id="perfect" type="checkbox" bind:checked={$perfectGear} />
+      <span>Use Perfect Gear?</span>
+    </label>
     <h2 class="mask2 bonuses-title">Bonuses:</h2>
     <ul class="bonuses">
       {#each $attrs.bonuses as bonus, i}
@@ -136,6 +140,11 @@
     width: 8rem;
   }
 
+  .perfect-gear {
+    display: block;
+    margin: 2rem 0;
+  }
+
   .bonuses-title {
     position: relative;
     text-align: left;
@@ -160,6 +169,11 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    /* padding-bottom: 100px;
+    height: 29rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 100px); */
   }
   .bonuses::-webkit-scrollbar {
     display: none;

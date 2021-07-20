@@ -52,7 +52,7 @@ export const FIRE_MAGE = {
     description: `While above 50% mana gain 10% Empower (increased damage).`
   },
   '3_1': {
-    required: 'First Strike',
+    required: 'Fiery Restoration',
     row: 3,
     name: `Arson's Advantage`,
     type: 'minor',
@@ -60,7 +60,7 @@ export const FIRE_MAGE = {
     description: `Gain 10% of your max mana per enemy hit by Pillar of Fire.`
   },
   '3_3': {
-    required: 'First Strike',
+    required: 'Meteor Shower',
     row: 3,
     name: `Immolation`,
     type: 'minor',
@@ -152,7 +152,7 @@ export const FIRE_MAGE = {
   '6_3': {
     required: null,
     row: 6,
-    name: `Catch`,
+    name: `Runes of Helios`,
     type: 'ultimate',
     img: `/skills/greataxe_ability6_gravitywell.webp`,
     description: `Casting a fire spell places a 2m rune on the ground increasing your spell damage by <b>30%</b> while standing in the rune. The rune lasts for 7s (cooldown 30s).`
@@ -303,7 +303,7 @@ export const PYROMANCER = {
     description: `When you activate a Fire Staff ability gain 10% Haste for 5s (cooldown 10s).`
   },
   '5_5': {
-    required: null,
+    required: 'All In',
     row: 5,
     name: `Heat it Up`,
     type: 'minor',
