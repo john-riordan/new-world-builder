@@ -2,6 +2,7 @@
   export const prerender = true;
 
   import dungeons from '../dungeons.json';
+  import fastTravel from '../fastTravel.json';
   import { monsters } from '../monsters';
 
   export async function load() {
@@ -9,6 +10,7 @@
       props: {
         data: {
           dungeons,
+          fastTravel,
           monsters
         }
       }
@@ -36,7 +38,7 @@
     hoveredDungeon = null;
   }
   function lvlColor(index) {
-    return `${5 + index * 10}%`;
+    return `${5 + index * 15}%`;
   }
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -76,6 +78,22 @@
           </svg>
         </div>
       {/each}
+      {#each data.fastTravel.data as fastTravel}
+        <div
+          class="fastTravel-loc"
+          style={`--y-coord: ${fastTravel['y-coord']}; --x-coord: ${fastTravel['x-coord']}`}
+        >
+          <svg
+            class="fast-travel-diamond"
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect y="9.19238" width="13" height="13" transform="rotate(-45 0 9.19238)" />
+          </svg>
+        </div>
+      {/each}
     </div>
   </div>
 
@@ -83,6 +101,18 @@
     <LineBorder>
       <StripedBg>
         <div class="list-container--inner">
+          <div class="fast-travel-legend">
+            <svg
+              class="fast-travel-diamond"
+              width="19"
+              height="19"
+              viewBox="0 0 19 19"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect y="9.19238" width="13" height="13" transform="rotate(-45 0 9.19238)" />
+            </svg>
+            <span>Fast Travel Locations</span>
+          </div>
           <h3 class="list-container--title">Dungeons</h3>
           <ol class="dungeon-list">
             {#each data.dungeons.data.sort((a, b) => a.level - b.level) as dungeon, index}
@@ -91,6 +121,7 @@
                 on:mouseenter={() => setHovered(dungeon)}
                 on:mouseleave={unsetHovered}
                 on:click={() => setClicked(dungeon)}
+                class:hovered={selectedDungeon && selectedDungeon.name === dungeon.name}
               >
                 <p class="dungeon-title">
                   <span style={`--s: ${lvlColor(index)}`}>[Lvl {dungeon.level}]:</span>
@@ -142,7 +173,7 @@
 
 <style>
   .page-container {
-    --h: 5deg;
+    --h: 180deg;
     --l: 40%;
   }
 
@@ -157,6 +188,24 @@
     --list-container-padding: 2rem;
     padding: var(--list-container-padding);
     width: 375px;
+  }
+
+  .fast-travel-legend {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--grey-pale);
+    font-size: 0.75rem;
+    border-bottom: 1px solid var(--brown);
+  }
+
+  .fast-travel-legend .fast-travel-diamond {
+    width: 0.75rem;
+    height: auto;
   }
 
   .dungeon-list {
@@ -189,9 +238,11 @@
     border: 1px solid var(--grey);
     transform: rotate(45deg);
   }
-
-  .list-container--title {
+  .list-container li.diamond.hovered::before {
+    border-color: var(--white);
+    box-shadow: 0 0 0 1px var(--white);
   }
+
   .dungeon-title {
     font-weight: 700;
   }
@@ -261,11 +312,30 @@
     pointer-events: none;
   }
 
-  .dungeon-loc {
+  .dungeon-loc,
+  .fastTravel-loc {
     top: var(--y-coord, 0);
     left: var(--x-coord, 0);
 
     position: absolute;
+    transform: translate3d(0, 0, 0);
+    transition: transform var(--transition);
+  }
+
+  .fastTravel-loc:hover {
+    transform: scale(1.2);
+  }
+
+  .fast-travel-diamond {
+    display: block;
+    fill: hsl(4deg 68% 50%);
+    stroke: hsl(4deg 68% 60%);
+    filter: drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 14px black);
+    stroke-width: 2px;
+    overflow: visible;
+  }
+
+  .dungeon-loc {
     width: 19%;
     height: 6%;
     cursor: pointer;
@@ -288,7 +358,8 @@
     stroke-width: 3px;
     overflow: visible;
     filter: drop-shadow(0px 2px 10px black);
-    transition: fill 0.2s ease, stroke 0.2s ease;
+    transition: fill 0.2s var(--transition), stroke 0.2s var(--transition),
+      transform 0.2s var(--transition);
   }
 
   .dungeon-loc:hover .dungeon-star,
