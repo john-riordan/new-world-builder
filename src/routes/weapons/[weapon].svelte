@@ -22,6 +22,7 @@
   import { attributes } from '../../attributes';
 
   import Tree from '$lib/components/Wep/Tree.svelte';
+  import Button from '$lib/components/Button/index.svelte';
 
   export let data;
 
@@ -57,13 +58,17 @@
       <h4 class="subtitle">Points <br />Available</h4>
       <div class="controls">
         {#if $selectedWeps.includes(wepName)}
-          <button class="subtle add-remove add" on:click={() => selectedWeps.removeWep(wepName)}
-            >Remove this wep from build</button
-          >
+          <!-- <button class="subtle add-remove add" on:click={() => selectedWeps.removeWep(wepName)}>
+            Remove this wep from build
+          </button > -->
+          <Button size="minor" onclick={() => selectedWeps.removeWep(wepName)} disabled>
+            Remove
+          </Button>
         {:else}
-          <button class="subtle add-remove add" on:click={() => selectedWeps.addWep(wepName)}
-            >Use this wep in build</button
-          >
+          <!-- <button class="subtle add-remove add" on:click={() => selectedWeps.addWep(wepName)}>
+            Use this wep in build
+          </button> -->
+          <Button size="minor" onclick={() => selectedWeps.addWep(wepName)}>Use in build</Button>
         {/if}
         {#if activeWepindex >= 0}
           <button class="subtle reset" on:click={resetTrees}>Reset {ptsRemaining}</button>
