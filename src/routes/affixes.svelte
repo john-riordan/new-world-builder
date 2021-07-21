@@ -57,8 +57,10 @@
 </div>
 
 {#if selected}
+  <span class="suffix-string--overline">Items that start with</span>
   <h1 class="suffix-string">... of the <span>{selected.title}</span></h1>
 {:else}
+  <span class="suffix-string--overline hidden">...</span>
   <h1 class="suffix-string non-selected">Select primary and secondary attributes...</h1>
 {/if}
 
@@ -118,10 +120,20 @@
     margin: 0 0 0.5rem;
   }
 
+  .suffix-string--overline {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--grey-pale);
+  }
+  .suffix-string--overline.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
   .suffix-string {
     text-align: center;
     margin: 0;
-    padding: 2rem 0;
+    padding: 0.5rem 0 2rem;
     color: var(--grey-pale);
   }
   .suffix-string span {
