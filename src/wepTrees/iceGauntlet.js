@@ -110,7 +110,7 @@ export const ICE_TEMPEST = {
     description: `Increase critical chance if hitting an enemy in a frosted area or with Frostbite by 20%.`
   },
   '4_5': {
-    required: 'Weakening  Gusy',
+    required: 'Weakening Gust',
     row: 4,
     name: 'Storm Summoner',
     type: 'minor',
