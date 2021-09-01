@@ -40,7 +40,7 @@ export const REAPER = {
   '2_2': {
     required: null,
     row: 2,
-    name: 'Greed',
+    name: 'Critical Gains',
     type: 'minor',
     img: `/skills/greataxe_reaperpass1_heavypull.webp`,
     description: `When you make a critical hit with a Great Axe: Heal yourself for 10% of the damage done.`
