@@ -1,5 +1,6 @@
 export const FIRE_MAGE = {
   '1_1': {
+    id: 39,
     required: null,
     row: 1,
     name: 'Pillar of Fire',
@@ -10,6 +11,7 @@ export const FIRE_MAGE = {
     mana: 15
   },
   '1_2': {
+    id: 40,
     required: null,
     row: 1,
     name: 'Spell Focus',
@@ -18,6 +20,7 @@ export const FIRE_MAGE = {
     description: `Heavy Attacks restore 5% of your max mana on hit.`
   },
   '1_4': {
+    id: 41,
     required: null,
     row: 1,
     name: 'Fiery Restoration',
@@ -26,6 +29,7 @@ export const FIRE_MAGE = {
     description: `Heavy Attacks reduce Fire Staff cooldowns by 10% on hit.`
   },
   '2_1': {
+    id: 42,
     required: 'Pillar of Fire',
     row: 2,
     name: 'Fiery Restoration',
@@ -34,6 +38,7 @@ export const FIRE_MAGE = {
     description: `Pillar of Fire deals 40% more damage to foes at full health.`
   },
   '2_3': {
+    id: 43,
     required: null,
     row: 2,
     name: 'Meteor Shower',
@@ -44,6 +49,7 @@ export const FIRE_MAGE = {
     mana: `5 per second (30 total)`
   },
   '2_5': {
+    id: 44,
     required: null,
     row: 2,
     name: 'Clear Mind',
@@ -52,6 +58,7 @@ export const FIRE_MAGE = {
     description: `While above 50% mana gain 10% Empower (increased damage).`
   },
   '3_1': {
+    id: 45,
     required: 'Fiery Restoration',
     row: 3,
     name: `Arson's Advantage`,
@@ -60,6 +67,7 @@ export const FIRE_MAGE = {
     description: `Gain 10% of your max mana per enemy hit by Pillar of Fire.`
   },
   '3_3': {
+    id: 46,
     required: 'Meteor Shower',
     row: 3,
     name: `Immolation`,
@@ -68,6 +76,7 @@ export const FIRE_MAGE = {
     description: `Hits of Meteor Shower give you 1% of your max mana.`
   },
   '3_4': {
+    id: 47,
     required: null,
     row: 3,
     name: `Singe`,
@@ -76,6 +85,7 @@ export const FIRE_MAGE = {
     description: `When you get a Critical Hit with the Fire Staff, cause burning, dealing 3% weapon damage each second for 6s.`
   },
   '3_5': {
+    id: 48,
     required: null,
     row: 3,
     name: 'Fireball',
@@ -86,6 +96,7 @@ export const FIRE_MAGE = {
     mana: 25
   },
   '4_2': {
+    id: 49,
     required: null,
     row: 4,
     name: `Spellslinger`,
@@ -94,6 +105,7 @@ export const FIRE_MAGE = {
     description: `Your abilities gain an extra 15% chance to critical strike.`
   },
   '4_3': {
+    id: 50,
     required: 'Immolation',
     row: 4,
     name: `Fiery Determination`,
@@ -102,6 +114,7 @@ export const FIRE_MAGE = {
     description: `While casting Meteor Shower you are Unstoppable (cannot be interrupted).`
   },
   '4_4': {
+    id: 51,
     required: null,
     row: 4,
     name: `Clear Casting`,
@@ -110,6 +123,7 @@ export const FIRE_MAGE = {
     description: `If you haven't taken damage in the last 3s, deal 10% more damage.`
   },
   '4_5': {
+    id: 52,
     required: 'Fireball',
     row: 4,
     name: `Scorched Earth`,
@@ -118,6 +132,7 @@ export const FIRE_MAGE = {
     description: `Fireball's burning field persists for 9s.`
   },
   '5_1': {
+    id: 53,
     required: null,
     row: 5,
     name: `Prophet of a Fire God`,
@@ -126,6 +141,7 @@ export const FIRE_MAGE = {
     description: `While holding a Fire Staff your critical strike damage is increasd by 20%.`
   },
   '5_2': {
+    id: 54,
     required: null,
     row: 5,
     name: `Flare`,
@@ -134,6 +150,7 @@ export const FIRE_MAGE = {
     description: `Heavy Attacks no longer consume mana.`
   },
   '5_3': {
+    id: 55,
     required: 'Fiery Determination',
     row: 5,
     name: `Judgment of Helios`,
@@ -142,6 +159,7 @@ export const FIRE_MAGE = {
     description: `Cause 25% more meteors to hit during the entire channel of Meteor Shower.`
   },
   '5_5': {
+    id: 56,
     required: 'Scorched Earth',
     row: 5,
     name: `Catch`,
@@ -150,6 +168,7 @@ export const FIRE_MAGE = {
     description: `Direct hits with Fireball give you 10% of your max mana and reduces your Fire Staff cooldowns by 7%.`
   },
   '6_3': {
+    id: 57,
     required: null,
     row: 6,
     name: `Runes of Helios`,
@@ -161,6 +180,7 @@ export const FIRE_MAGE = {
 
 export const PYROMANCER = {
   '1_2': {
+    id: 58,
     required: null,
     row: 1,
     name: 'Pyromania',
@@ -169,6 +189,7 @@ export const PYROMANCER = {
     description: `Damage is increased by 20% while holding a Fire Staff and below 50% max health`
   },
   '1_3': {
+    id: 59,
     required: null,
     row: 1,
     name: 'Flame Thrower',
@@ -179,6 +200,7 @@ export const PYROMANCER = {
     mana: `4 per second`
   },
   '2_1': {
+    id: 60,
     required: null,
     row: 2,
     name: 'Incinerate',
@@ -189,6 +211,7 @@ export const PYROMANCER = {
     mana: 22
   },
   '2_2': {
+    id: 61,
     required: null,
     row: 2,
     name: 'Heat Up',
@@ -197,6 +220,7 @@ export const PYROMANCER = {
     description: `When you block a Melee attack, restore 5% of your max mana.`
   },
   '2_3': {
+    id: 62,
     required: 'Flame Thrower',
     row: 2,
     name: `Fire's Reach`,
@@ -205,6 +229,7 @@ export const PYROMANCER = {
     description: `Increase the range of FlameThrower by 50%.`
   },
   '2_4': {
+    id: 63,
     required: null,
     row: 2,
     name: `Let it Burn`,
@@ -213,6 +238,7 @@ export const PYROMANCER = {
     description: `Whenever burn deals damage, gain 10% Fortify for 2s (Fortify reduces damage taken).`
   },
   '3_1': {
+    id: 64,
     required: 'Incinerate',
     row: 3,
     name: `Scorched`,
@@ -221,6 +247,7 @@ export const PYROMANCER = {
     description: `Each hit of Incinerate causes an additional stack of burning.`
   },
   '3_2': {
+    id: 65,
     required: null,
     row: 3,
     name: `Kindle`,
@@ -229,6 +256,7 @@ export const PYROMANCER = {
     description: `Burning last 20% longer.`
   },
   '3_3': {
+    id: 66,
     required: `Fire's Reach`,
     row: 3,
     name: `Infernal Flames`,
@@ -237,6 +265,7 @@ export const PYROMANCER = {
     description: `Increase the base damage of FlameThrower by 25%.`
   },
   '3_5': {
+    id: 67,
     required: null,
     row: 3,
     name: `Burn Out`,
@@ -247,6 +276,7 @@ export const PYROMANCER = {
     mana: 30
   },
   '4_1': {
+    id: 68,
     required: `Scorched`,
     row: 4,
     name: `Cauterize Wounds`,
@@ -255,6 +285,7 @@ export const PYROMANCER = {
     description: `Restore 20% of damage dealt by Incinerate.`
   },
   '4_3': {
+    id: 69,
     required: `Infernal Flames`,
     row: 4,
     name: `Pyro Dancer`,
@@ -263,6 +294,7 @@ export const PYROMANCER = {
     description: `Flame Thrower has no cooldown.`
   },
   '4_4': {
+    id: 70,
     required: null,
     row: 4,
     name: `Watch it Burn`,
@@ -271,6 +303,7 @@ export const PYROMANCER = {
     description: `Light attacks cause the enemy to catch fire dealing 3% weapon damage each second for 6s.`
   },
   '4_5': {
+    id: 71,
     required: 'Burn Out',
     row: 4,
     name: `All In`,
@@ -279,6 +312,7 @@ export const PYROMANCER = {
     description: `Fire Staff cooldowns are reduced by 2% for each foe hit by Burn Out.`
   },
   '5_1': {
+    id: 72,
     required: 'Cauterize Wounds',
     row: 5,
     name: `Flame Out!`,
@@ -287,6 +321,7 @@ export const PYROMANCER = {
     description: `Incinerate hits twice.`
   },
   '5_2': {
+    id: 73,
     required: null,
     row: 5,
     name: `Trial by Fire`,
@@ -295,6 +330,7 @@ export const PYROMANCER = {
     description: `When you are struck, create a field of fire around you dealing 5% weapon damage to all to nearby enemies in a 4m radius. Activates when struck in battle and lasts for 10 seconds. (cooldown 120s).`
   },
   '5_4': {
+    id: 74,
     required: null,
     row: 5,
     name: `Combat Speed`,
@@ -303,6 +339,7 @@ export const PYROMANCER = {
     description: `When you activate a Fire Staff ability gain 10% Haste for 5s (cooldown 10s).`
   },
   '5_5': {
+    id: 75,
     required: 'All In',
     row: 5,
     name: `Heat it Up`,
@@ -311,6 +348,7 @@ export const PYROMANCER = {
     description: `Burn Out travels 50% further.`
   },
   '6_3': {
+    id: 76,
     required: null,
     row: 6,
     name: `Reheat`,

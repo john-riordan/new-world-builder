@@ -1,5 +1,6 @@
 export const SKIRMISHER = {
   '1_3': {
+    id: 1,
     required: null,
     row: 1,
     name: 'Evade Shot',
@@ -9,6 +10,7 @@ export const SKIRMISHER = {
     cooldown: 15
   },
   '1_4': {
+    id: 2,
     required: null,
     row: 1,
     name: 'Evasive Tactics',
@@ -17,6 +19,7 @@ export const SKIRMISHER = {
     description: `After you dodge deal 20% more damage for 5s.`
   },
   '1_5': {
+    id: 3,
     required: null,
     row: 1,
     name: 'Catch Me If You Can',
@@ -25,6 +28,7 @@ export const SKIRMISHER = {
     description: `If surrounded by 3 or more foes within 3m of you gain 20% Haste (movement speed).`
   },
   '2_2': {
+    id: 4,
     required: null,
     row: 2,
     name: 'Impale',
@@ -33,6 +37,7 @@ export const SKIRMISHER = {
     description: `If you hit a foe with 100% health cause 10% slow for 2s.`
   },
   '2_3': {
+    id: 5,
     required: 'Evade Shot',
     row: 2,
     name: 'Evasive Knockback',
@@ -41,6 +46,7 @@ export const SKIRMISHER = {
     description: `Evade Shot causes knockback of 2m.`
   },
   '2_4': {
+    id: 6,
     required: null,
     row: 2,
     name: 'Closing In',
@@ -49,6 +55,7 @@ export const SKIRMISHER = {
     description: `Hitting a for below 50% health reduces bow ability recharge by 5%.`
   },
   '2_5': {
+    id: 7,
     required: null,
     row: 2,
     name: 'Rain of Arrows',
@@ -57,6 +64,7 @@ export const SKIRMISHER = {
     description: `Shoot a barrage of arrows 7 meters wide that deals 150% weapon damage.`
   },
   '3_1': {
+    id: 8,
     required: null,
     row: 3,
     name: 'Poison Shot',
@@ -66,6 +74,7 @@ export const SKIRMISHER = {
     cooldown: 35
   },
   '3_2': {
+    id: 9,
     required: null,
     row: 3,
     name: 'Dodge and Weave',
@@ -74,6 +83,7 @@ export const SKIRMISHER = {
     description: `After you dodge gain 10% haste (movement speed) for 2 seconds.`
   },
   '3_4': {
+    id: 10,
     required: null,
     row: 3,
     name: `Hunter's Insight`,
@@ -82,6 +92,7 @@ export const SKIRMISHER = {
     description: `Hitting a foe with a debuff grants 5 stamina.`
   },
   '3_5': {
+    id: 11,
     required: 'Rain of Arrows',
     row: 3,
     name: `Barbed Arrows`,
@@ -90,6 +101,7 @@ export const SKIRMISHER = {
     description: `Rain of Arrows causes bleed dealing 85% weapon damage over 12s (max 3 stacks).`
   },
   '4_1': {
+    id: 12,
     required: 'Poison Shot',
     row: 4,
     name: `Infected Arrows`,
@@ -98,6 +110,7 @@ export const SKIRMISHER = {
     description: `Poison Shot's poison now does 12% weapon damage per second for 20s.`
   },
   '4_3': {
+    id: 13,
     required: 'Evasive Knockback',
     row: 4,
     name: `Go the Distance`,
@@ -107,6 +120,7 @@ export const SKIRMISHER = {
     etc: ['double-up']
   },
   '4_4': {
+    id: 14,
     required: null,
     row: 4,
     name: `Archer's Speed`,
@@ -115,6 +129,7 @@ export const SKIRMISHER = {
     description: `Gain 10s haste for 5s when you swap to your bow (10s cooldown).`
   },
   '5_1': {
+    id: 15,
     required: 'Infected Arrows',
     row: 5,
     name: `Direct Hit`,
@@ -123,6 +138,7 @@ export const SKIRMISHER = {
     description: `If you directly hit a target with Poison Shot it deal 200% more damage.`
   },
   '5_2': {
+    id: 16,
     required: null,
     row: 5,
     name: `Mark`,
@@ -131,6 +147,7 @@ export const SKIRMISHER = {
     description: `Deal 10% more damager to foes suffering from a debuff.`
   },
   '5_4': {
+    id: 17,
     required: null,
     row: 5,
     name: `Battle Precision`,
@@ -139,6 +156,7 @@ export const SKIRMISHER = {
     description: `Debuffs and DoTs last 20% longer.`
   },
   '5_5': {
+    id: 18,
     required: 'Barbed Arrows',
     row: 5,
     name: `Hooked Arrows`,
@@ -148,6 +166,7 @@ export const SKIRMISHER = {
     etc: ['double-up']
   },
   '6_3': {
+    id: 19,
     required: null,
     row: 6,
     name: `Knee Shot`,
@@ -159,6 +178,7 @@ export const SKIRMISHER = {
 
 export const HUNTER = {
   '1_2': {
+    id: 20,
     required: null,
     row: 1,
     name: 'Long Range',
@@ -167,6 +187,7 @@ export const HUNTER = {
     description: `Deal 20% more damage to foes at least 10m away.`
   },
   '1_3': {
+    id: 21,
     required: null,
     row: 1,
     name: 'Penetrating Shot',
@@ -176,6 +197,7 @@ export const HUNTER = {
     cooldown: 18
   },
   '1_4': {
+    id: 22,
     required: null,
     row: 1,
     name: 'Aim True',
@@ -184,6 +206,7 @@ export const HUNTER = {
     description: `Heavy attacks arrows fly faster and deal 30% more damage.`
   },
   '2_2': {
+    id: 23,
     required: null,
     row: 2,
     name: 'Finishing Shot',
@@ -192,6 +215,7 @@ export const HUNTER = {
     description: `If your target is below 50% health deal 20% more damage.`
   },
   '2_3': {
+    id: 24,
     required: 'Penetrating Shot',
     row: 2,
     name: 'Blood Soaked Arrow',
@@ -200,6 +224,7 @@ export const HUNTER = {
     description: `Increase Penetrating Shot damage by 10% after each hit (max 50% damage).`
   },
   '2_4': {
+    id: 25,
     required: null,
     row: 2,
     name: 'Unbreakable Focus',
@@ -208,6 +233,7 @@ export const HUNTER = {
     description: `Receive 20% less damage while aiming.`
   },
   '2_5': {
+    id: 26,
     required: null,
     row: 2,
     name: 'Splinter Shot',
@@ -217,6 +243,7 @@ export const HUNTER = {
     cooldown: 22
   },
   '3_1': {
+    id: 27,
     required: null,
     row: 3,
     name: 'Rapid Shot',
@@ -226,6 +253,7 @@ export const HUNTER = {
     cooldown: 20
   },
   '3_3': {
+    id: 28,
     required: 'Blood Soaked Arrow',
     row: 3,
     name: 'Deep Strike',
@@ -234,6 +262,7 @@ export const HUNTER = {
     description: `Penetrating Shot deals 20% more damage to target 20m or more away.`
   },
   '3_4': {
+    id: 29,
     required: null,
     row: 3,
     name: 'Opening Strike',
@@ -242,6 +271,7 @@ export const HUNTER = {
     description: `Heavy attacks deal 20% more damage to foes with 100% health.`
   },
   '3_5': {
+    id: 30,
     required: 'Splinter Shot',
     row: 3,
     name: 'Scatter Shot',
@@ -250,6 +280,7 @@ export const HUNTER = {
     description: `Splinter Shot splits into 5 arrows.`
   },
   '4_1': {
+    id: 31,
     required: 'Rapid Shot',
     row: 4,
     name: 'Rapid Accuracy',
@@ -258,6 +289,7 @@ export const HUNTER = {
     description: `If all 3 arrows hit the same target Rapid shot's cooldown is reduced by 50%.`
   },
   '4_2': {
+    id: 32,
     required: null,
     row: 4,
     name: 'Surprise Attack',
@@ -266,6 +298,7 @@ export const HUNTER = {
     description: `Deal 20% extra damage if you haven't damage a for in the last 10s.`
   },
   '4_4': {
+    id: 33,
     required: null,
     row: 4,
     name: 'Arrow Range',
@@ -274,6 +307,7 @@ export const HUNTER = {
     description: `Increased arrow distance before gravity dropoff starts by 100%.`
   },
   '5_1': {
+    id: 34,
     required: 'Rapid Accuracy',
     row: 5,
     name: 'Final Blow',
@@ -282,6 +316,7 @@ export const HUNTER = {
     description: `The 3rd shot of Rapid Shot deals 25% extra damage.`
   },
   '5_2': {
+    id: 35,
     required: null,
     row: 5,
     name: 'Hawkeye',
@@ -290,6 +325,7 @@ export const HUNTER = {
     description: `When you land a headshot heal yourself for 10% of damage done.`
   },
   '5_4': {
+    id: 36,
     required: null,
     row: 5,
     name: 'Bullseye',
@@ -298,6 +334,7 @@ export const HUNTER = {
     description: `Bow critical strike chance increased by 10%.`
   },
   '5_5': {
+    id: 37,
     required: 'Scatter Shot',
     row: 5,
     name: 'Calculated',
@@ -307,6 +344,7 @@ export const HUNTER = {
     etc: ['double-up']
   },
   '6_3': {
+    id: 38,
     required: null,
     row: 6,
     name: 'Concussion',

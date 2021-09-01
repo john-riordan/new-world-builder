@@ -1,6 +1,16 @@
 <script>
   import { cubicInOut } from 'svelte/easing';
-  import { selectedWeps, wep0Pts, wep0Skills, wep1Pts, wep1Skills, attrs } from '../../../stores';
+
+  import {
+    selectedWeps,
+    wep0Pts,
+    wep0Skills,
+    wep1Pts,
+    wep1Skills,
+    attrs,
+    shareLink
+  } from '../../../stores';
+  import { copyToClipboard } from '$lib/helpers/';
   import { weapons } from '../../../weapons';
   import { attributes } from '../../../attributes';
   import StripedBg from '$lib/components/StripedBg/index.svelte';
@@ -25,6 +35,10 @@
 
   $: wep1 = weapons[$selectedWeps[0]];
   $: wep2 = weapons[$selectedWeps[1]];
+
+  function copyShareLink() {
+    copyToClipboard($shareLink);
+  }
 </script>
 
 {#if buildStarted}
@@ -32,6 +46,7 @@
     <LineBorder>
       <StripedBg>
         <div class="build-inner">
+          <button on:click={copyShareLink}>Share</button>
           {#if $attrs.primary}
             <div class="attrs">
               <span class="attr-text">

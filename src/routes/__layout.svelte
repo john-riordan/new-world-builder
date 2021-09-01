@@ -1,13 +1,17 @@
 <script context="module">
-  export const load = async ({ page }) => ({
-    props: {
-      key: page.path
-    }
-  });
+  export const load = async ({ page }) => {
+    return {
+      props: {
+        key: page.path,
+        page
+      }
+    };
+  };
 </script>
 
 <script>
-  import Header from '$lib/components/Header/index.svelte';
+  import { onMount } from 'svelte';
+
   import Footer from '$lib/components/Footer/index.svelte';
   import PageTransition from '$lib/components/PageTransition/index.svelte';
 
@@ -16,12 +20,27 @@
   import '../app.css';
 
   export let key;
+  export let page;
+
+  let data = {};
+
+  onMount(() => {
+    const shareParams = new URLSearchParams(page.query).get('share');
+
+    try {
+      data = JSON.parse(atob(shareParams));
+    } catch {
+      console.log('Invalid share params');
+    }
+  });
+
+  $: {
+    console.log(data, '!!!');
+  }
 </script>
 
 <div class="bg bg-bottom" />
 <div class="bg bg-top" />
-
-<!-- <Header /> -->
 
 <main>
   <Tabs
