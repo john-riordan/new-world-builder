@@ -1,102 +1,202 @@
 {
-	"str_str": {
-		"name": "soldier",
-		"title": "Soldier"
-	},
-	"str_con": {
-		"name": "barbarian",
-		"title": "Barbarian"
-	},
-	"str_dex": {
-		"name": "fighter",
-		"title": "Figher"
-	},
-	"str_int": {
-		"name": "spellsword",
-		"title": "Spellsword"
-	},
-	"str_foc": {
-		"name": "monk",
-		"title": "Monk"
-	},
-	"con_str": {
-		"name": "knight",
-		"title": "Knight"
-	},
-	"con_con": {
-		"name": "sentry",
-		"title": "Sentry"
-	},
-	"con_dex": {
-		"name": "warden",
-		"title": "Warden"
-	},
-	"con_int": {
-		"name": "druid",
-		"title": "Druid"
-	},
-	"con_foc": {
-		"name": "nomad",
-		"title": "Nomad"
-	},
-	"dex_str": {
-		"name": "cavalier",
-		"title": "Cavalier"
-	},
-	"dex_con": {
-		"name": "brigand",
-		"title": "brigand"
-	},
-	"dex_dex": {
-		"name": "ranger",
-		"title": "Ranger"
-	},
-	"dex_int": {
-		"name": "assassin",
-		"title": "Assassin"
-	},
-	"dex_foc": {
-		"name": "duelist",
-		"title": "Duelist"
-	},
-	"int_str": {
-		"name": "battlemage",
-		"title": "Battlemage"
-	},
-	"int_con": {
-		"name": "occultist",
-		"title": "Occultist"
-	},
-	"int_dex": {
-		"name": "trickster",
-		"title": "Trickster"
-	},
-	"int_int": {
-		"name": "scholar",
-		"title": "Scholar"
-	},
-	"int_foc": {
-		"name": "mage",
-		"title": "Mage"
-	},
-	"foc_str": {
-		"name": "zealot",
-		"title": "Zealot"
-	},
-	"foc_con": {
-		"name": "cleric",
-		"title": "Cleric"
-	},
-	"foc_dex": {
-		"name": "artificer",
-		"title": "Artificer"
-	},
-	"foc_int": {
-		"name": "priest",
-		"title": "Priest"
-	},
-	"foc_foc": {
-		"name": "sage",
-		"title": "Sage"
-	}
+  "str_str": {
+    "name": "soldier",
+    "title": "Soldier",
+    "food": {
+      "t5": "Roasted Gnufish",
+      "t4": "Clam Chowder"
+    }
+  },
+  "str_con": {
+    "name": "barbarian",
+    "title": "Barbarian",
+    "food": {
+      "t5": "Carrot Cake",
+      "t4": "Bear Flank Pinwheels"
+    }
+  },
+  "str_dex": {
+    "name": "fighter",
+    "title": "Figher",
+    "food": {
+      "t5": "Bacon-Wrapped Scallops",
+      "t4": "Venison Roast"
+    }
+  },
+  "str_int": {
+    "name": "spellsword",
+    "title": "Spellsword",
+    "food": {
+      "t5": "Spaghetti Bolognese",
+      "t4": "Pesto-stuffed Turkey Breast"
+    }
+  },
+  "str_foc": {
+    "name": "monk",
+    "title": "Monk",
+    "food": {
+      "t5": "Honey Roasted Ham",
+      "t4": "Fish and Chips"
+    }
+  },
+  "con_str": {
+    "name": "knight",
+    "title": "Knight",
+    "food": {
+      "t5": "Turkey Thigh with Pan Gravy and Spiced Wild Berries",
+      "t4": "Grilled Wolf Loin with Seasoned Squash"
+    }
+  },
+  "con_con": {
+    "name": "sentry",
+    "title": "Sentry",
+    "food": {
+      "t5": "Roasted Rabbit with Seasoned Vegetables",
+      "t4": "Stuffed Calamari"
+    }
+  },
+  "con_dex": {
+    "name": "warden",
+    "title": "Warden",
+    "food": {
+      "t5": "Blackened Ray-Finned Barb with Fondant Potatoes and Barley",
+      "t4": "Blueberry Glazed Ham Hock with Steamed Vegetables"
+    }
+  },
+  "con_int": {
+    "name": "druid",
+    "title": "Druid",
+    "food": {
+      "t5": "Pork Belly Fried Rice",
+      "t4": "Turkey and Stuffing with Mushroom Gravy"
+    }
+  },
+  "con_foc": {
+    "name": "nomad",
+    "title": "Nomad",
+    "food": {
+      "t5": "Smoked Rib Cap with Cabbage and Barley Soup",
+      "t4": "Wolf Loin Meat Pies"
+    }
+  },
+  "dex_str": {
+    "name": "cavalier",
+    "title": "Cavalier",
+    "food": {
+      "t5": "Fall Harvest Turkey",
+      "t4": "French Toast"
+    }
+  },
+  "dex_con": {
+    "name": "brigand",
+    "title": "brigand",
+    "food": {
+      "t5": "Rabbit Stew",
+      "t4": "Filet with Mint and Cracked Barley"
+    }
+  },
+  "dex_dex": {
+    "name": "ranger",
+    "title": "Ranger",
+    "food": {
+      "t5": "Fried Albenaja",
+      "t4": "Seafood Bisque"
+    }
+  },
+  "dex_int": {
+    "name": "assassin",
+    "title": "Assassin",
+    "food": {
+      "t5": "Poacher's Pie",
+      "t4": "Roasted Wolf Loin"
+    }
+  },
+  "dex_foc": {
+    "name": "duelist",
+    "title": "Duelist",
+    "food": {
+      "t5": "Carbonara",
+      "t4": "Paella"
+    }
+  },
+  "int_str": {
+    "name": "battlemage",
+    "title": "Battlemage",
+    "food": {
+      "t5": "Squid Ink Pasta with Clams",
+      "t4": "Venison Tenderloin with Herb Butter"
+    }
+  },
+  "int_con": {
+    "name": "occultist",
+    "title": "Occultist",
+    "food": {
+      "t5": "Glazed Bear with Sauteed Vegetables",
+      "t4": "Turkey Breast with Cranberry Glaze"
+    }
+  },
+  "int_dex": {
+    "name": "trickster",
+    "title": "Trickster",
+    "food": {
+      "t5": "Filet in Mushroom Sauce",
+      "t4": "Braised Wolf Loin"
+    }
+  },
+  "int_int": {
+    "name": "scholar",
+    "title": "Scholar",
+    "food": {
+      "t5": "Steamed Abaia Serpe",
+      "t4": "Calamari and Tomato Stew"
+    }
+  },
+  "int_foc": {
+    "name": "mage",
+    "title": "Mage",
+    "food": {
+      "t5": "Stuffed Venison Tenderloin",
+      "t4": "Salted Ham with Apple Butter"
+    }
+  },
+  "foc_str": {
+    "name": "zealot",
+    "title": "Zealot",
+    "food": {
+      "t5": "Butter Poached Oysters on Angel Hair",
+      "t4": "Caviar Crostini"
+    }
+  },
+  "foc_con": {
+    "name": "cleric",
+    "title": "Cleric",
+    "food": {
+      "t5": "Slow Roasted Bear Flank with Root Vegetables",
+      "t4": "Orange Thyme Turkey Breast"
+    }
+  },
+  "foc_dex": {
+    "name": "artificer",
+    "title": "Artificer",
+    "food": {
+      "t5": "Roasted Turkey Thigh",
+      "t4": "Berry Glazed Roasted Ham"
+    }
+  },
+  "foc_int": {
+    "name": "priest",
+    "title": "Priest",
+    "food": {
+      "t5": "Venison Tenderloin with Blueberry Glaze",
+      "t4": "Cordon Bleu"
+    }
+  },
+  "foc_foc": {
+    "name": "sage",
+    "title": "Sage",
+    "food": {
+      "t5": "Blackened Mandje Mandje with Corn Succotash",
+      "t4": "Turkey Pot Pie"
+    }
+  }
 }

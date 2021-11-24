@@ -39,7 +39,7 @@
         url: '/affixes'
       },
       {
-        title: 'Monster Types',
+        title: 'Monsters',
         url: '/monsters'
       },
       {
