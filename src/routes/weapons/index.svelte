@@ -136,9 +136,4 @@
   .wep.selected img {
     filter: brightness(1.5) drop-shadow(0px 2px 7px var(--black));
   }
-
-  .wep.missing {
-    pointer-events: none;
-    opacity: 0.5;
-  }
 </style>

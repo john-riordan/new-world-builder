@@ -104,7 +104,7 @@
   .monster-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -169,9 +169,5 @@
   }
   .list li span {
     margin-left: 0.375rem;
-  }
-  .wep-img {
-    /* background: var(--brown-dark);
-    border: 1px solid var(--grey); */
   }
 </style>

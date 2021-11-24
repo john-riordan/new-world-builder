@@ -7,7 +7,7 @@
   $: selectedTab = query ? tabs.findIndex((tab) => tab.title === query) : 0;
 </script>
 
-<div class="tab-list">
+<nav class="tab-list">
   {#each tabs as tab, index}
     {#if !tab.url}
       <div
@@ -25,13 +25,13 @@
       </a>
     {/if}
   {/each}
-</div>
+    </nav>
 
 <style>
   .tab-list {
     position: relative;
     display: flex;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     margin: 2rem 0;
   }
   .tab-list:after {
@@ -57,8 +57,8 @@
   .tab {
     display: flex;
     align-items: center;
-    height: 3.5rem;
-    padding: 0 1.5rem;
+    height: 3.25rem;
+    padding: 0 1rem;
     border-bottom: none;
     font-size: 1.125rem;
     color: var(--grey-pale);
@@ -82,8 +82,5 @@
     border-color: var(--white);
     box-shadow: 1px 0 white, inset 0 -1px var(--brown);
     z-index: 1;
-  }
-  .tab a {
-    text-decoration: none;
   }
 </style>

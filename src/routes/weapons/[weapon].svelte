@@ -191,10 +191,6 @@
     gap: 1rem;
     margin-top: 1rem;
   }
-  .add-remove {
-    width: 16rem;
-    cursor: pointer;
-  }
   .reset {
     width: 10rem;
     cursor: pointer;

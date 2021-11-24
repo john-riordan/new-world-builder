@@ -2,12 +2,13 @@
   export const prerender = true;
 
   import affixes from '../affixes';
+	import tiers from '../tiers';
   import { attributes } from '../attributes';
 
   export async function load() {
     return {
       props: {
-        data: affixes,
+        data: { affixes, tiers },
         attrs: attributes
       }
     };
@@ -22,13 +23,22 @@
 
   let primary;
   let secondary;
+	let tier = 't5';
 
   $: selectedKey = primary && secondary && `${primary}_${secondary}`;
-  $: selected = selectedKey && data[selectedKey];
+  $: selected = selectedKey && data.affixes[selectedKey];
+	$: selectedFood = selectedKey && data.affixes[selectedKey].food[tier];
+	$: dbFoodLink = primary === secondary
+		? `https://nwdb.info/db/recipe/food${primary}${tier}`
+		: `https://nwdb.info/db/recipe/food${primary}${secondary}${tier}`
 </script>
 
 <svelte:head>
   <title>Item Affixes | World Forge</title>
+	<script>
+    var nwdbConfig = { scale: 0.75, delay: 100 };
+	</script>
+	<script async src="https://nwdb.info/embed.js"></script>
 </svelte:head>
 
 <div class="attr-select">
@@ -57,8 +67,23 @@
 </div>
 
 {#if selected}
-  <span class="suffix-string--overline">Items that start with</span>
-  <h1 class="suffix-string">... of the <span>{selected.title}</span></h1>
+	<div class="selected-info">
+		<section>
+			<span class="suffix-string--overline">Items that end with</span>
+			<h1 class="suffix-string">... of the <span>{selected.title}</span></h1>
+		</section>
+		<section>
+			<span class="suffix-string--overline">Food</span>
+			<a href={dbFoodLink}>
+				<h1 class="suffix-string">{selectedFood}</h1>
+			</a>
+			<div class="tier-btns">
+				{#each data.tiers as tierInfo}
+					<button class:selected={tier === tierInfo.key} on:click={() => tier = tierInfo.key}>{tierInfo.name}</button>
+				{/each}
+			</div>
+		</section>
+	</div>
 {:else}
   <span class="suffix-string--overline hidden">...</span>
   <h1 class="suffix-string non-selected">Select primary and secondary attributes...</h1>
@@ -85,12 +110,16 @@
       <span>{attr.title}</span>
     </div>
   {/each}
-  {#each Object.entries(data) as [key, { title }], i}
+  {#each Object.entries(data.affixes) as [key, { title }], i}
     <div
       class="grid-item"
       class:highlight={selectedKey === key}
       data-primary={key.split('_')[0]}
       data-secondary={key.split('_')[1]}
+			on:click={() => {
+				primary = key.split('_')[0];
+				secondary = key.split('_')[1];
+			}}
     >
       <h4 class="grid-item--title">{title}</h4>
       {#if key.split('_')[0] === key.split('_')[1]}
@@ -109,21 +138,29 @@
   .attr-select {
     display: flex;
     justify-content: center;
+		gap: 4rem;
     text-align: center;
     padding: 2rem 0;
-  }
-  .attr-select > * {
-    padding: 0 4rem;
   }
   .attr-select--title {
     font-size: 1.5rem;
     margin: 0 0 0.5rem;
   }
 
+	.selected-info > * {
+		margin-top: 1rem;
+		padding: 0.5rem 0 1rem;
+	}
+	.selected-info a {
+		text-decoration-thickness: 1px;
+    text-decoration-color: var(--grey-pale);
+    text-underline-offset: 0.25rem;
+	}
+
   .suffix-string--overline {
     display: block;
     text-align: center;
-    margin-top: 1.5rem;
+    
     color: var(--grey-pale);
   }
   .suffix-string--overline.hidden {
@@ -133,15 +170,33 @@
   .suffix-string {
     text-align: center;
     margin: 0;
-    padding: 0.5rem 0 2rem;
+    padding-top: 0.5rem;
     color: var(--grey-pale);
   }
   .suffix-string span {
     color: var(--green);
   }
   .suffix-string.non-selected {
+		padding: 6rem 0;
     color: var(--grey-pale);
   }
+
+	.tier-btns {
+		display: flex;
+		gap: 0.25rem;
+		justify-content: center;
+    margin-top: 0.5rem;
+		font-size: 0.75rem;
+	}
+	.tier-btns button {
+		padding: 0.25rem 0.75rem;
+		background: hsla(var(--brown-dark-hsl) / 0.5);
+		border-radius: 3px;
+	}
+	.tier-btns button.selected {
+		color: var(--green);
+		background: hsla(var(--green-hsl) / 0.15);
+	}	
 
   .grid {
     --gap: 0.5rem;
@@ -175,7 +230,13 @@
     position: relative;
     border: 2px solid var(--brown-dark);
     background: hsla(var(--brown-dark-hsl) / 0.75);
+		cursor: pointer;
+		transition: border-color var(--transition), background var(--transition);
   }
+	.grid-item:hover {
+		background: hsla(var(--grey-pale-hsl) / 0.15);
+		border-color: hsla(var(--grey-pale-hsl) / 0.5);
+	}
   .grid-item.highlight {
     color: var(--green);
     border-color: var(--green);
