@@ -63,13 +63,7 @@
     margin: 0;
     margin-bottom: 1rem;
   }
-
-  .subtitle {
-  }
-
   section :global(svg) {
     width: 12rem;
-  }
-  svg {
   }
 </style>

@@ -46,14 +46,6 @@
 </div>
 
 <style>
-  .backdrop-fill {
-    position: absolute;
-    height: calc(100% / 6 * var(--y-axis-count));
-    width: 100%;
-    background: linear-gradient(to bottom, transparent, var(--white));
-    opacity: 0.075;
-    transition: height var(--transition);
-  }
   .tree-grid {
     --gap: 0.5rem;
 

@@ -83,7 +83,4 @@
     box-shadow: 1px 0 white, inset 0 -1px var(--brown);
     z-index: 1;
   }
-  .tab a {
-    text-decoration: none;
-  }
 </style>

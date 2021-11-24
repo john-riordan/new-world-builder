@@ -170,8 +170,4 @@
   .list li span {
     margin-left: 0.375rem;
   }
-  .wep-img {
-    /* background: var(--brown-dark);
-    border: 1px solid var(--grey); */
-  }
 </style>
