@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Death Mote",
+    "key": "death",
+    "image": "motedeath.png"
+  },
+  {
+    "name": "Earth Mote",
+    "key": "earth",
+    "image": "moteearth.png"
+  },
+  {
+    "name": "Fire Mote",
+    "key": "fire",
+    "image": "motefire.png"
+  },
+  {
+    "name": "Air Mote",
+    "key": "air",
+    "image": "moteair.png"
+  },
+  {
+    "name": "Water Mote",
+    "key": "water",
+    "image": "motewater.png"
+  },
+  {
+    "name": "Soul Mote",
+    "key": "soul",
+    "image": "motesoul.png"
+  },
+  {
+    "name": "Life Mote",
+    "key": "life",
+    "image": "motelife.png"
+  }
+]
