@@ -1,23 +1,16 @@
 <script context="module">
   export const prerender = true;
-
-  export async function load() {
-    return {
-      props: {
-        data: {}
-      }
-    };
-  }
 </script>
 
 <script>
   export let mote;
   export let refineTax;
+  export let proc;
 
   let moteCount = 0;
 
-  const proc = 0.14;
   const refineBasePrice = 0.15;
+  const procChance = 0.2;
 
   let motePrice = 0;
   let quintPrice = 0;
@@ -27,17 +20,17 @@
   $: anythingChanged = moteCount > 0 || motePrice > 0 || quintPrice > 0;
 
   $: wispCrafts = Math.floor(moteCount / 5);
-  $: wispCount = wispCrafts + Math.floor(wispCrafts * proc);
+  $: wispCount = wispCrafts + Math.floor(wispCrafts * procChance);
   $: essenceCrafts = Math.floor(wispCount / 4);
-  $: essenceCount = essenceCrafts + Math.floor(essenceCrafts * proc);
+  $: essenceCount = essenceCrafts + Math.floor(essenceCrafts * procChance);
   $: quintCrafts = Math.floor(essenceCount / 3);
-  $: quintCount = quintCrafts + Math.floor(quintCrafts * proc);
+  $: quintCount = quintCrafts + Math.floor(quintCrafts * procChance);
 
   $: wispCraftCost = wispCrafts * refiningCost;
   $: quintCraftCost = quintCrafts * refiningCost;
   $: essenceCraftCost = essenceCrafts * refiningCost;
-  $: totalCraftCost = wispCraftCost + quintCraftCost + essenceCraftCost;
-  $: profit = quintCount * quintPrice - totalCraftCost - moteCount * motePrice;
+  $: valueofCraft = wispCraftCost + quintCraftCost + essenceCraftCost;
+  $: profit = quintCount * quintPrice - valueofCraft - moteCount * motePrice;
 </script>
 
 <svelte:head>
@@ -46,7 +39,7 @@
 
 <section class="card" style={`--mote-color: var(--mote-${mote.key})`}>
   <header>
-    <img src={mote.image} alt="Death Mote" width="60" height="60" />
+    <img src={mote.image} alt={mote.name} width="60" height="60" />
     <h1>{mote.name}</h1>
   </header>
   <label class="row">
@@ -90,8 +83,7 @@
   </p>
   <p class="row">
     <span>Craft Cost:</span>
-    <strong
-      >- {totalCraftCost.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong
+    <strong>- {valueofCraft.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</strong
     >
   </p>
   <h1 class="final" class:profit={profit > 0} class:changed={anythingChanged}>

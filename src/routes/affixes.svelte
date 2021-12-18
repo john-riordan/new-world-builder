@@ -25,8 +25,6 @@
   let secondary;
   let tier = 't5';
 
-  console.log(attrs);
-
   $: selectedKey = primary && secondary && `${primary}_${secondary}`;
   $: selected = selectedKey && data.affixes[selectedKey];
   $: selectedFood = selectedKey && data.affixes[selectedKey].food[tier];

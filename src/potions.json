@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Infused Health Potion",
+    "image": "potionhealtht5.png",
+    "tier": 5,
+    "color": "hsla(6, 63%, 38%, 1)"
+  },
+  {
+    "name": "Infused Regeneration Potion",
+    "image": "potionregent5.png",
+    "tier": 5,
+    "color": "hsla(26, 72%, 51%, 1)"
+  }
+]
