@@ -5,17 +5,16 @@
 <script>
   export let mote;
   export let refineTax;
-  export let proc;
 
   let moteCount = 0;
 
-  const refineBasePrice = 0.15;
+  const refineWisp = 0.15;
+  const refineEssence = 0.37;
+  const refineQuint = 0.9;
   const procChance = 0.2;
 
   let motePrice = 0;
   let quintPrice = 0;
-
-  $: refiningCost = refineBasePrice * refineTax;
 
   $: anythingChanged = moteCount > 0 || motePrice > 0 || quintPrice > 0;
 
@@ -26,11 +25,13 @@
   $: quintCrafts = Math.floor(essenceCount / 3);
   $: quintCount = quintCrafts + Math.floor(quintCrafts * procChance);
 
-  $: wispCraftCost = wispCrafts * refiningCost;
-  $: quintCraftCost = quintCrafts * refiningCost;
-  $: essenceCraftCost = essenceCrafts * refiningCost;
+  $: wispCraftCost = wispCrafts * refineWisp * refineTax;
+  $: essenceCraftCost = essenceCrafts * refineEssence * refineTax;
+  $: quintCraftCost = quintCrafts * refineQuint * refineTax;
+
   $: valueofCraft = wispCraftCost + quintCraftCost + essenceCraftCost;
-  $: profit = quintCount * quintPrice - valueofCraft - moteCount * motePrice;
+  $: moteValue = moteCount * motePrice;
+  $: profit = quintCount * quintPrice - valueofCraft - moteValue;
 </script>
 
 <svelte:head>
@@ -75,7 +76,7 @@
   <p class="row">
     <span>Mote value:</span>
     <strong
-      >- {(moteCount * motePrice).toLocaleString('en-US', {
+      >- {moteValue.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD'
       })}</strong
