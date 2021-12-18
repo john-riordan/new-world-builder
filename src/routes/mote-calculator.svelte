@@ -20,6 +20,7 @@
   export let data;
 
   let refineTax = 1;
+  let proc = 0.2;
 </script>
 
 <svelte:head>
@@ -28,7 +29,7 @@
 
 <div class="cards">
   {#each data.motes as mote}
-    <MoteCard {mote} bind:refineTax />
+    <MoteCard {mote} {proc} bind:refineTax />
   {/each}
 </div>
 
