@@ -10,6 +10,7 @@
   let moteCount = 0;
 
   const refineBasePrice = 0.15;
+  const procChance = 0.2;
 
   let motePrice = 0;
   let quintPrice = 0;
@@ -19,11 +20,11 @@
   $: anythingChanged = moteCount > 0 || motePrice > 0 || quintPrice > 0;
 
   $: wispCrafts = Math.floor(moteCount / 5);
-  $: wispCount = wispCrafts + Math.floor(wispCrafts * proc);
+  $: wispCount = wispCrafts + Math.floor(wispCrafts * procChance);
   $: essenceCrafts = Math.floor(wispCount / 4);
-  $: essenceCount = essenceCrafts + Math.floor(essenceCrafts * proc);
+  $: essenceCount = essenceCrafts + Math.floor(essenceCrafts * procChance);
   $: quintCrafts = Math.floor(essenceCount / 3);
-  $: quintCount = quintCrafts + Math.floor(quintCrafts * proc);
+  $: quintCount = quintCrafts + Math.floor(quintCrafts * procChance);
 
   $: wispCraftCost = wispCrafts * refiningCost;
   $: quintCraftCost = quintCrafts * refiningCost;
