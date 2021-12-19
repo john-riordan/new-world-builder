@@ -30,7 +30,7 @@
 
   let sellValue = 7.0;
 
-  const xpPerCraft = 1658;
+  const xpPerCraft = 1898;
   const arcanaLevel = 1439200;
   const craftsPerAptitude = Math.ceil(arcanaLevel / xpPerCraft);
 
@@ -47,16 +47,12 @@
 
   $: valueofCraft = valueAlkahest + valueMedicinal + valueEarth + valueSpirit;
   $: profit = sellValue - valueofCraft;
+  $: costOfAptitudeCrafts = valueofCraft * craftsPerAptitude;
+  $: sellValueOfAptitudeCrafts = sellValue * craftsPerAptitude;
 
   $: anythingChanged =
     costHyssop > 0 && costAzothWater > 0 && costMedicinal > 0 && costEarth > 0 && costSpirit > 0;
 </script>
-
-<svelte:head>
-  <title>Potion Calculator | World Forge</title>
-
-  <script async src="https://nwdb.info/embed.js"></script>
-</svelte:head>
 
 <section class="card" style={`--potion-color: ${potion.color};`}>
   <header>
@@ -120,7 +116,6 @@
     </div>
     <input type="number" step="0.01" bind:value={costSpirit} />
   </label>
-  <hr class="break" />
   <label class="row">
     <span>Market Price:</span>
     <input type="number" step="0.01" bind:value={sellValue} />
@@ -143,10 +138,32 @@
     <span>Crafts require for aptitude level:</span>
     <strong>{craftsPerAptitude}</strong>
   </div>
-  <h1 class="aptitude">
+  <div class="row">
     <span>Cost of Aptitude Lvl:</span>
+    <strong
+      >{costOfAptitudeCrafts.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })}</strong
+    >
+  </div>
+  <div class="row">
+    <span>Sell Value of Aptitude Crafts:</span>
+    <strong
+      >{sellValueOfAptitudeCrafts.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })}</strong
+    >
+  </div>
+  <h1
+    class="final"
+    class:profit={sellValueOfAptitudeCrafts - costOfAptitudeCrafts > 0}
+    class:changed={anythingChanged}
+  >
+    <span>Aptitude Lvl Profit:</span>
     <span
-      >{(valueofCraft * craftsPerAptitude).toLocaleString('en-US', {
+      >{(sellValueOfAptitudeCrafts - costOfAptitudeCrafts).toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD'
       })}</span
