@@ -27,7 +27,9 @@
 </script>
 
 <svelte:head>
-  <title>Mote Calculator | World Forge</title>
+  <title>Potion Calculator | World Forge</title>
+
+  <script async src="https://nwdb.info/embed.js"></script>
 </svelte:head>
 
 <div class="cards">

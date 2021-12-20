@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Gauntlet (Ice and Void)",
+    "img": "1hvoidgauntlet_voidt5.png",
+    "xp": 9476,
+    "craftTax": 4.49,
+    "profession": "arcana",
+    "salvagePrimaryAmt": 1.5,
+    "recipe": [
+      {
+        "name": "Infused Leather",
+        "cost": 7.25,
+        "primary": true,
+        "amtNeeded": 8
+      },
+      {
+        "name": "Linen",
+        "cost": 0.8,
+        "amtNeeded": 5
+      },
+      {
+        "name": "Iron Ingot",
+        "cost": 0.6,
+        "amtNeeded": 4
+      },
+      {
+        "name": "Water/Death Mote",
+        "cost": 0.8,
+        "amtNeeded": 6
+      }
+    ]
+  },
+  {
+    "name": "Great Axe",
+    "img": "2hgreataxet5.png",
+    "xp": 10080,
+    "craftTax": 4.49,
+    "profession": "weaponsmithing",
+    "salvagePrimaryAmt": 2.5,
+    "recipe": [
+      {
+        "name": "Orichalcum Ingot",
+        "cost": 20,
+        "primary": true,
+        "amtNeeded": 15
+      },
+      {
+        "name": "Timber",
+        "cost": 0.8,
+        "amtNeeded": 3
+      },
+      {
+        "name": "Coarse Leather",
+        "cost": 0.6,
+        "amtNeeded": 2
+      }
+    ]
+  }
+]

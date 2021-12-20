@@ -70,10 +70,6 @@
   $: profit = anythingChanged ? listedPrice - totalCraftCost : 0;
 </script>
 
-<svelte:head>
-  <title>Mote Calculator | World Forge</title>
-</svelte:head>
-
 <section class="card" style={`--mote-color: var(--mote-${honingStone.key})`}>
   <header>
     <h1>{honingStone.name}</h1>
