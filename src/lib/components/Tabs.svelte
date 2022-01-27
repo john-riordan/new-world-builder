@@ -25,13 +25,17 @@
       </a>
     {/if}
   {/each}
+  <div class="maintenance">
+    <span />🚨 No longer in development 🚨
+  </div>
 </nav>
 
 <style>
   .tab-list {
     position: relative;
     display: flex;
-    padding: 0 1.5rem;
+    align-items: center;
+    padding: 0 1.25rem;
     margin: 2rem 0;
   }
   .tab-list:after {
@@ -57,14 +61,16 @@
   .tab {
     display: flex;
     align-items: center;
-    height: 3.25rem;
+    height: 3rem;
     padding: 0 1rem;
     border-bottom: none;
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--grey-pale);
     text-transform: uppercase;
     text-decoration: none;
+    text-shadow: 0 4px 5px var(--black);
     font-family: var(--text-script);
+    background: hsla(var(--brown-hsl) / 0.75);
     border: 1px solid var(--grey);
     border-bottom: none;
     border-right: none;
@@ -72,7 +78,7 @@
     cursor: pointer;
     transition: color var(--transition);
   }
-  .tab:is(:last-child) {
+  .tab:is(:last-of-type) {
     border-right: 1px solid var(--grey);
   }
   .tab:is(:hover, .active) {
@@ -82,5 +88,14 @@
     border-color: var(--white);
     box-shadow: 1px 0 white, inset 0 -1px var(--brown);
     z-index: 1;
+  }
+
+  .maintenance {
+    display: grid;
+    background: hsla(var(--red-hsl) / 0.15);
+    color: var(--red);
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    margin-left: 0.25rem;
   }
 </style>
