@@ -1,10 +1,11 @@
 <script>
   import { cubicInOut } from 'svelte/easing';
-  import { selectedWeps, wep0Pts, wep0Skills, wep1Pts, wep1Skills, attrs } from '../../../stores';
-  import { weapons } from '../../../weapons';
-  import { attributes } from '../../../attributes';
-  import StripedBg from '$lib/components/StripedBg/index.svelte';
-  import LineBorder from '$lib/components/LineBorder/index.svelte';
+  import { attrs } from '$stores/attributes';
+  import { selectedWeps, wep0Skills, wep1Skills } from '$stores/weapons';
+  import { weapons } from '$data/weapons';
+  import { attributes } from '$data/attributes';
+  import StripedBg from '$lib/components/StripedBg.svelte';
+  import LineBorder from '$lib/components/LineBorder.svelte';
   import SkillList from './SkillList.svelte';
 
   $: buildStarted = $selectedWeps[0] || $selectedWeps[1] || $attrs.primary;

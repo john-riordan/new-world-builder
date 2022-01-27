@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from 'svelte';
 
-  import { wepPtsRemaining } from '../../../stores';
+  import { wepPtsRemaining } from '$stores/weapons';
   import { tooltipWepAbility } from '$lib/actions/tooltipWepAbility';
 
   const dispatch = createEventDispatcher();

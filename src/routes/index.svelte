@@ -3,7 +3,7 @@
 </script>
 
 <script>
-  import Button from '$lib/components/Button/index.svelte';
+  import Button from '$lib/components/Button.svelte';
 </script>
 
 <svelte:head>

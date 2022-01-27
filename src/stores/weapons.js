@@ -1,71 +1,7 @@
 import { writable, derived } from 'svelte/store';
-import { weapons } from './weapons';
-import { attributes } from './attributes';
-import { ATTR_PTS, SKILL_PTS, MIN_ATTR_PTS, PERFECT_ATTR_PTS } from './constants';
 
-// -----------------------------------------
-// Attribute points
-export const perfectGear = writable(false);
-export const str = writable(5);
-export const dex = writable(5);
-export const int = writable(5);
-export const foc = writable(5);
-export const con = writable(5);
-export const attrs = derived(
-  [str, dex, int, foc, con, perfectGear],
-  ([$str, $dex, $int, $foc, $con, $perfectGear]) => {
-    const breakpoint = 50;
-
-    let bonuses = [];
-
-    const strBonus = Array.from(Array(Math.trunc($str / breakpoint)))
-      .map((_, index) => {
-        return attributes.str.bonuses[index];
-      })
-      .filter(Boolean);
-    const dexBonus = Array.from(Array(Math.trunc($dex / breakpoint)))
-      .map((_, index) => {
-        return attributes.dex.bonuses[index];
-      })
-      .filter(Boolean);
-    const intBonus = Array.from(Array(Math.trunc($int / breakpoint)))
-      .map((_, index) => {
-        return attributes.int.bonuses[index];
-      })
-      .filter(Boolean);
-    const focBonus = Array.from(Array(Math.trunc($foc / breakpoint)))
-      .map((_, index) => {
-        return attributes.foc.bonuses[index];
-      })
-      .filter(Boolean);
-    const conBonus = Array.from(Array(Math.trunc($con / breakpoint)))
-      .map((_, index) => {
-        return attributes.con.bonuses[index];
-      })
-      .filter(Boolean);
-
-    if (strBonus.length) bonuses.push(strBonus);
-    if (dexBonus.length) bonuses.push(dexBonus);
-    if (intBonus.length) bonuses.push(intBonus);
-    if (focBonus.length) bonuses.push(focBonus);
-    if (conBonus.length) bonuses.push(conBonus);
-
-    const attrKeys = ['str', 'dex', 'int', 'foc', 'con'];
-    const orderedAttrs = [$str, $dex, $int, $foc, $con]
-      .map((attr, i) => ({ key: attrKeys[i], pts: attr }))
-      .sort((z, a) => a.pts - z.pts);
-
-    const ALLOCATE_PTS = $perfectGear ? PERFECT_ATTR_PTS : ATTR_PTS;
-
-    return {
-      available: ALLOCATE_PTS - $str - $dex - $int - $foc - $con,
-      anyPtsAllocated: $str + $dex + $int + $foc + $con > 25,
-      primary: orderedAttrs[0].pts > MIN_ATTR_PTS ? orderedAttrs[0] : null,
-      secondary: orderedAttrs[1].pts > MIN_ATTR_PTS ? orderedAttrs[1] : null,
-      bonuses: bonuses.filter(Boolean).flat(2)
-    };
-  }
-);
+import { weapons } from '$data/weapons.js';
+import { SKILL_PTS } from '$lib/constants';
 
 // -----------------------------------------
 // Set up individual wep trees
@@ -115,7 +51,7 @@ export const trees = [
 
 /// -----------------------------------------
 // Array of selected weapons (0, 1)
-const weps = writable([]);
+export const weps = writable([]);
 export const selectedWeps = {
   subscribe: weps.subscribe,
   addWep: (weaponName) => {
@@ -188,20 +124,3 @@ export const wep1Skills = derived(
 export const wepPtsRemaining = derived([wep0Pts, wep1Pts], ([$wep0Pts, $wep1Pts]) => {
   return $wep0Pts + $wep1Pts < SKILL_PTS;
 });
-
-// -----------------------------------------
-// Generate share link
-export const shareLink = derived(
-  [weps, trees[0][0], trees[0][1], trees[1][0], trees[1][1]],
-  ([$weps, $wep0tree0, $wep0tree1, $wep1tree0, $wep1tree1]) => {
-    const params = {
-      weps: $weps,
-      w0t0: $wep0tree0.list,
-      w0t1: $wep0tree1.list,
-      w1t0: $wep1tree0.list,
-      w1t1: $wep1tree1.list
-    };
-
-    return new URLSearchParams(params).toString();
-  }
-);

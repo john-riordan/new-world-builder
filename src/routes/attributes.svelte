@@ -1,25 +1,24 @@
 <script context="module">
   export const prerender = true;
 
-  import { attributes } from '../attributes';
+  import { attributes } from '$data/attributes.js';
 
   export async function load() {
     return {
       props: {
-        data: attributes
+        data: attributes || {}
       }
     };
   }
 </script>
 
 <script>
-  import { str, dex, int, foc, con, attrs, perfectGear } from '../stores';
+  import { attrs, perfectGear, str, dex, int, foc, con } from '$stores/attributes';
+  import { MIN_ATTR_PTS } from '$lib/constants';
 
-  import { MIN_ATTR_PTS } from '../constants';
+  import Attribute from '$lib/components/Attribute.svelte';
 
   export let data;
-
-  import Attribute from '$lib/Attributes/Attribute.svelte';
 
   function respec() {
     str.set(MIN_ATTR_PTS);

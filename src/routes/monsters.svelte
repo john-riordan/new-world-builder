@@ -3,9 +3,9 @@
 
   import { findGemOrWep } from '$lib/helpers/';
 
-  import { monsters } from '../monsters';
-  import { gems } from '../gems';
-  import { weapons } from '../weapons';
+  import { monsters } from '$data/monsters';
+  import { gems } from '$data/gems';
+  import { weapons } from '$data/weapons';
 
   export async function load() {
     const wepsAndGems = Object.values({ ...gems, ...weapons }).map((item) => ({
@@ -40,7 +40,7 @@
 <script>
   import { capitalizeFirstLetter } from '$lib/helpers/';
 
-  import LineBorder from '$lib/components/LineBorder/index.svelte';
+  import LineBorder from '$lib/components/LineBorder.svelte';
 
   export let data;
 </script>

@@ -1,8 +1,8 @@
 <script context="module">
   export const prerender = true;
 
-  import weps from '../wep-recipes';
-  import aptitudeXP from '../aptitudeLevelXP';
+  import weps from '$data/wep-recipes';
+  import aptitudeXP from '$data/aptitudeLevelXP';
 
   export async function load() {
     return {
@@ -17,7 +17,7 @@
 </script>
 
 <script>
-  import WepCard from '$lib/components/WepCard/index.svelte';
+  import WepCard from '$lib/components/WepCard.svelte';
 
   export let data;
 </script>

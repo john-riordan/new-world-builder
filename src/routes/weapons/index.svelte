@@ -1,7 +1,7 @@
 <script context="module">
   export const prerender = true;
 
-  import { wepClasses } from '../../weapons';
+  import { wepClasses } from '$data/weapons';
 
   export async function load() {
     return {
@@ -14,8 +14,8 @@
 </script>
 
 <script>
-  import StripedBg from '$lib/components/StripedBg/index.svelte';
-  import { selectedWeps, wep0Pts, wep1Pts } from '../../stores';
+  import StripedBg from '$lib/components/StripedBg.svelte';
+  import { selectedWeps, wep0Pts, wep1Pts } from '$stores/weapons';
 
   export let data;
 </script>

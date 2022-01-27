@@ -1,6 +1,6 @@
 <script>
-  import { attrs, perfectGear } from '../../stores';
-  import { MAX_ATTR_PTS, MIN_ATTR_PTS, PERFECT_ATTR_PTS, ATTR_PTS } from '../../constants';
+  import { attrs, perfectGear } from '$stores/attributes';
+  import { MAX_ATTR_PTS, MIN_ATTR_PTS, PERFECT_ATTR_PTS, ATTR_PTS } from '$lib/constants';
   import { tooltipAttrBonus } from '$lib/actions/tooltipAttrBonus';
 
   export let info;
