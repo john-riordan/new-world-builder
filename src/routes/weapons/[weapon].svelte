@@ -1,7 +1,7 @@
 <script context="module">
   export const prerender = true;
 
-  import { weapons } from '../../weapons';
+  import { weapons } from '$data/weapons';
 
   export async function load({ page }) {
     const slug = page.params.weapon;
@@ -17,12 +17,12 @@
 </script>
 
 <script>
-  import { selectedWeps, trees, wep0Pts, wep1Pts } from '../../stores';
-  import { SKILL_PTS } from '../../constants';
-  import { attributes } from '../../attributes';
+  import { selectedWeps, trees, wep0Pts, wep1Pts } from '$stores/weapons';
+  import { SKILL_PTS } from '$lib/constants';
+  import { attributes } from '$data/attributes.js';
 
-  import Tree from '$lib/components/Wep/Tree.svelte';
-  import Button from '$lib/components/Button/index.svelte';
+  import Tree from '$lib/components/WeaponTree.svelte';
+  import Button from '$lib/components/Button.svelte';
 
   export let data;
 

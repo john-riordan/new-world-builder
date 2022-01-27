@@ -1,7 +1,7 @@
 <script context="module">
   export const prerender = true;
 
-  import motes from '../motes';
+  import motes from '$data/motes';
 
   export async function load() {
     return {
@@ -15,7 +15,7 @@
 </script>
 
 <script>
-  import MoteCard from '$lib/components/MoteCard/index.svelte';
+  import MoteCard from '$lib/components/MoteCard.svelte';
 
   export let data;
 

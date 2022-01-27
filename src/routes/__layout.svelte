@@ -7,12 +7,11 @@
 </script>
 
 <script>
-  import Header from '$lib/components/Header/index.svelte';
-  import Footer from '$lib/components/Footer/index.svelte';
-  import PageTransition from '$lib/components/PageTransition/index.svelte';
+  import { ROUTES } from '$lib/constants';
 
-  import BuildOverview from '$lib/components/BuildOverview/index.svelte';
-  import Tabs from '$lib/components/Tabs/index.svelte';
+  import PageTransition from '$lib/components/PageTransition.svelte';
+  import BuildOverview from '$lib/components/BuildOverview.svelte';
+  import Tabs from '$lib/components/Tabs.svelte';
   import '../app.css';
 
   export let key;
@@ -21,33 +20,8 @@
 <div class="bg bg-bottom" />
 <div class="bg bg-top" />
 
-<!-- <Header /> -->
-
 <main>
-  <Tabs
-    tabs={[
-      {
-        title: 'Attributes',
-        url: '/attributes'
-      },
-      {
-        title: 'Weapons',
-        url: '/weapons'
-      },
-      {
-        title: 'Item Affixes',
-        url: '/affixes'
-      },
-      {
-        title: 'Monsters',
-        url: '/monsters'
-      },
-      {
-        title: 'Dungeons',
-        url: '/dungeons'
-      }
-    ]}
-  />
+  <Tabs tabs={ROUTES} />
   <PageTransition refresh={key}>
     <slot />
   </PageTransition>
@@ -55,7 +29,14 @@
 
 <BuildOverview />
 
-<Footer />
+<footer class="container">
+  <div class="border-top" />
+  <p>
+    World Forge has no affiliation with <a href="https://www.amazongames.com/en-us"
+      >Amazon Games Studios</a
+    >
+  </p>
+</footer>
 
 <style>
   main {
@@ -82,5 +63,35 @@
   .bg-bottom {
     bottom: 0;
     background: url(/texture-bottom.jpg) no-repeat bottom;
+  }
+  footer {
+    position: relative;
+    min-height: 10vh;
+    padding: 3rem 0;
+    margin-top: 3rem;
+  }
+  .border-top {
+    overflow: hidden;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .border-top::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1279px;
+    height: 1px;
+    transform: translateX(-50%);
+    background: url(/new-world-sprites.webp) -10px -229px;
+    opacity: 0.5;
+  }
+  p {
+    text-align: center;
+    color: var(--grey-pale);
   }
 </style>

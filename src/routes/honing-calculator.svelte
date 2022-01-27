@@ -1,7 +1,7 @@
 <script context="module">
   export const prerender = true;
 
-  import honingStones from '../honingStones';
+  import honingStones from '$data/honingStones';
 
   export async function load() {
     return {
@@ -15,7 +15,7 @@
 </script>
 
 <script>
-  import HoningCard from '$lib/components/HoningCard/index.svelte';
+  import HoningCard from '$lib/components/HoningCard.svelte';
 
   export let data;
 

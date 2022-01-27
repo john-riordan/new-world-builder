@@ -25,7 +25,7 @@
       </a>
     {/if}
   {/each}
-    </nav>
+</nav>
 
 <style>
   .tab-list {

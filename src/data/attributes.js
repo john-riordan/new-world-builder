@@ -1,4 +1,4 @@
-import { weapons } from './weapons';
+import { weapons } from '$data/weapons';
 
 export const attributes = {
   str: {
@@ -6,13 +6,6 @@ export const attributes = {
     title: 'Strength',
     short: 'Str',
     type: 'Melee focused',
-    primary: [
-      weapons['war-hammer'].name,
-      weapons['great-axe'].name,
-      weapons['straight-sword'].name,
-      weapons.hatchet.name
-    ],
-    secondary: [weapons.spear.name],
     bonuses: [
       ['<span>+5%</span> damage to melee weapon light attacks', '<span>+10%</span> mining speed'],
       [
@@ -67,8 +60,6 @@ export const attributes = {
     title: 'Dexterity',
     short: 'Dex',
     type: 'Ranged focused',
-    primary: [weapons.bow.name, weapons.rapier.name, weapons.spear.name, weapons.musket.name],
-    secondary: [weapons['straight-sword'].name, weapons.hatchet.name],
     bonuses: [
       ['<span>+5%</span> chance to critical hit', '<span>+10</span> skinning speed'],
       ['<span>+5</span> thrust damage', '<span>+20%</span> haste for 3s after skinning'],

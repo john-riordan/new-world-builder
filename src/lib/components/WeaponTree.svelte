@@ -1,6 +1,6 @@
 <script>
-  import LineBorder from '$lib/components/LineBorder/index.svelte';
-  import Skill from './Skill.svelte';
+  import LineBorder from '$lib/components/LineBorder.svelte';
+  import Skill from './WeaponSkill.svelte';
 
   const size = {
     cols: 5,

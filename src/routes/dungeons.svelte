@@ -1,16 +1,14 @@
 <script context="module">
   export const prerender = true;
 
-  import dungeons from '../dungeons.json';
-  import fastTravel from '../fastTravel.json';
-  import { monsters } from '../monsters';
+  import dungeons from '$data/dungeons.json';
+  import { monsters } from '$data/monsters';
 
   export async function load() {
     return {
       props: {
         data: {
           dungeons,
-          fastTravel,
           monsters
         }
       }
@@ -19,8 +17,8 @@
 </script>
 
 <script>
-  import LineBorder from '$lib/components/LineBorder/index.svelte';
-  import StripedBg from '$lib/components/StripedBg/index.svelte';
+  import LineBorder from '$lib/components/LineBorder.svelte';
+  import StripedBg from '$lib/components/StripedBg.svelte';
 
   export let data;
 
@@ -75,22 +73,6 @@
               d="M26 0L33.9351 16.0783L51.6785 18.6565L38.8393 31.1717L41.8702 48.8435L26 40.5L10.1298 48.8435L13.1607 31.1717L0.321474 18.6565L18.0649 16.0783L26 0Z"
               xmlns="http://www.w3.org/2000/svg"
             />
-          </svg>
-        </div>
-      {/each}
-      {#each data.fastTravel.data as fastTravel}
-        <div
-          class="fastTravel-loc"
-          style={`--y-coord: ${fastTravel['y-coord']}; --x-coord: ${fastTravel['x-coord']}`}
-        >
-          <svg
-            class="fast-travel-diamond"
-            width="19"
-            height="19"
-            viewBox="0 0 19 19"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect y="9.19238" width="13" height="13" transform="rotate(-45 0 9.19238)" />
           </svg>
         </div>
       {/each}
@@ -312,18 +294,13 @@
     pointer-events: none;
   }
 
-  .dungeon-loc,
-  .fastTravel-loc {
+  .dungeon-loc {
     top: var(--y-coord, 0);
     left: var(--x-coord, 0);
 
     position: absolute;
     transform: translate3d(0, 0, 0);
     transition: transform var(--transition);
-  }
-
-  .fastTravel-loc:hover {
-    transform: scale(1.2);
   }
 
   .fast-travel-diamond {

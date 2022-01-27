@@ -1,7 +1,7 @@
 <script context="module">
   export const prerender = true;
 
-  import potions from '../potions';
+  import potions from '$data/potions';
 
   export async function load() {
     return {
@@ -15,7 +15,7 @@
 </script>
 
 <script>
-  import PotionCard from '$lib/components/PotionCard/index.svelte';
+  import PotionCard from '$lib/components/PotionCard.svelte';
 
   export let data;
 

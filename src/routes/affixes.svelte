@@ -1,9 +1,9 @@
 <script context="module">
   export const prerender = true;
 
-  import affixes from '../affixes';
-  import tiers from '../tiers';
-  import { attributes } from '../attributes';
+  import affixes from '$data/affixes';
+  import tiers from '$data/tiers';
+  import { attributes } from '$data/attributes.js';
 
   export async function load() {
     return {
@@ -16,7 +16,7 @@
 </script>
 
 <script>
-  import Select from '$lib/components/Select/index.svelte';
+  import Select from '$lib/components/Select.svelte';
 
   export let data;
   export let attrs;
