@@ -82,9 +82,9 @@
       <span>Medicinal Price (x1):</span>
       <ul class="component-list">
         {#each medicinalItems as item}
-          <a href={`https://nwdb.info/db/item/${item}`} target="_blank"
-            ><img src={`${item}.png`} alt={item} width="28" height="28" /></a
-          >
+          <a href={`https://nwdb.info/db/item/${item}`} target="_blank">
+            <img src={`/${item}.png`} alt={item} width="28" height="28" />
+          </a>
         {/each}
       </ul>
     </div>
@@ -95,9 +95,9 @@
       <span>Earth Price (x1):</span>
       <ul class="component-list">
         {#each earthItems as item}
-          <a href={`https://nwdb.info/db/item/${item}`} target="_blank"
-            ><img src={`${item}.png`} alt={item} width="28" height="28" /></a
-          >
+          <a href={`https://nwdb.info/db/item/${item}`} target="_blank">
+            <img src={`/${item}.png`} alt={item} width="28" height="28" />
+          </a>
         {/each}
       </ul>
     </div>
@@ -108,9 +108,9 @@
       <span>Spirit Price (x1):</span>
       <ul class="component-list">
         {#each spiritItems as item}
-          <a href={`https://nwdb.info/db/item/${item}`} target="_blank"
-            ><img src={`${item}.png`} alt={item} width="28" height="28" /></a
-          >
+          <a href={`https://nwdb.info/db/item/${item}`} target="_blank">
+            <img src={`/${item}.png`} alt={item} width="28" height="28" />
+          </a>
         {/each}
       </ul>
     </div>

@@ -24,5 +24,9 @@ export const ROUTES = [
   {
     title: 'Dungeons',
     url: '/dungeons'
+  },
+  {
+    title: 'Calculators',
+    url: '/calculators'
   }
 ];

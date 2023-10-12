@@ -1,7 +1,7 @@
 [
   {
     "name": "Gauntlet (Ice and Void)",
-    "img": "1hvoidgauntlet_voidt5.png",
+    "img": "/1hvoidgauntlet_voidt5.png",
     "xp": 9476,
     "craftTax": 4.49,
     "profession": "arcana",
@@ -32,7 +32,7 @@
   },
   {
     "name": "Great Axe",
-    "img": "2hgreataxet5.png",
+    "img": "/2hgreataxet5.png",
     "xp": 10080,
     "craftTax": 4.49,
     "profession": "weaponsmithing",
